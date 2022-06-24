@@ -1,3 +1,27 @@
+ @font-face {
+  font-family: 'Red Hat Text';
+  src: url("assets/fonts/Red_Hat_Text/RedHatText-VariableFont_wght.ttf");
+ font-style: normal;
+}
+
+ @font-face {
+  font-family: 'Red Hat Text';
+  src: url("assets/fonts/Red_Hat_Text/RedHatText-Italic-VariableFont_wght.ttf");
+ font-style:italic;
+}
+
+@font-face {
+  font-family: 'Magra';
+  src: url("assets/fonts/Magra/Magra-Regular.ttf");
+  font-weight: 300;
+}
+
+ @font-face {
+  font-family: 'Magra';
+  src: url("assets/fonts/Magra/Magra-Bold.ttf");
+ font-weight: bold;
+ }
+
  * {
    box-sizing: border-box;
  }
@@ -56,13 +80,11 @@ bottom: 34px;
   font-weight: 600;
   font-size: 32px;
   line-height: 39px;
-
   color: #FFFFFF;
-
  }
 
  .nav-list {
-  display: flex;
+display: flex;
 flex-direction: row;
 align-items: flex-start;
 padding: 0px;
@@ -72,10 +94,21 @@ width: 527px;
 height: 21px;
 left: 494px;
 top: 35px;
-  list-style: none;
-
+list-style: none;
+margin:0;
  }
 
+ .nav-link {
+  width: 98px;
+height: 21px;
+font-family: 'Red Hat Text';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 21px;
+color: #FFFFFF;
+text-decoration: none;
+ }
 
  .button-container {
 position: absolute;
