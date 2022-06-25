@@ -5,6 +5,12 @@
  }
 
  @font-face {
+  font-family: 'Red Hat Text';
+  src: url("assets/fonts/Red_Hat_Text/static/RedHatText-Medium.ttf");
+  font-style: 500;
+}
+
+ @font-face {
    font-family: 'Red Hat Text';
    src: url("assets/fonts/Red_Hat_Text/RedHatText-Italic-VariableFont_wght.ttf");
    font-style: italic;
@@ -43,6 +49,7 @@
    scroll-behavior: smooth;
  }
 
+
  .main-header {
    position: absolute;
    width: 1440px;
@@ -53,8 +60,10 @@
  }
 
  .main-body {
-   min-height: 100%;
-   margin: 0;
+   min-height: 100vh;
+   position:absolute;
+   width: 1440px;
+   margin: 0 auto;
    padding: 0;
    display: flex;
    flex-direction: column;
@@ -62,8 +71,8 @@
  }
 
  .header-container {
-   max-width: 1440px;
-   margin: 0 auto;
+   /* max-width: 1440px;
+   margin: 0 auto; */
    height: 90px;
    left: 0px;
    top: 0px;
@@ -163,9 +172,9 @@
    text-decoration: none;
  }
 
- .main-main {
+ /* .main-main {
    border: 1px solid cornflowerblue;
- }
+ } */
 
  .frame-explore {
    position: absolute;
@@ -287,15 +296,205 @@
    text-decoration: none;
  }
 
+.section-trip {
+position: relative;
+width: 1177px;
+height: 247px;
+left: 131px;
+top: 845px;
+}
+
+.section-title {
+position: relative;
+width: 611px;
+height: 53px;
+left: 283px;
+top: 0;
+font-family: 'Red Hat Text';
+font-style: normal;
+font-weight: 500;
+font-size: 40px;
+line-height: 53px;
+color: #F2785C;
+}
+
+.badge-container {
+display: flex;
+justify-content: space-between;
+margin: 0px;
+width: 1177px;
+height: 154px;
+left: 0px;
+top: 93px;
+}
+
+.bycycle {
+display: flex;
+flex-direction: column;
+width: 247px;
+height: 154px;
+left: 0px;
+top: 0px;
+}
+
+.badge-bycycle {
+  position:relative;
+  width: 100px;
+  height: 100px;
+  left: 73px;
+  top: 0px;
+}
+
+.text-trip-badge {
+position: relative;
+width: 247px;
+height: 24px;
+left: 0px;
+top: 30px;
+margin-block: 0px;
+font-family: 'Aleo';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+color: #0D606F;
+white-space: nowrap;
+}
+
+.calendar {
+  /* position: relative; */
+  display: flex;
+  flex-direction: column;
+  /* width: 222px;
+  height: 154px;
+  left: 478px;
+  top: 0px; */
+  /* left: 231px; */
+  }
+
+  .badge-calendar{
+  position:relative;
+  width: 100px;
+  height: 100px;
+  left: 61px;
+  top: 0px;
+  }
+
+  .text-steps-calendar {
+    position: relative;
+    width: 222px;
+    height: 24px;
+    left: 0px;
+    top: 30px;
+    margin: 0px;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+    white-space: nowrap;
+  }
+
+  .plane {
+  display: flex;
+  flex-direction: column;
+  width: 317px;
+height: 154px;
+left: 860px;
+top: 0px;
+/* margin-left: 2px; */
+  }
+
+  .badge-plane {
+    width: 100px;
+    height: 100px;
+    left: 109px;
+    top: 0px;
+    margin-left: 109px;
+  }
+
+  .text-steps-plane {
+    position: relative;
+    width: 317px;
+    height: 24px;
+    left: 0px;
+    top: 30px;
+    margin: 0px;
+    font-family: 'Aleo';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    color: #0D606F;
+    white-space: nowrap;
+  }
+
+  .destionations-container {
+    position: relative;
+    width: 2520px;
+    height: 1042px;
+    left: -540px;
+    top: 1099px;
+  }
+
+  .destionations-title {
+position: relative;
+width: 501px;
+height: 53px;
+left: 1010px;
+top: 0px;
+font-family: 'Red Hat Text';
+font-style: normal;
+font-weight: 500;
+font-size: 40px;
+line-height: 53px;
+color: #F2785C;
+}
+
+.destinations-photo {
+  display: flex;
+flex-direction: row;
+align-items: flex-start;
+padding: 0px;
+gap: 60px;
+position: relative;
+width: 2520px;
+height: 800px;
+right: -540px;
+top: 99px;
+}
+
+.destination1 {
+  position: relative;
+width: 800px;
+height: 800px;
+right: 1540;
+top: 0px;
 
 
 
 
 
- .main-footer {
+
+
+
+
+
+
+
+
+
+
+
+background: url(.jpg), #FFFFFF;
+border-radius: 16px;
+}
+
+ /* .main-footer {
    border: 1px solid pink;
    background-color: purple;
- }
+ } */
 
  .footer-container {
    max-width: 1440px;
