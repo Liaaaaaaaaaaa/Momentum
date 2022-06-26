@@ -49,25 +49,23 @@
    scroll-behavior: smooth;
  }
 
+ .main-body {
+  min-height: 100vh;
+  width: 1440px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
  .main-header {
-   position: absolute;
+   position:relative;
    width: 1440px;
    height: 765px;
    left: 0px;
    top: 0px;
    background: url('./assets/garrett-parker-DlkF4-dbCOU-unsplash\ 1.png');
- }
-
- .main-body {
-   min-height: 100vh;
-   position: absolute;
-   width: 1440px;
-   margin: 0 auto;
-   padding: 0;
-   display: flex;
-   flex-direction: column;
-   justify-content: space-between;
  }
 
  .header-container {
@@ -138,25 +136,25 @@
    text-decoration: none;
  }
 
- .button-container {
-   position: absolute;
-   width: 103px;
-   height: 41px;
-   left: 1217px;
-   top: 25px;
-   background: #0D606F;
-   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
-   border-radius: 10px;
-   border: none;
- }
-
- .form-button {
+ /* .form-button {
    display: flex;
    flex-direction: row;
    justify-content: center;
    align-items: center;
    padding: 10px 229px;
    gap: 10px;
+ } */
+
+ .button-container {
+   position: relative;
+   width: 103px;
+   height: 41px;
+   left: 1217px;
+   top: 0px;
+   background: #0D606F;
+   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
+   border-radius: 10px;
+   border: none;
  }
 
  .button-text {
@@ -171,19 +169,20 @@
    text-decoration: none;
  }
 
- /* .main-main {
-   border: 1px solid cornflowerblue;
- } */
 
- .frame-explore {
-   position: absolute;
-   width: 892px;
-   height: 422px;
-   left: 120px;
-   top: 122px;
+ .section-explore {
+  position: relative;
+width: 892px;
+height: 422px;
+left: 122px;
+top: 32px;
  }
 
+
  .explore-text {
+   position: relative;
+   left: 0px;
+   top: 0px;
    font-family: 'Aleo';
    font-style: normal;
    font-weight: 700;
@@ -194,17 +193,18 @@
  }
 
  .text-receive {
-   position: absolute;
+   position: relative;
    width: 723px;
    height: 24px;
-   left: 120px;
-   top: 346px;
+   left: 0px;
+   bottom: 0px;
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 700;
    font-size: 20px;
    line-height: 24px;
    color: #FFFFFF;
+margin-bottom: 0px;
  }
 
  .main-container {
@@ -213,28 +213,28 @@
  }
 
  .input-container {
-   position: absolute;
+   position: relative;
    width: 892px;
    height: 95px;
-   left: 120px;
-   top: 416px;
+   left: 0px;
+   top: 46px;
    background: rgba(255, 255, 255, 0.7);
    border-radius: 16px;
  }
 
  .input-form {
-   position: absolute;
+   position: relative;
    width: 560px;
    height: 22px;
-   left: 161px;
-   top: 448px;
+   left: 41px;
+   top: 32px;
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 400;
    font-size: 24px;
    line-height: 29px;
    color: #F2785C;
-   background-color: inherit;
+   background-color: rgba(255, 255, 255, 0.7);
    border: none;
  }
 
@@ -245,6 +245,7 @@
    font-size: 24px;
    line-height: 29px;
    color: #F2785C;
+   background-color: rgba(255, 255, 255, 0.7);
  }
 
  input[type="search"]::-webkit-input-placeholder {
@@ -254,6 +255,8 @@
    font-size: 24px;
    line-height: 29px;
    color: #F2785C;
+   background-color: none;
+
  }
 
  input[type="search"]::-moz-placeholder {
@@ -263,6 +266,7 @@
    font-size: 24px;
    line-height: 29px;
    color: #F2785C;
+   background-color: inherit;
  }
 
  .explore-button {
@@ -275,8 +279,8 @@
    position: absolute;
    width: 228px;
    height: 59px;
-   left: 766px;
-   top: 434px;
+   left: 646px;
+   top: 18px;
    background: #0D606F;
    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
@@ -300,7 +304,7 @@
    width: 1177px;
    height: 247px;
    left: 131px;
-   top: 845px;
+   top: 80px;
  }
 
  .section-title {
@@ -309,22 +313,23 @@
    height: 53px;
    left: 283px;
    top: 0;
+   margin-top:0px;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
    font-size: 40px;
    line-height: 53px;
    color: #F2785C;
+   margin-bottom: 40px;
  }
 
  .badge-container {
    display: flex;
    justify-content: space-between;
-   margin: 0px;
    width: 1177px;
    height: 154px;
-   left: 0px;
-   top: 93px;
+   /* left: 0px;
+   top: 40px; */
  }
 
  .bycycle {
@@ -434,7 +439,7 @@
    width: 2520px;
    height: 1042px;
    left: -540px;
-   top: 942px;
+   top: 97px;
  }
 
  .destionations-title {
@@ -449,6 +454,8 @@
    font-size: 40px;
    line-height: 53px;
    color: #F2785C;
+   margin-bottom: 46px;
+   margin-top: 97px;
  }
 
  .destinations-photo {
@@ -457,11 +464,11 @@
    align-items: flex-start;
    padding: 0px;
    gap: 60px;
-   /* position: relative;
+   position: relative;
 width: 2520px;
 height: 800px;
-right: -540px;
-top: 99px; */
+/* right: -540px; */
+/* top: 99px; */
  }
 
  .destination1 {
@@ -513,7 +520,8 @@ position: relative;
 width: 80px;
 height: 20px;
 left: 1221px;
-top: 70px;
+top: 0px;
+margin-top: 24px;
 }
 
 .circle-v1 {
@@ -547,7 +555,7 @@ position: relative;
 width: 228px;
 height: 59px;
 left: 1147px;
-top: 110px;
+top: 40px;
 background: #0D606F;
 box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
 border-radius: 10px;
@@ -569,7 +577,14 @@ order: 1;
 flex-grow: 0;
 }
 
+.background2 {
+  position: relative;
+width: 1442px;
+height: 1331px;
+left: 0px;
+top: 272px;
 
+}
 
 
  /* .main-footer {
