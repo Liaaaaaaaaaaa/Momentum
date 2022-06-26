@@ -5,10 +5,10 @@
  }
 
  @font-face {
-  font-family: 'Red Hat Text';
-  src: url("assets/fonts/Red_Hat_Text/static/RedHatText-Medium.ttf");
-  font-style: 500;
-}
+   font-family: 'Red Hat Text';
+   src: url("assets/fonts/Red_Hat_Text/static/RedHatText-Medium.ttf");
+   font-style: 500;
+ }
 
  @font-face {
    font-family: 'Red Hat Text';
@@ -61,7 +61,7 @@
 
  .main-body {
    min-height: 100vh;
-   position:absolute;
+   position: absolute;
    width: 1440px;
    margin: 0 auto;
    padding: 0;
@@ -82,28 +82,27 @@
  }
 
  .logo-container {
-   position: absolute;
-   /* width: 216px;
+   position: relative;
+   width: 216px;
   height: 31px;
   left: 120px;
-  top: 25px; */
+  top: 25px;
    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+   margin:0px;
  }
 
- .logo-img {
-   position: absolute;
-   left: 120px;
+ /* .logo-img {
+   position: relative;
+   left: 0px;
    right: 89.58%;
-   top: 26px;
-   bottom: 34px;
- }
+   bottom: 0px;
+ } */
 
  .logo-text {
-   position: absolute;
+   position: relative;
    width: 190px;
    height: 31px;
-   left: 156px;
-   top: 25px;
+   left: 6px;
    font-family: 'Magra';
    font-style: normal;
    font-weight: 600;
@@ -148,7 +147,7 @@
    background: #0D606F;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
-   border:none;
+   border: none;
  }
 
  .form-button {
@@ -296,200 +295,282 @@
    text-decoration: none;
  }
 
-.section-trip {
-position: relative;
-width: 1177px;
-height: 247px;
-left: 131px;
-top: 845px;
-}
+ .section-trip {
+   position: relative;
+   width: 1177px;
+   height: 247px;
+   left: 131px;
+   top: 845px;
+ }
 
-.section-title {
-position: relative;
-width: 611px;
-height: 53px;
-left: 283px;
-top: 0;
-font-family: 'Red Hat Text';
-font-style: normal;
-font-weight: 500;
-font-size: 40px;
-line-height: 53px;
-color: #F2785C;
-}
+ .section-title {
+   position: relative;
+   width: 611px;
+   height: 53px;
+   left: 283px;
+   top: 0;
+   font-family: 'Red Hat Text';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 40px;
+   line-height: 53px;
+   color: #F2785C;
+ }
 
-.badge-container {
-display: flex;
-justify-content: space-between;
-margin: 0px;
-width: 1177px;
-height: 154px;
-left: 0px;
-top: 93px;
-}
+ .badge-container {
+   display: flex;
+   justify-content: space-between;
+   margin: 0px;
+   width: 1177px;
+   height: 154px;
+   left: 0px;
+   top: 93px;
+ }
 
-.bycycle {
-display: flex;
-flex-direction: column;
-width: 247px;
-height: 154px;
-left: 0px;
-top: 0px;
-}
+ .bycycle {
+   display: flex;
+   flex-direction: column;
+   width: 247px;
+   height: 154px;
+   left: 0px;
+   top: 0px;
+ }
 
-.badge-bycycle {
-  position:relative;
-  width: 100px;
-  height: 100px;
-  left: 73px;
-  top: 0px;
-}
+ .badge-bycycle {
+   position: relative;
+   width: 100px;
+   height: 100px;
+   left: 73px;
+   top: 0px;
+ }
 
-.text-trip-badge {
-position: relative;
-width: 247px;
-height: 24px;
-left: 0px;
-top: 30px;
-margin-block: 0px;
-font-family: 'Aleo';
-font-style: normal;
-font-weight: 400;
-font-size: 20px;
-line-height: 24px;
-color: #0D606F;
-white-space: nowrap;
-}
+ .text-trip-badge {
+   position: relative;
+   width: 247px;
+   height: 24px;
+   left: 0px;
+   top: 30px;
+   margin-block: 0px;
+   font-family: 'Aleo';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 24px;
+   color: #0D606F;
+   white-space: nowrap;
+ }
 
-.calendar {
-  /* position: relative; */
-  display: flex;
-  flex-direction: column;
-  /* width: 222px;
+ .calendar {
+   /* position: relative; */
+   display: flex;
+   flex-direction: column;
+   /* width: 222px;
   height: 154px;
   left: 478px;
   top: 0px; */
-  /* left: 231px; */
-  }
+   /* left: 231px; */
+ }
 
-  .badge-calendar{
-  position:relative;
-  width: 100px;
-  height: 100px;
-  left: 61px;
+ .badge-calendar {
+   position: relative;
+   width: 100px;
+   height: 100px;
+   left: 61px;
+   top: 0px;
+ }
+
+ .text-steps-calendar {
+   position: relative;
+   width: 222px;
+   height: 24px;
+   left: 0px;
+   top: 30px;
+   margin: 0px;
+   font-family: 'Aleo';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 24px;
+   color: #0D606F;
+   white-space: nowrap;
+ }
+
+ .plane {
+   display: flex;
+   flex-direction: column;
+   width: 317px;
+   height: 154px;
+   left: 860px;
+   top: 0px;
+   /* margin-left: 2px; */
+ }
+
+ .badge-plane {
+   width: 100px;
+   height: 100px;
+   left: 109px;
+   top: 0px;
+   margin-left: 109px;
+ }
+
+ .text-steps-plane {
+   position: relative;
+   width: 317px;
+   height: 24px;
+   left: 0px;
+   top: 30px;
+   margin: 0px;
+   font-family: 'Aleo';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 20px;
+   line-height: 24px;
+   color: #0D606F;
+   white-space: nowrap;
+ }
+
+ .destionations-container {
+   position: relative;
+   width: 2520px;
+   height: 1042px;
+   left: -540px;
+   top: 942px;
+ }
+
+ .destionations-title {
+   position: relative;
+   width: 501px;
+   height: 53px;
+   left: 1010px;
+   top: 0px;
+   font-family: 'Red Hat Text';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 40px;
+   line-height: 53px;
+   color: #F2785C;
+ }
+
+ .destinations-photo {
+   display: flex;
+   flex-direction: row;
+   align-items: flex-start;
+   padding: 0px;
+   gap: 60px;
+   /* position: relative;
+width: 2520px;
+height: 800px;
+right: -540px;
+top: 99px; */
+ }
+
+ .destination1 {
+   position: relative;
+   width: 800px;
+   height: 800px;
+   /* right: 1540;
+top: 0px;
+background: url(.jpg), #FFFFFF; */
+   border-radius: 16px;
+   flex: none;
+   order: 0;
+   flex-grow: 0;
+ }
+
+ .destination2 {
+   position: relative;
+   width: 800px;
+   height: 800px;
+   right: 1540;
   top: 0px;
-  }
+  background: url(.jpg), #FFFFFF;
+   border-radius: 16px;
+   flex: none;
+   /* order: 1; */
+   flex-grow: 0;
+ }
 
-  .text-steps-calendar {
-    position: relative;
-    width: 222px;
-    height: 24px;
-    left: 0px;
-    top: 30px;
-    margin: 0px;
-    font-family: 'Aleo';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    color: #0D606F;
-    white-space: nowrap;
-  }
-
-  .plane {
-  display: flex;
-  flex-direction: column;
-  width: 317px;
-height: 154px;
-left: 860px;
-top: 0px;
-/* margin-left: 2px; */
-  }
-
-  .badge-plane {
-    width: 100px;
-    height: 100px;
-    left: 109px;
+ .destination3 {
+   position: relative;
+   width: 800px;
+   height: 800px;
+   /* right: 1540;
     top: 0px;
-    margin-left: 109px;
-  }
+    background: url(.jpg), #FFFFFF; */
+   border-radius: 16px;
+   flex: none;
+   /* order: 2; */
+   flex-grow: 0;
+ }
 
-  .text-steps-plane {
-    position: relative;
-    width: 317px;
-    height: 24px;
-    left: 0px;
-    top: 30px;
-    margin: 0px;
-    font-family: 'Aleo';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 24px;
-    color: #0D606F;
-    white-space: nowrap;
-  }
-
-  .destionations-container {
-    position: relative;
-    width: 2520px;
-    height: 1042px;
-    left: -540px;
-    top: 1099px;
-  }
-
-  .destionations-title {
-position: relative;
-width: 501px;
-height: 53px;
-left: 1010px;
-top: 0px;
-font-family: 'Red Hat Text';
-font-style: normal;
-font-weight: 500;
-font-size: 40px;
-line-height: 53px;
-color: #F2785C;
-}
-
-.destinations-photo {
+ .circle-destination {
   display: flex;
 flex-direction: row;
 align-items: flex-start;
 padding: 0px;
-gap: 60px;
+gap: 10px;
 position: relative;
-width: 2520px;
-height: 800px;
-right: -540px;
-top: 99px;
+width: 80px;
+height: 20px;
+left: 1221px;
+top: 70px;
 }
 
-.destination1 {
-  position: relative;
-width: 800px;
-height: 800px;
-right: 1540;
-top: 0px;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-background: url(.jpg), #FFFFFF;
-border-radius: 16px;
+.circle-v1 {
+width: 20px;
+height: 20px;
+background: rgba(242, 120, 92, 0.5);
+/* flex: none;
+order: 0; */
+flex-grow: 0;
+border-radius: 50%;
 }
+
+.circle-v2 {
+  width: 20px;
+height: 20px;
+background: #F2785C;
+/* flex: none;
+order: 1; */
+flex-grow: 0;
+border-radius: 50%;
+}
+
+.button-destination {
+  display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+padding: 10px 32px;
+gap: 10px;
+position: relative;
+width: 228px;
+height: 59px;
+left: 1147px;
+top: 110px;
+background: #0D606F;
+box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+border-radius: 10px;
+border: none;
+}
+
+
+.text-buttonDestination {
+  width: 116px;
+height: 32px;
+font-family: 'Red Hat Text';
+font-style: normal;
+font-weight: 500;
+font-size: 24px;
+line-height: 32px;
+color: #FFFFFF;
+flex: none;
+order: 1;
+flex-grow: 0;
+}
+
+
+
 
  /* .main-footer {
    border: 1px solid pink;
