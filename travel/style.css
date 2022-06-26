@@ -578,14 +578,24 @@ flex-grow: 0;
 }
 
 .background2 {
-  position: relative;
+position: relative;
 width: 1442px;
 height: 1331px;
 left: 0px;
 top: 272px;
-
+background: url(./assets/background2.jpg);
+box-shadow: inset 0 1270px 0 0px rgba(255, 255, 255, 0.7);
 }
 
+/* .background-shadow {
+  position: relative;
+  width: 1445px;
+  height: 1270px;
+  left: 0px;
+  top: 0px;
+  /* background: rgba(255, 255, 255, 0.7); */
+  /* z-index: 10;
+} */ */
 
  /* .main-footer {
    border: 1px solid pink;
