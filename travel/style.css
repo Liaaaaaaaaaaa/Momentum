@@ -644,16 +644,40 @@
    text-decoration: none;
  }
 
+ .main-footer {
+   display: flex;
+   justify-content: space-between;
+   width: 728.96px;
+   height: 33.65px;
+   margin-left: 590px;
+   margin-top: -47px;
+   align-items: center;
+ }
 
+ .text-footer {
+   font-family: 'Red Hat Text';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 16px;
+   line-height: 21px;
+   color: #FFFFFF;
+ }
 
+ .footer-list {
+   display: flex;
+   justify-content: space-around;
+   width: 160px;
+   height: 33.65px;
+   text-decoration: none;
+   margin-right: 50px;
+   list-style: none;
+ }
 
-
- /* .main-footer {
-   border: 1px solid pink;
-   background-color: purple;
- } */
-
- .footer-container {
-   max-width: 1440px;
-   margin: 0 auto;
+ .footer-link {
+   display: flex;
+   flex-grow: 1;
+   width: 33.65px;
+   height: 33.65px;
+   text-decoration: none;
+   margin-left: 20px;
  }
