@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zxx">
 
 <head>
   <meta charset="UTF-8">
@@ -11,6 +11,8 @@
 </head>
 
 <body class="main-body">
+
+  <!-- START HEADAR -->
   <header class="main-header">
     <div class="header-container">
       <div class="logo-container">
@@ -19,55 +21,61 @@
       </div>
       <nav>
         <ul class="nav-list">
-          <li><a href="#how it work" class="nav-link">How It Works</a></li>
-          <li><a href="#plan your trip" class="nav-link">Plan Your Trip</a></li>
+          <li><a href="#howItWork" class="nav-link">How It Works</a></li>
+          <li><a href="#planYourTrip" class="nav-link">Plan Your Trip</a></li>
           <li><a href="#dectinations" class="nav-link">Destinations</a></li>
-          <li><a href="#travel stories" class="nav-link">Travel Stories</a></li>
+          <li><a href="#travelStories" class="nav-link">Travel Stories</a></li>
         </ul>
       </nav>
-      <form class="form-button">
-        <button class="button-container"><a href="#Login" class="button-text"> Login </a> </button>
+      <form>
+        <button formaction="#Login" class="button-container">Login</button>
       </form>
     </div>
 
-    <section id="how it work" class="section-explore">
+    <!-- START SECTION -->
+    <section id="howItWork" class="section-explore">
       <h1 class="explore-text">Explore the beauty of the World</h1>
       <p class="text-receive">
         Receive personalized recommendations for countries, hotels, activities and more
       </p>
       <form class="input-container">
         <input type="search" placeholder="What would you like to do?" class="input-form" />
-        <button class="explore-button"><a href="#startPlanning" class="button-exploreText">Start Planning</a></button>
+        <button class="explore-button" formaction="#startPlanning">Start Planning</button>
       </form>
     </section>
   </header>
 
+
+  <!-- THE START MAIN -->
   <main>
-    <section id="plan your trip" class="section-trip">
+    <section id="planYourTrip" class="section-trip">
       <h2 class="section-title">3 STEPS TO THE PERFECT TRIP</h2>
       <div class="badge-container">
         <div class="bycycle-container">
-          <img src="./assets/Frame 28.svg" alt="bycycle" class="badge-bycycle" />
+          <img src="./assets/FrameBycycle.svg" alt="bycycle" class="badge-bycycle" />
           <p class="text-trip-badge">Tell us what you want to do</p>
         </div>
         <div class="calendar-container">
-          <img src="./assets/Frame 11.svg" alt="calendar" class="badge-calendar" />
+          <img src="./assets/FrameCalendar.svg" alt="calendar" class="badge-calendar" />
           <p class="text-steps-calendar">Share us preferable dates</p>
         </div>
         <div class="plane-container">
-          <img src="./assets/Frame 12.svg" alt="plane" class="badge-plane" />
+          <img src="./assets/FramePlane.svg" alt="plane" class="badge-plane" />
           <p class="text-steps-plane">We will give you recommendations</p>
         </div>
+      </div>
     </section>
 
 
     <section id="dectinations" class="destionations-container">
       <h2 class="destionations-title">POPULAR DESTINATIONS</h2>
       <div class="destinations-photo">
-        <img src="./assets/Destination 1.jpg" alt="Destination 1" class="destination1" />
-        <img src="./assets/Destination 2.jpg" alt="Destination 2" class="destination2" />
-        <img src="./assets/Destination 3.jpg" alt="Destination 3" class="destination3" />
-        <p class="text-USA">USA</p>
+        <img src="./assets/Destination1.jpg" alt="Destination 1" class="destination1" />
+        <img src="./assets/Destination2.jpg" alt="Destination 2" class="destination2" />
+        <div>
+          <img src="./assets/Destination3.jpg" alt="Destination 3" class="destination3" />
+          <p class="text-USA">USA</p>
+        </div>
       </div>
       <div class="circle-destination">
         <span class="circle-v1"></span>
@@ -75,14 +83,12 @@
         <span class="circle-v1"></span>
       </div>
       <form>
-        <button class="button-destination">
-          <img src="./assets/pointer.svg" alt="pointer" />
-          <p><a href="#FindMore" class="text-buttonDestination">Find More</a></p>
-        </button>
+        <button class="button-destination" formaction="#FindMore">
+          <img src="./assets/pointer.svg" alt="pointer" />Find More</button>
       </form>
     </section>
 
-    <section id="travel stories" class="background2">
+    <section id="travelStories" class="background2">
       <h2 class="travelStories-title">TRAVEL STORIES</h2>
       <div class="container-stories">
         <img src="./assets/stories1.jpg" alt="stories1" class="img-stories" />
@@ -93,7 +99,7 @@
             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
             qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit...<br><a href="#10 Photos of Attractive Thailand" class="text-stories" style="margin-left:0px"><b>Read
+            elit...<br><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
                 More</b></a></p>
         </div>
       </div>
@@ -106,7 +112,7 @@
             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
             qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit...<br><a href="I left my heart in the Mountains!" class="text-stories" style="margin-left:0px"><b>Read
+            elit...<br><a href="CanyonlandsNational" class="text-stories" style="margin-left:0px"><b>Read
                 More</b></a></p>
         </div>
       </div>
@@ -120,7 +126,7 @@
             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
             qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit...<br><a href="I left my heart in the Mountains!" class="text-stories" style="margin-left:0px"><b>Read
+            elit...<br><a href="ileftMyHeart" class="text-stories" style="margin-left:0px"><b>Read
                 More</b></a></p>
         </div>
       </div>
@@ -134,33 +140,30 @@
             laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit
             esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa
             qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipiscing
-            elit...<br><a href="I left my heart in the Mountains!" class="text-stories" style="margin-left:0px"><b>Read
+            elit...<br><a href="TheLongest" class="text-stories" style="margin-left:0px"><b>Read
                 More</b></a></p>
         </div>
       </div>
       <form>
-        <button class="button-stories">
-          <img src="./assets/pointer.svg" alt="pointer" />
-          <p><a href="#SeeMore" class="text-buttonStories">See More</a></p>
-        </button>
+        <button class="button-stories" formaction="#SeeMore">
+          <img src="./assets/pointer.svg" alt="pointer" />See More</button>
       </form>
     </section>
   </main>
+  <!-- THE END MAIN -->
 
+  <!-- START FOOTER -->
   <footer class="main-footer">
     <p class="text-footer">All Rights Reserved © Travel Portal</p>
     <ul class="footer-list">
-      <li><a href="https://github.com/Liaaaaaaaaaaa" class="footer-link"><img src="./assets/github.svg"
-            alt="Github" /></a></li>
+      <li><a href="https://github.com/Liaaaaaaaaaaa" class="footer-link"><img src="./assets/github.svg" alt="Github"
+            style="height: 35px;" /></a></li>
       <li><a href="#instagram" class="footer-link"><img src="./assets/instagram.svg" alt="instagram" /></a></li>
       <li><a href="#youtybe" class="footer-link"><img src="./assets/youtybe.svg" alt="youtybe" /></a></li>
       <li><a href="#twitter" class="footer-link"><img src="./assets/twitter.svg" alt="twitter" /></a></li>
-      <li><a href="https://rs.school/js/"><img src="./assets/rs_school_js.svg" alt="RSS" class="footer-link" /></a></li>
-
+      <li><a href="https://rs.school/js-stage0/"><img src="./assets/rs_school_js.svg" alt="RSS" class="footer-link"/></a></li>
     </ul>
   </footer>
-
-
 </body>
 
 </html>
