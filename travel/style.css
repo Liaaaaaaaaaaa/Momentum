@@ -1,4 +1,4 @@
-@font-face {
+ @font-face {
    font-family: 'Red Hat Text';
    src: url("assets/fonts/Red_Hat_Text/RedHatText-VariableFont_wght.ttf");
    font-style: normal;
@@ -489,11 +489,6 @@
    transition: transform .2s;
  }
 
- .destination2:hover {
-   transform: scale(1.1);
- }
-
-
  .destination3 {
    position: relative;
    width: 800px;
@@ -730,10 +725,10 @@
    transition: transform .2s;
  }
 
- li:hover,
- img:hover {
+ li:hover, .img-stories:hover, .badge-bycycle:hover, .badge-calendar:hover, .badge-plane:hover {
    -webkit-transform: scale(1.2);
    -ms-transform: scale(1.2);
    transform: scale(1.2);
    z-index: 2;
  }
+
