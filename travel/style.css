@@ -1,4 +1,4 @@
- @font-face {
+@font-face {
    font-family: 'Red Hat Text';
    src: url("assets/fonts/Red_Hat_Text/RedHatText-VariableFont_wght.ttf");
    font-style: normal;
@@ -62,6 +62,7 @@
 
  html {
    scroll-behavior: smooth;
+   background-color: #000000;
  }
 
  .main-body {
@@ -72,14 +73,18 @@
    display: flex;
    flex-direction: column;
    justify-content: space-between;
+   background-color: #FFFFFF;
+
  }
 
  /* START HEADAR */
  .main-header {
    position: relative;
    height: 765px;
-  background: url('./assets/background1.png');
-  }
+   background: url('./assets/background1.png');
+   background-repeat: no-repeat;
+
+ }
 
  .header-container {
    height: 90px;
@@ -156,12 +161,12 @@
    line-height: 21px;
    color: #FFFFFF;
    text-decoration: none;
-transition: transform .2s;
-}
+   transition: transform .2s;
+ }
 
-/* The END HEADAR */
+ /* The END HEADAR */
 
-/* START SECTION 1 */
+ /* START SECTION 1 */
  .section-explore {
    position: relative;
    width: 892px;
@@ -208,7 +213,7 @@ transition: transform .2s;
    top: 58px;
    background: rgba(255, 255, 255, 0.7);
    border-radius: 16px;
-}
+ }
 
 
  .input-form {
@@ -225,8 +230,8 @@ transition: transform .2s;
    color: #F2785C;
    background-color: initial;
    border: none;
-   outline:none;
-}
+   outline: none;
+ }
 
  input [placeholder="What would you like to do?"] {
    font-family: 'Aleo';
@@ -236,7 +241,7 @@ transition: transform .2s;
    line-height: 29px;
    color: #F2785C;
    background-color: rgba(255, 255, 255, 0.7);
-}
+ }
 
 
  input[type="search"]::-webkit-input-placeholder {
@@ -283,9 +288,10 @@ transition: transform .2s;
    text-decoration: none;
    transition: transform .2s;
  }
-/* THE END SECTION 1 */
 
-/* THE START SECTION 2 */
+ /* THE END SECTION 1 */
+
+ /* THE START SECTION 2 */
  .section-trip {
    position: relative;
    width: 1177px;
@@ -349,12 +355,12 @@ transition: transform .2s;
    color: #0D606F;
    white-space: nowrap;
    transition: transform.2s;
-  }
+ }
 
-  .text-trip-badge:hover {
-  text-decoration: underline;
-  text-decoration-color:#0D606F;
-  }
+ .text-trip-badge:hover {
+   text-decoration: underline;
+   text-decoration-color: #0D606F;
+ }
 
  .calendar-container {
    display: flex;
@@ -385,12 +391,12 @@ transition: transform .2s;
    color: #0D606F;
    white-space: nowrap;
    transition: transform.2s;
-  }
+ }
 
-  .text-steps-calendar:hover {
-  text-decoration: underline;
-  text-decoration-color:#0D606F;
-  }
+ .text-steps-calendar:hover {
+   text-decoration: underline;
+   text-decoration-color: #0D606F;
+ }
 
  .plane-container {
    display: flex;
@@ -424,29 +430,29 @@ transition: transform .2s;
    color: #0D606F;
    white-space: nowrap;
    transition: transform.2s;
-  }
+ }
 
-  .text-steps-plane:hover {
-  text-decoration: underline;
-  text-decoration-color:#0D606F;
-  }
+ .text-steps-plane:hover {
+   text-decoration: underline;
+   text-decoration-color: #0D606F;
+ }
 
-/* THE END SECTION 2 */
+ /* THE END SECTION 2 */
 
-/* THE START SECTION 3 */
+ /* THE START SECTION 3 */
  .destionations-container {
    position: relative;
-   width: 2520px;
-   height: 1042px;
-   left: -540px;
-   top: 81px;
+   width: 1440px;
+   height: 1141px;
+   top: 80px;
+   overflow: hidden;
  }
 
  .destionations-title {
    position: relative;
    width: 501px;
    height: 53px;
-   left: 1010px;
+   left: 470px;
    top: 0px;
    font-family: 'Red Hat Text';
    font-style: normal;
@@ -462,49 +468,51 @@ transition: transform .2s;
    display: flex;
    flex-direction: row;
    align-items: flex-start;
-   padding: 0px;
+   justify-content: center;
    gap: 60px;
    position: relative;
-   width: 2520px;
+   width: 1440px;
    height: 800px;
  }
 
  .destination1 {
-  width: 800px;
-  height: 800px;
-  border-radius: 16px;
-}
+   position: relative;
+   width: 800px;
+   height: 800px;
+   border-radius: 16px;
+ }
 
  .destination2 {
-  width: 800px;
-  height: 800px;
-  border-radius: 16px;
-  transition: transform .2s;
-}
+   width: 800px;
+   height: 800px;
+   border-radius: 16px;
+   transition: transform .2s;
+ }
 
-.destination2:hover {
- transform: scale(1.1);
-}
+ .destination2:hover {
+   transform: scale(1.1);
+ }
 
 
  .destination3 {
+   position: relative;
    width: 800px;
    height: 800px;
    border-radius: 16px;
  }
 
  .text-USA {
-position: relative;
- width: 66px;
-height: 42px;
-left: 15px;
-bottom: 118px;
-font-family: 'Red Hat Text';
-font-style: normal;
-font-weight: 500;
-font-size: 32px;
-line-height: 42px;
-color: #FFFFFF;
+   position: relative;
+   width: 66px;
+   height: 42px;
+   left: 15px;
+   bottom: 118px;
+   font-family: 'Red Hat Text';
+   font-style: normal;
+   font-weight: 500;
+   font-size: 32px;
+   line-height: 42px;
+   color: #FFFFFF;
  }
 
  .circle-destination {
@@ -516,7 +524,7 @@ color: #FFFFFF;
    position: relative;
    width: 80px;
    height: 20px;
-   left: 1221px;
+   left: 681px;
    top: 0px;
    margin-top: 24px;
  }
@@ -547,7 +555,7 @@ color: #FFFFFF;
    position: relative;
    width: 228px;
    height: 59px;
-   left: 1147px;
+   left: 607px;
    top: 40px;
    background: #0D606F;
    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
@@ -561,15 +569,16 @@ color: #FFFFFF;
    color: #FFFFFF;
    white-space: nowrap;
  }
-/* THE END SECTION 3 */
 
-/* THE START SECTION 4 */
+ /* THE END SECTION 3 */
+
+ /* THE START SECTION 4 */
  .background2 {
    display: flex;
    flex-direction: column;
    width: 1442px;
    height: 1331px;
-   margin-top: 253px;
+   margin-top: 250px;
    background: url(./assets/background2.jpg);
    box-shadow: inset 0 1270px 0 0px rgba(255, 255, 255, 0.7);
  }
@@ -640,7 +649,7 @@ color: #FFFFFF;
    flex-direction: row;
    justify-content: space-around;
    align-items: center;
-   padding: 10px 40px  10px 32px;
+   padding: 10px 40px 10px 32px;
    gap: 10px;
    position: relative;
    width: 228px;
@@ -651,8 +660,8 @@ color: #FFFFFF;
    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
    border: none;
-  margin-bottom: 5px;
-  margin-left: 3px;
+   margin-bottom: 5px;
+   margin-left: 3px;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
@@ -664,9 +673,10 @@ color: #FFFFFF;
    flex-grow: 0;
    text-decoration: none;
  }
-/* THE END SECTION 4 */
 
-/* THE START FOOTER */
+ /* THE END SECTION 4 */
+
+ /* THE START FOOTER */
  .main-footer {
    display: flex;
    justify-content: space-between;
@@ -678,7 +688,7 @@ color: #FFFFFF;
  }
 
  .text-footer {
-  margin-bottom: 15px;
+   margin-bottom: 15px;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
@@ -709,21 +719,21 @@ color: #FFFFFF;
  }
 
  button:hover {
-  -webkit-transform: scale(1.1);
-  -ms-transform: scale(1.1);
-  transform: scale(1.1);
-  cursor: pointer;
+   -webkit-transform: scale(1.1);
+   -ms-transform: scale(1.1);
+   transform: scale(1.1);
+   cursor: pointer;
  }
 
-li, img {
-  transition: transform .2s;
+ li,
+ img {
+   transition: transform .2s;
  }
 
- li:hover, img:hover {
-  -webkit-transform: scale(1.2);
-  -ms-transform: scale(1.2);
-  transform: scale(1.2);
-  z-index: 2;
+ li:hover,
+ img:hover {
+   -webkit-transform: scale(1.2);
+   -ms-transform: scale(1.2);
+   transform: scale(1.2);
+   z-index: 2;
  }
-
-
