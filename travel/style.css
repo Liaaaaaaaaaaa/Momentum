@@ -62,12 +62,11 @@
 
  html {
    scroll-behavior: smooth;
-   background-color: #000000;
  }
 
  .main-body {
-   min-height: 100vh;
-   width: 1440px;
+   /* height: auto; */
+   width: 100%;
    margin: 0 auto;
    padding: 0;
    display: flex;
@@ -79,61 +78,84 @@
 
  /* START HEADAR */
  .main-header {
-   position: relative;
-   height: 765px;
-   background: url('./assets/background1.png');
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   flex-wrap: wrap;
+   /* height: 15%; */
+   background: url('./assets/background1.jpg');
+   background-size: cover;
    background-repeat: no-repeat;
-
  }
 
  .header-container {
-   height: 90px;
-   width: 1440px;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   width: 100%;
+   padding: 25px 8.3% 24px;
+   /* height: 2.45%; */
    box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
    background: rgba(242, 120, 92, 0.7);
  }
 
  .logo-container {
-   position: relative;
+   display: flex;
+   align-items: flex-start;
    width: 216px;
-   height: 31px;
-   left: 120px;
-   top: 25px;
    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-   margin: 0px;
+   white-space: nowrap;
+
+   margin-right: 10px ;
+   /* overflow: hidden; */
+ }
+
+ .logo-img {
+   margin-right: 6px;
+   min-width: 30px;
+   min-height: 30%;
  }
 
  .logo-text {
-   position: relative;
-   width: 190px;
-   height: 31px;
-   left: 2px;
+   display: flex;
    font-family: 'Magra';
    font-style: normal;
    font-weight: 600;
    font-size: 32px;
    line-height: 39px;
    color: #FFFFFF;
+   /* width: 190px;
+   height: 31px;
+   left: 2px; */
  }
+.nav-container {
+  display: flex;
+  width: 44%;
+  padding: 10px 0;
+  margin-right: 10px;
+}
 
  .nav-list {
    display: flex;
-   flex-direction: row;
-   align-items: flex-start;
-   padding: 0px;
-   gap: 42px;
-   position: absolute;
-   width: 527px;
-   height: 21px;
-   left: 494px;
-   top: 35px;
-   list-style: none;
-   margin: 0;
+   justify-content: space-between;
+   flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+     padding: 0px;
+     margin: 0px;
+    /* flex-direction: row; */
+    /* gap: 42px; */
+    /* height: 23.3%; */
+   /* left: 494px;
+   top: 35px; */
  }
 
  .nav-link {
-   width: 98px;
-   height: 21px;
+   display: flex;
+   flex-wrap: nowrap;
+   margin-right: 5px;
+   /* width: 98px;
+   height: 21px; */
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
@@ -144,12 +166,24 @@
    transition: transform.2s;
  }
 
+ .form-container {
+  display: flex;
+  width: 103px;
+  height: 41px;
+  /* height: 100%;
+  margin:0 */
+ }
+
  .button-container {
-   position: relative;
-   width: 103px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
+   /* width: 103px;
    height: 41px;
    left: 1217px;
-   top: -6px;
+   top: -6px; */
    background: #0D606F;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
@@ -167,18 +201,15 @@
  /* The END HEADAR */
 
  /* START SECTION 1 */
- .section-explore {
-   position: relative;
-   width: 892px;
-   height: 422px;
-   left: 120px;
-   top: 32px;
+ /* .section-explore {
+   display: flex;
+   flex-direction: column;
+   width: 61.9%;
+   height: 55.2%;
  }
 
  .explore-text {
-   position: relative;
-   left: 0px;
-   top: 0px;
+   display: flex;
    font-family: 'Aleo';
    font-style: normal;
    font-weight: 700;
@@ -190,11 +221,9 @@
 
 
  .text-receive {
-   position: relative;
-   width: 723px;
-   height: 24px;
-   left: 0px;
-   top: 12px;
+   display: flex;
+   width: 81%;
+   height: 5.7%;
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 700;
@@ -206,22 +235,19 @@
  }
 
  .input-container {
-   position: relative;
-   width: 892px;
-   height: 95px;
-   left: 0px;
-   top: 58px;
+   display: flex;
+   width: 100%;
+   height: 22.5%;
    background: rgba(255, 255, 255, 0.7);
    border-radius: 16px;
+   margin-bottom: 24.8%;
  }
 
 
  .input-form {
-   position: relative;
-   width: 560px;
-   height: 22px;
-   left: 39px;
-   top: 36px;
+   display: flex;
+   width: 62.8%;
+   height: 23.16%;
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 400;
@@ -270,11 +296,8 @@
    align-items: center;
    padding: 10px 32px;
    gap: 10px;
-   position: absolute;
-   width: 228px;
-   height: 59px;
-   left: 646px;
-   top: 18px;
+   width: 25.6%;
+   height: 62.1%;
    background: #0D606F;
    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
@@ -287,25 +310,23 @@
    color: #FFFFFF;
    text-decoration: none;
    transition: transform .2s;
- }
+ } */
 
  /* THE END SECTION 1 */
 
  /* THE START SECTION 2 */
- .section-trip {
-   position: relative;
-   width: 1177px;
-   height: 247px;
-   left: 131px;
-   top: 80px;
+ /* .section-trip {
+   display: flex;
+   flex-direction: column;
+   width: 81.7%;
+   height: 6.6%;
+
  }
 
  .section-title {
-   position: relative;
-   width: 611px;
-   height: 53px;
-   left: 283px;
-   top: 0;
+   display: flex;
+   width: 51.9%;
+   height: 21.5%;
    margin-top: 0px;
    font-family: 'Red Hat Text';
    font-style: normal;
@@ -319,33 +340,27 @@
  .badge-container {
    display: flex;
    justify-content: space-between;
-   width: 1177px;
-   height: 154px;
+   width: 100%;
+   height: 62.3%;
  }
 
  .bycycle-container {
    display: flex;
    flex-direction: column;
-   width: 247px;
-   height: 154px;
-   left: 0px;
-   top: 0px;
+   width: 20.9%;
+   height: 100%;
  }
 
  .badge-bycycle {
-   position: relative;
-   width: 100px;
-   height: 100px;
-   left: 73px;
-   top: 0px;
+   display: flex;
+   width: 40.4%;
+   height: 65%;
  }
 
  .text-trip-badge {
-   position: relative;
-   width: 247px;
-   height: 24px;
-   left: 0px;
-   top: 30px;
+   display: flex;
+   width: 100%;
+   height: 15.6%;
    margin-block: 0px;
    font-family: 'Aleo';
    font-style: normal;
@@ -369,19 +384,15 @@
  }
 
  .badge-calendar {
-   position: relative;
-   width: 100px;
-   height: 100px;
-   left: 61px;
-   top: 0px;
+   display: flex;
+   width: 45%;
+   height: 65%;
  }
 
  .text-steps-calendar {
-   position: relative;
-   width: 222px;
-   height: 24px;
-   left: 0px;
-   top: 30px;
+   display: flex;
+   width: 100%;
+   height: 15.6%;
    margin: 0px;
    font-family: 'Aleo';
    font-style: normal;
@@ -401,26 +412,20 @@
  .plane-container {
    display: flex;
    flex-direction: column;
-   width: 317px;
-   height: 154px;
-   left: 860px;
-   top: 0px;
+   width: 27%;
+   height: 62%;
  }
 
  .badge-plane {
-   width: 100px;
-   height: 100px;
-   left: 109px;
-   top: 0px;
+   width: 31.5%;
+   height: 65%;
    margin-left: 109px;
  }
 
  .text-steps-plane {
-   position: relative;
-   width: 317px;
-   height: 24px;
-   left: 0px;
-   top: 30px;
+   display: flex;
+   width: 100%;
+   height: 15.6%;
    margin: 0px;
    font-family: 'Aleo';
    font-style: normal;
@@ -435,25 +440,23 @@
  .text-steps-plane:hover {
    text-decoration: underline;
    text-decoration-color: #0D606F;
- }
+ } */
 
  /* THE END SECTION 2 */
 
  /* THE START SECTION 3 */
- .destionations-container {
-   position: relative;
-   width: 1440px;
-   height: 1141px;
-   top: 80px;
+ /* .destionations-container {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   height: 30.54%;
    overflow: hidden;
  }
 
  .destionations-title {
-   position: relative;
-   width: 501px;
-   height: 53px;
-   left: 470px;
-   top: 0px;
+   display: flex;
+   width: 34.8%;
+   height: 5.1%;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
@@ -466,42 +469,39 @@
 
  .destinations-photo {
    display: flex;
-   flex-direction: row;
    align-items: flex-start;
-   justify-content: center;
-   gap: 60px;
-   position: relative;
-   width: 1440px;
-   height: 800px;
+   justify-content: space-between;
+   width: 175%;
+   height: 76.8%;
  }
 
  .destination1 {
-   position: relative;
-   width: 800px;
-   height: 800px;
+   display: flex;
+   width: 31.7%;
+   height: 100%;
    border-radius: 16px;
  }
 
- .destination2 {
-   width: 800px;
-   height: 800px;
+ */ .destination2 {
+   display: flex;
+   width: 31.7%;
+   height: 100%;
    border-radius: 16px;
    transition: transform .2s;
  }
 
  .destination3 {
-   position: relative;
-   width: 800px;
-   height: 800px;
+   display: flex;
+   width: 31.7%;
+   height: 100%;
    border-radius: 16px;
+   background: url("./assets/Destination3.jpg");
  }
 
  .text-USA {
-   position: relative;
-   width: 66px;
-   height: 42px;
-   left: 15px;
-   bottom: 118px;
+   display: flex;
+   width: 100%;
+   height: 100%;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
@@ -563,12 +563,12 @@
    line-height: 32px;
    color: #FFFFFF;
    white-space: nowrap;
- }
+ } */
 
  /* THE END SECTION 3 */
 
  /* THE START SECTION 4 */
- .background2 {
+ /* .background2 {
    display: flex;
    flex-direction: column;
    width: 1442px;
@@ -667,12 +667,12 @@
    order: 1;
    flex-grow: 0;
    text-decoration: none;
- }
+ } */
 
  /* THE END SECTION 4 */
 
  /* THE START FOOTER */
- .main-footer {
+ /* .main-footer {
    display: flex;
    justify-content: space-between;
    width: 900px;
@@ -725,9 +725,13 @@
    transition: transform .2s;
  }
 
- li:hover, .img-stories:hover, .badge-bycycle:hover, .badge-calendar:hover, .badge-plane:hover {
+ li:hover,
+ .img-stories:hover,
+ .badge-bycycle:hover,
+ .badge-calendar:hover,
+ .badge-plane:hover {
    -webkit-transform: scale(1.2);
    -ms-transform: scale(1.2);
    transform: scale(1.2);
    z-index: 2;
- }
+ } */
