@@ -73,6 +73,10 @@
    justify-content: space-between;
  }
 
+ /* .main-body_lock {
+  overflow: hidden;
+ } */
+
  /* ----------START HEADAR-------------------------------- */
  .main-header {
    display: flex;
@@ -152,6 +156,10 @@
    white-space: nowrap;
  }
 
+ .burger-navLi {
+   display: none;
+ }
+
  .form-container {
    display: flex;
    width: 103px;
@@ -178,7 +186,11 @@
    transition: transform .2s;
  }
 
- .burger-menu {
+ .burger-logo {
+   display: none;
+ }
+
+ .close-burger {
    display: none;
  }
 
@@ -211,17 +223,76 @@
      height: 30px;
    }
 
-   .nav-container {
-     display: none;
-   }
-
    .form-container {
      display: none;
    }
+   .burger-logo {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+  }
 
-   .burger-menu {
-     display: inline-block;
+  .close-burger {
+    display: inline-block;
+    margin: 0 6px 6px 0;
+  }
+
+  .burger-navLi {
+    display: flex;
+  }
+
+   .nav-container, .burger-logo_active{
+     position: fixed;
+     top: 0;
+     right: -100%;
+     display: block;
+     z-index: 10;
+     /* transform: translate(100%, 0px); */
+     width: 165px;
+     height: 250px;
+     background: #F2785C;
+     box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+     border-radius: 10px;
+     cursor: pointer;
+    padding: 0px 15px 20px 8px;
+    transition: right 0.5s ease-in-out 0s;
+    margin-right: 0;
+    overflow: auto;
+
    }
+
+   .nav-container._active {
+    /* transform: translate(0, 0px); */
+    right: 0%;
+   }
+
+   .nav-list {
+  justify-content: flex-end;
+
+    /* display: flex;
+
+    flex-wrap: wrap;
+    width: 100%;
+    list-style: none;
+    padding: 0px;
+    margin: 0px; */
+  }
+
+  .nav-link {
+margin: 0 0 10px 0;
+
+    /* display: flex;
+
+    font-family: 'Red Hat Text';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+    color: #FFFFFF;
+    text-decoration: none;
+    transition: transform.2s;
+    white-space: nowrap; */
+  }
 
  }
 
@@ -751,7 +822,7 @@
    font-style: normal;
    font-weight: 500;
    font-size: 3vw;
-   line-height: 5%;
+   line-height: 53px;
    color: #F2785C;
    margin: 0 0 5%;
  }
@@ -837,62 +908,64 @@
  /* -----------media Section 4-------------- */
 
  @media (max-width:390px) {
- .travelStories-title {
-   margin: 0 0 19px;
- }
+   .travelStories-title {
+     margin: 0 0 19px;
+     font-size: 14px;
+     line-height: 19px;
+   }
 
- .container-stories {
-   padding: 4% 4% 0;
- }
+   .container-stories {
+     padding: 4% 4% 0;
+   }
 
- .container-stories:first-child {
-   padding-top: 2.8%;
- }
+   .container-stories:first-child {
+     padding-top: 2.8%;
+   }
 
- .container-stories:last-child {
-   margin-bottom: 10px;
- }
+   .container-stories:last-child {
+     margin-bottom: 10px;
+   }
 
- .img-stories {
-   width: 43.2%;
-   height: 33.5vw;
-   margin-right: 3%;
- }
+   .img-stories {
+     width: 43.2%;
+     height: 33.5vw;
+     margin-right: 3%;
+   }
 
- .title-stories {
-   font-weight: 700;
-   font-size: 11px;
-line-height: 13px;
-   margin: 5px 0 10px;
- }
+   .title-stories {
+     font-weight: 700;
+     font-size: 11px;
+     line-height: 13px;
+     margin: 5px 0 10px;
+   }
 
- .text-stories {
-   font-size: 9px;
-line-height: 11px;
-overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 8;
-  -webkit-box-orient: vertical;
- }
+   .text-stories {
+     font-size: 9px;
+     line-height: 11px;
+     overflow: hidden;
+     display: -webkit-box;
+     -webkit-line-clamp: 8;
+     -webkit-box-orient: vertical;
+   }
 
- .button__container-stories {
-   display: flex;
-   justify-content: space-around;
-   width: 100%;
-   padding: 0;
-   background: rgba(255, 255, 255, 0.7);
- }
+   .button__container-stories {
+     display: flex;
+     justify-content: space-around;
+     width: 100%;
+     padding: 0;
+     background: rgba(255, 255, 255, 0.7);
+   }
 
- .button-stories {
-   padding: 0;
-   width: 92px;
-height: 30px;
-   background: #0D606F;
-   box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
-   margin-bottom: 13px;
-   font-size: 11px;
-line-height: 15px;
- }
+   .button-stories {
+     padding: 0;
+     width: 92px;
+     height: 30px;
+     background: #0D606F;
+     box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+     margin-bottom: 13px;
+     font-size: 11px;
+     line-height: 15px;
+   }
  }
 
  /* -------------------THE START FOOTER----------------------------- */
@@ -947,7 +1020,7 @@ line-height: 15px;
    transition: transform .2s;
  }
 
-  li:not(:last-child):hover,
+ li:not(:last-child):hover,
  .img-stories:hover,
  .badge-bycycle:hover,
  .badge-calendar:hover,
