@@ -88,7 +88,6 @@
    background-image: url('./assets/background1.jpg');
    background-size: cover;
    background-repeat: no-repeat;
-
  }
 
  .header-container {
@@ -200,19 +199,19 @@
    .main-header {
      display: flex;
      width: 100%;
-     padding: 43px 15px 61px;
-     background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 25.1%), url('./assets/background1.jpg');
-     background-size: cover;
+     padding: 42px 15px 61px;
+     background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 25.1%), url('./assets/background1m.jpg');
+     background-size: contain, cover;
      background-repeat: no-repeat;
    }
 
    .header-container {
      width: 100%;
-     max-height: 32px;
+     /* max-height: 32px; */
      background: none;
      box-shadow: none;
-     padding: 0 1px;
-     margin-bottom: 67px;
+     padding: 1px 5px 1px 0px;
+     margin-bottom: 64px;
    }
 
    .logo-text {
@@ -220,8 +219,9 @@
    }
 
    .logo-img {
-     width: 29px;
-     height: 30px;
+     width: 30px;
+     height: 28px;
+
    }
 
    .form-container {
@@ -229,8 +229,8 @@
    }
 
    .burger-logo {
-     display: inline-block;
-     width: 30px;
+     display: block;
+     width: 33px;
      height: 30px;
    }
 
@@ -250,7 +250,6 @@
      top: 0;
      right: -100%;
      z-index: 10;
-     /* transform: translate(100%, 0px); */
      width: 165px;
      height: 250px;
      background: #F2785C;
@@ -258,49 +257,26 @@
      border-radius: 10px;
      cursor: pointer;
      padding: 0px 15px 20px 8px;
-     transition: right 0.9s ease 0.1s;
-
+     transition: right, left 0.9s ease 0.1s;
      -webkit-transition: right 0.9s ease 0.1s ;
     -moz-transition: right 0.9s ease 0.1s;
      margin-right: 0;
-     overflow-y: auto;
    }
 
    .nav-container._active {
-     /* transform: translate(0, 0px); */
      right: 0;
      transition: right 0.9s ease 0.3s;
 }
 
    .nav-list {
      justify-content: flex-end;
-
-     /* display: flex;
-
-    flex-wrap: wrap;
-    width: 100%;
-    list-style: none;
-    padding: 0px;
-    margin: 0px; */
    }
 
    .nav-link {
      margin: 0 0 10px 0;
-
-     /* display: flex;
-
-    font-family: 'Red Hat Text';
-    font-style: normal;
-    font-weight: 500;
-    font-size: 16px;
-    line-height: 21px;
-    color: #FFFFFF;
-    text-decoration: none;
-    transition: transform.2s;
-    white-space: nowrap; */
    }
 
- }
+  }
 
  /*------------------ START SECTION 1 -------------------------------*/
  .section-explore {
@@ -431,7 +407,7 @@
 
    .input-container {
      width: 100%;
-     min-height: 48px;
+     min-height: 46px;
      border-radius: 16px;
      padding: 9px 9px 9px 16.55px;
      white-space: nowrap;
@@ -442,7 +418,7 @@
      font-size: 14px;
      line-height: 17px;
      align-items: center;
-     padding: 7.7px 0 11.72px;
+     padding: 12px 2px 11.72px 0px;
    }
 
    input [placeholder="What would you like to do?"] {
@@ -461,15 +437,14 @@
    }
 
    .explore-button {
-     padding: 10px 32px;
+     padding: 10px 33px;
      gap: 10px;
-     width: 92px;
-     height: 30px;
+     width: 89px;
+     height: 29px;
      font-size: 11px;
-     line-height: 15px;
-
+     line-height: 14.5px;
    }
- }
+  }
 
  /* --------------THE START SECTION 2 ------------------------*/
  .section-trip {
@@ -541,7 +516,7 @@
  /* -----------media Section 2 ------------------------------------*/
  @media (max-width:390px) {
    .section-trip {
-     padding: 20px 12px 20px 15px;
+     padding: 17px 10px 18px 15px;
    }
 
    .section-title {
@@ -552,14 +527,17 @@
 
    .badge--container {
      align-items: flex-start;
+
    }
 
    .badge-size {
      display: flex;
-     width: 70px;
+     justify-content: center;
+align-content: center;
+     width: 65px;
      height: 70px;
-     margin-bottom: 19px;
-     padding: 0%;
+     margin-bottom: 17px;
+     padding: 2%;
    }
 
    .text-trip-badge {
@@ -695,7 +673,7 @@
    .destionations-container {
      justify-content: space-around;
      overflow: hidden;
-     margin: 0 0 30px;
+     margin: 0 0 17px;
      width: 100%;
      padding: 0;
    }
@@ -709,8 +687,8 @@
 
    .destinations-photo {
      margin: 0;
-     width: 100%;
-     padding: 0 0 0 15px;
+     width: 95%;
+     padding: 0 0 0 14px;
    }
 
    .mobile-container {
@@ -720,11 +698,11 @@
 
    .destination-mobile {
      display: flex;
-     width: 100%;
-     height: 54vw;
+     width: 101%;
+     height: 53vw;
      border-radius: 16px;
      transition: transform .2s;
-     margin-left: 15vw;
+     margin-left: 11vw;
    }
 
    .switch-photo1 {
@@ -732,7 +710,7 @@
      position: relative;
      width: 10vw;
      height: 30px;
-     right: 106vw;
+     right: 105vw;
      top: 23vw;
      z-index: 8;
    }
@@ -742,7 +720,7 @@
      position: relative;
      width: 10vw;
      height: 30px;
-     left: 105vw;
+     left: 101vw;
      /* right: 32vw; */
      top: 23vw;
      z-index: 7;
@@ -771,7 +749,7 @@
      gap: 1%;
      width: 100%;
      height: 100%;
-     margin: 0 0 0;
+     margin: 0 0 2px;
      top: -20px;
    }
 
@@ -798,7 +776,7 @@
    }
 
    .button-destination {
-     width: 92px;
+     width: 90px;
      height: 30px;
      font-size: 11px;
      line-height: 15px;
@@ -917,13 +895,13 @@
 
  @media (max-width:390px) {
    .travelStories-title {
-     margin: 0 0 19px;
+     margin: 0 0 11px;
      font-size: 14px;
      line-height: 19px;
    }
 
    .container-stories {
-     padding: 4% 4% 0;
+     padding: 3% 4% 0;
    }
 
    .container-stories:first-child {
@@ -931,7 +909,7 @@
    }
 
    .container-stories:last-child {
-     margin-bottom: 10px;
+     margin-bottom: 8px;
    }
 
    .img-stories {
@@ -943,7 +921,7 @@
    .title-stories {
      font-weight: 700;
      font-size: 11px;
-     line-height: 13px;
+     line-height: 11px;
      margin: 5px 0 10px;
    }
 
@@ -1042,8 +1020,9 @@
  /* -----------media FOOTER --------------- */
  @media (max-width:390px) {
    .main-footer {
-     padding: 0.92% 20%;
+     padding: 0.8% 20% ;
      min-width: 100%;
+
    }
 
    .text-footer {
@@ -1052,11 +1031,12 @@
 
    .footer-list {
      width: 100%;
+  justify-content: flex-start;
    }
 
    .footer-link {
-     width: 10vw;
-     height: 10vw;
-     margin: 0 10px 0 0;
+     width: 8vw;
+     height: 8vw;
+     margin: 0 20px 0 0px;
    }
  }
