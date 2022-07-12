@@ -65,9 +65,9 @@
    background-color: #000000;
  }
 
+
  .main-body {
-   min-height: 100vh;
-   width: 1440px;
+   width: 100%;
    margin: 0 auto;
    padding: 0;
    display: flex;
@@ -77,37 +77,49 @@
 
  }
 
- /* START HEADAR */
- .main-header {
-   position: relative;
-   height: 765px;
-   background: url('./assets/background1.png');
-   background-repeat: no-repeat;
+ .main-body._lock {
+  overflow: hidden;
+ }
 
+ /* ----------START HEADAR-------------------------------- */
+ .main-header {
+   display: flex;
+   flex-direction: row;
+   width: 100%;
+   flex-wrap: wrap;
+   padding-bottom: 221px;
+   background-image: url('./assets/background1.jpg');
+   background-size: cover;
+   background-repeat: no-repeat;
  }
 
  .header-container {
-   height: 90px;
-   width: 1440px;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   width: 100%;
+   padding: 23px 137px 24px 8.3%;
    box-shadow: 0px 4px 4px rgba(13, 96, 111, 0.5);
    background: rgba(242, 120, 92, 0.7);
+   margin-bottom: 2%;
  }
 
  .logo-container {
-   position: relative;
-   width: 216px;
-   height: 31px;
-   left: 120px;
-   top: 25px;
+   display: flex;
+   align-items: flex-start;
    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-   margin: 0px;
+   white-space: nowrap;
+   margin-right: 5px;
+ }
+
+ .logo-img {
+   margin-right: 6px;
+   min-width: 30px;
+   min-height: 30%;
  }
 
  .logo-text {
-   position: relative;
-   width: 190px;
-   height: 31px;
-   left: 2px;
+   display: flex;
    font-family: 'Magra';
    font-style: normal;
    font-weight: 600;
@@ -116,24 +128,26 @@
    color: #FFFFFF;
  }
 
+ .nav-container {
+   display: flex;
+   width: 44%;
+   padding: 9px 0;
+   margin-right: 10px;
+ }
+
  .nav-list {
    display: flex;
-   flex-direction: row;
-   align-items: flex-start;
-   padding: 0px;
-   gap: 42px;
-   position: absolute;
-   width: 527px;
-   height: 21px;
-   left: 494px;
-   top: 35px;
+   justify-content: space-between;
+   flex-wrap: wrap;
+   width: 100%;
    list-style: none;
-   margin: 0;
+   padding: 0px;
+   margin: 0px;
  }
 
  .nav-link {
-   width: 98px;
-   height: 21px;
+   display: flex;
+   margin-right: 5px;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
@@ -142,14 +156,25 @@
    color: #FFFFFF;
    text-decoration: none;
    transition: transform.2s;
+   white-space: nowrap;
+ }
+
+ .burger-navLi {
+   display: none;
+ }
+
+ .form-container {
+   display: flex;
+   width: 103px;
+   height: 44px;
  }
 
  .button-container {
-   position: relative;
-   width: 103px;
-   height: 41px;
-   left: 1217px;
-   top: -6px;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100%;
+   height: 100%;
    background: #0D606F;
    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
@@ -164,69 +189,151 @@
    transition: transform .2s;
  }
 
- /* The END HEADAR */
+ .burger-logo {
+   display: none;
+ }
 
- /* START SECTION 1 */
+ .close-burger {
+   display: none;
+ }
+
+ /*------------- media HEADER------------------- */
+ @media (max-width: 390px) {
+   .main-header {
+     display: flex;
+     width: 100%;
+     padding: 42px 15px 61px;
+     background: linear-gradient(180deg, #0D606F 0%, rgba(13, 96, 111, 0) 25.1%), url('./assets/background1m.jpg');
+     background-size: contain, cover;
+     background-repeat: no-repeat;
+   }
+
+   .header-container {
+     width: 100%;
+     /* max-height: 32px; */
+     background: none;
+     box-shadow: none;
+     padding: 1px 5px 1px 0px;
+     margin-bottom: 64px;
+   }
+
+   .logo-text {
+     display: none;
+   }
+
+   .logo-img {
+     width: 30px;
+     height: 28px;
+
+   }
+
+   .form-container {
+     display: none;
+   }
+
+   .burger-logo {
+     display: block;
+     width: 33px;
+     height: 30px;
+   }
+
+   .close-burger {
+     display: inline-block;
+     margin: 0 6px 6px 0;
+   }
+
+   .burger-navLi {
+     display: flex;
+   }
+
+
+   .nav-container {
+     position: fixed;
+     display: block;
+     top: 0;
+     right: -100%;
+     z-index: 10;
+     width: 165px;
+     height: 250px;
+     background: #F2785C;
+     box-shadow: 0px 4px 3px rgba(13, 96, 111, 0.25);
+     border-radius: 10px;
+     cursor: pointer;
+     padding: 0px 15px 20px 8px;
+     transition: right, left 0.9s ease 0.1s;
+     -webkit-transition: right 0.9s ease 0.1s ;
+    -moz-transition: right 0.9s ease 0.1s;
+     margin-right: 0;
+   }
+
+   .nav-container._active {
+     right: 0;
+     transition: right 0.9s ease 0.3s;
+}
+
+   .nav-list {
+     justify-content: flex-end;
+   }
+
+   .nav-link {
+     margin: 0 0 10px 0;
+   }
+
+  }
+
+ /*------------------ START SECTION 1 -------------------------------*/
  .section-explore {
-   position: relative;
-   width: 892px;
-   height: 422px;
-   left: 120px;
-   top: 32px;
+   display: flex;
+   flex-direction: column;
+   width: 70.3%;
+   padding: 0 0 0 8.3%;
+   margin-bottom: 33px;
  }
 
  .explore-text {
-   position: relative;
-   left: 0px;
-   top: 0px;
+   display: flex;
+   text-align: justify;
+   width: 90%;
+   margin: 0 0 4.5%;
    font-family: 'Aleo';
    font-style: normal;
    font-weight: 700;
-   font-size: 80px;
-   line-height: 96px;
+   font-size: 5.5vw;
+   line-height: 6.5vw;
    color: #FFFFFF;
-   margin: 0;
  }
 
-
  .text-receive {
-   position: relative;
-   width: 723px;
-   height: 24px;
-   left: 0px;
-   top: 12px;
+   display: flex;
+   width: 81%;
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 700;
-   font-size: 20px;
-   line-height: 24px;
+   font-size: 1.2vw;
    color: #FFFFFF;
-   margin-bottom: 0px;
-   white-space: nowrap;
+   margin-bottom: 5%;
  }
 
  .input-container {
-   position: relative;
-   width: 892px;
-   height: 95px;
-   left: 0px;
-   top: 58px;
+   display: flex;
+   justify-content: space-between;
+   flex-wrap: nowrap;
+   align-items: center;
+   width: 100%;
+   height: 6.5vw;
    background: rgba(255, 255, 255, 0.7);
    border-radius: 16px;
+   padding: 1.5% 1.5% 1.5% 4.6%;
  }
 
-
  .input-form {
-   position: relative;
-   width: 560px;
-   height: 22px;
-   left: 39px;
-   top: 36px;
+   display: flex;
+   flex-wrap: wrap;
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 400;
-   font-size: 24px;
-   line-height: 29px;
+   font-size: 3vw;
+   line-height: 3vw;
    color: #F2785C;
    background-color: initial;
    border: none;
@@ -234,22 +341,22 @@
  }
 
  input [placeholder="What would you like to do?"] {
+   white-space: wrap;
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 400;
-   font-size: 24px;
-   line-height: 29px;
+   font-size: 1.6vw;
+   line-height: 3vw;
    color: #F2785C;
    background-color: rgba(255, 255, 255, 0.7);
  }
-
 
  input[type="search"]::-webkit-input-placeholder {
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 400;
-   font-size: 24px;
-   line-height: 29px;
+   font-size: 1.6vw;
+   line-height: 3vw;
    color: #F2785C;
  }
 
@@ -257,8 +364,8 @@
    font-family: 'Aleo';
    font-style: italic;
    font-weight: 400;
-   font-size: 24px;
-   line-height: 29px;
+   font-size: 1.6vw;
+   line-height: 3vw;
    color: #F2785C;
    background-color: inherit;
  }
@@ -269,12 +376,8 @@
    justify-content: center;
    align-items: center;
    padding: 10px 32px;
-   gap: 10px;
-   position: absolute;
-   width: 228px;
-   height: 59px;
-   left: 646px;
-   top: 18px;
+   width: 27%;
+   height: 80%;
    background: #0D606F;
    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
@@ -282,78 +385,129 @@
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
-   font-size: 24px;
-   line-height: 32px;
+   font-size: 1.6vw;
+   line-height: 1.6vw;
    color: #FFFFFF;
    text-decoration: none;
    transition: transform .2s;
  }
 
- /* THE END SECTION 1 */
+ /* -----------------media SECTION 1 -------------------- */
+ @media (max-width: 390px) {
+   .section-explore {
+     padding: 0;
+     width: 100%;
+     margin: 0;
+   }
 
- /* THE START SECTION 2 */
+   .explore-text {
+     display: none;
+   }
+
+   .text-receive {
+     display: none;
+   }
+
+   .input-container {
+     width: 100%;
+     min-height: 46px;
+     border-radius: 16px;
+     padding: 9px 9px 9px 16.55px;
+     white-space: nowrap;
+   }
+
+   .input-form {
+     width: 100%;
+     font-size: 14px;
+     line-height: 17px;
+     align-items: center;
+     padding: 12px 2px 11.72px 0px;
+   }
+
+   input [placeholder="What would you like to do?"] {
+     font-size: 14px;
+     line-height: 17px;
+   }
+
+   input[type="search"]::-webkit-input-placeholder {
+     font-size: 14px;
+     line-height: 17px;
+   }
+
+   input[type="search"]::-moz-placeholder {
+     font-size: 14px;
+     line-height: 17px;
+   }
+
+   .explore-button {
+     padding: 10px 33px;
+     gap: 10px;
+     width: 89px;
+     height: 29px;
+     font-size: 11px;
+     line-height: 14.5px;
+   }
+  }
+
+ /* --------------THE START SECTION 2 ------------------------*/
  .section-trip {
-   position: relative;
-   width: 1177px;
-   height: 247px;
-   left: 131px;
-   top: 80px;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   padding: 5.6% 9.1%;
  }
 
  .section-title {
-   position: relative;
-   width: 611px;
-   height: 53px;
-   left: 283px;
-   top: 0;
-   margin-top: 0px;
+   display: flex;
+   width: 100%;
+   justify-content: center;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
-   font-size: 40px;
+   font-size: 2.6vw;
    line-height: 53px;
    color: #F2785C;
-   margin-bottom: 40px;
+   margin: 0 0 3.2vw;
  }
 
  .badge-container {
    display: flex;
    justify-content: space-between;
-   width: 1177px;
-   height: 154px;
+   flex-wrap: wrap;
+   width: 100%;
  }
 
- .bycycle-container {
+ .badge--container {
    display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: wrap;
    flex-direction: column;
-   width: 247px;
-   height: 154px;
-   left: 0px;
-   top: 0px;
+   width: 21%;
+   height: 100%;
  }
 
- .badge-bycycle {
-   position: relative;
-   width: 100px;
+ .badge-size {
+   display: flex;
+   width: 100%;
    height: 100px;
-   left: 73px;
-   top: 0px;
+   min-width: 70px;
+   min-height: 70px;
+   padding: 0 30%;
+   margin-bottom: 12.5%;
  }
 
  .text-trip-badge {
-   position: relative;
-   width: 247px;
-   height: 24px;
-   left: 0px;
-   top: 30px;
-   margin-block: 0px;
+   display: flex;
+   justify-content: center;
+   white-space: nowrap;
+   width: 100%;
    font-family: 'Aleo';
    font-style: normal;
    font-weight: 400;
-   font-size: 20px;
-   line-height: 24px;
+   font-size: 1.4vw;
+   line-height: 1.9vw;
    color: #0D606F;
-   white-space: nowrap;
    transition: transform.2s;
  }
 
@@ -362,196 +516,149 @@
    text-decoration-color: #0D606F;
  }
 
- .calendar-container {
-   display: flex;
-   flex-direction: column;
-   margin-left: 70px;
+ /* -----------media Section 2 ------------------------------------*/
+ @media (max-width:390px) {
+   .section-trip {
+     padding: 17px 10px 18px 15px;
+   }
+
+   .section-title {
+     font-size: 14px;
+     line-height: 19px;
+     margin-bottom: 20px;
+   }
+
+   .badge--container {
+     align-items: flex-start;
+
+   }
+
+   .badge-size {
+     display: flex;
+     justify-content: center;
+align-content: center;
+     width: 65px;
+     height: 70px;
+     margin-bottom: 17px;
+     padding: 2%;
+   }
+
+   .text-trip-badge {
+     white-space: pre-wrap;
+     font-size: 10px;
+     line-height: 12px;
+     margin: 0;
+   }
+
+   .text-trip-badge:nth-child(3) {
+     white-space: nowrap;
+   }
  }
 
- .badge-calendar {
-   position: relative;
-   width: 100px;
-   height: 100px;
-   left: 61px;
-   top: 0px;
- }
 
- .text-steps-calendar {
-   position: relative;
-   width: 222px;
-   height: 24px;
-   left: 0px;
-   top: 30px;
-   margin: 0px;
-   font-family: 'Aleo';
-   font-style: normal;
-   font-weight: 400;
-   font-size: 20px;
-   line-height: 24px;
-   color: #0D606F;
-   white-space: nowrap;
-   transition: transform.2s;
- }
+ /* --------------THE START SECTION 3 ----------------------*/
 
- .text-steps-calendar:hover {
-   text-decoration: underline;
-   text-decoration-color: #0D606F;
- }
-
- .plane-container {
-   display: flex;
-   flex-direction: column;
-   width: 317px;
-   height: 154px;
-   left: 860px;
-   top: 0px;
- }
-
- .badge-plane {
-   width: 100px;
-   height: 100px;
-   left: 109px;
-   top: 0px;
-   margin-left: 109px;
- }
-
- .text-steps-plane {
-   position: relative;
-   width: 317px;
-   height: 24px;
-   left: 0px;
-   top: 30px;
-   margin: 0px;
-   font-family: 'Aleo';
-   font-style: normal;
-   font-weight: 400;
-   font-size: 20px;
-   line-height: 24px;
-   color: #0D606F;
-   white-space: nowrap;
-   transition: transform.2s;
- }
-
- .text-steps-plane:hover {
-   text-decoration: underline;
-   text-decoration-color: #0D606F;
- }
-
- /* THE END SECTION 2 */
-
- /* THE START SECTION 3 */
  .destionations-container {
-   position: relative;
-   width: 1440px;
-   height: 1141px;
-   top: 80px;
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
    overflow: hidden;
+   margin-bottom: 5.6%;
  }
 
  .destionations-title {
-   position: relative;
-   width: 501px;
-   height: 53px;
-   left: 470px;
-   top: 0px;
+   display: flex;
+   justify-content: center;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
-   font-size: 40px;
+   font-size: 5vh;
    line-height: 53px;
    color: #F2785C;
-   margin-bottom: 46px;
-   margin-top: 97px;
+   margin: 0 0 46px;
  }
 
  .destinations-photo {
    display: flex;
-   flex-direction: row;
-   align-items: flex-start;
-   justify-content: center;
-   gap: 60px;
-   position: relative;
-   width: 1440px;
-   height: 800px;
+   justify-content: flex-start;
+   width: 175%;
+   min-width: 70px;
+   margin: 0 -30% 24px -35%;
  }
 
  .destination1 {
-   position: relative;
-   width: 800px;
-   height: 800px;
-   border-radius: 16px;
- }
-
- .destination2 {
-   width: 800px;
-   height: 800px;
+   display: flex;
+   min-width: 150px;
+   min-height: 100px;
    border-radius: 16px;
    transition: transform .2s;
+   margin-right: 2.4%;
  }
 
- .destination3 {
-   position: relative;
-   width: 800px;
-   height: 800px;
-   border-radius: 16px;
+ .destination1:last-child {
+   margin-right: 0;
  }
 
- .text-USA {
+ .mobile-container {
+   display: none;
+ }
+
+ .text-destination {
    position: relative;
-   width: 66px;
-   height: 42px;
-   left: 15px;
-   bottom: 118px;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
-   font-size: 32px;
+   font-size: 2.5vw;
    line-height: 42px;
    color: #FFFFFF;
+   top: 46vw;
+   right: 54vw;
+   z-index: 5;
+   margin: 0;
  }
 
  .circle-destination {
    display: flex;
-   flex-direction: row;
-   align-items: flex-start;
+   justify-content: center;
    padding: 0px;
-   gap: 10px;
-   position: relative;
-   width: 80px;
-   height: 20px;
-   left: 681px;
-   top: 0px;
-   margin-top: 24px;
+   gap: 1%;
+   width: 100%;
+   height: 100%;
+   margin-bottom: 5%;
  }
 
  .circle-v1 {
-   width: 20px;
-   height: 20px;
+   width: 2vw;
+   height: 2vw;
    background: rgba(242, 120, 92, 0.5);
    flex-grow: 0;
    border-radius: 50%;
  }
 
  .circle-v2 {
-   width: 20px;
-   height: 20px;
+   width: 2vw;
+   height: 2vw;
    background: #F2785C;
    flex-grow: 0;
    border-radius: 50%;
  }
 
+ .img-button {
+   width: 3vw;
+   height: 3vw;
+   margin-right: 5px;
+ }
+
  .button-destination {
    display: flex;
    flex-direction: row;
-   justify-content: space-around;
+   justify-content: center;
    align-items: center;
-   padding: 10px 32px;
-   gap: 10px;
-   position: relative;
-   width: 228px;
-   height: 59px;
-   left: 607px;
-   top: 40px;
+   padding: 7% 10%;
+   gap: 1%;
+   width: 150%;
+   height: 150%;
    background: #0D606F;
    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
@@ -559,109 +666,226 @@
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
-   font-size: 24px;
-   line-height: 32px;
+   font-size: 100%;
    color: #FFFFFF;
    white-space: nowrap;
  }
 
- /* THE END SECTION 3 */
+ /* -----------media Section 3 ------------------------------------*/
+ @media (max-width:390px) {
+   .destionations-container {
+     justify-content: space-around;
+     overflow: hidden;
+     margin: 0 0 17px;
+     width: 100%;
+     padding: 0;
+   }
 
- /* THE START SECTION 4 */
+   .destionations-title {
+     font-size: 14px;
+     line-height: 19px;
+     margin: 0 0 20px;
+
+   }
+
+   .destinations-photo {
+     margin: 0;
+     width: 95%;
+     padding: 0 0 0 14px;
+   }
+
+   .mobile-container {
+     display: flex;
+     justify-content: center;
+   }
+
+   .destination-mobile {
+     display: flex;
+     width: 101%;
+     height: 53vw;
+     border-radius: 16px;
+     transition: transform .2s;
+     margin-left: 11vw;
+   }
+
+   .switch-photo1 {
+     display: flex;
+     position: relative;
+     width: 10vw;
+     height: 30px;
+     right: 105vw;
+     top: 23vw;
+     z-index: 8;
+   }
+
+   .switch-photo2 {
+     display: flex;
+     position: relative;
+     width: 10vw;
+     height: 30px;
+     left: 101vw;
+     /* right: 32vw; */
+     top: 23vw;
+     z-index: 7;
+   }
+
+   .destination1,
+   .USA {
+     display: none;
+   }
+
+   .text-destination {
+     position: relative;
+     height: 100%;
+     font-size: 20px;
+     line-height: 26px;
+     color: #FFFFFF;
+     right: 87vw;
+     top: 5px;
+     margin: 0;
+   }
+
+   .circle-destination {
+     position: relative;
+     justify-content: center;
+     padding: 0px;
+     gap: 1%;
+     width: 100%;
+     height: 100%;
+     margin: 0 0 2px;
+     top: -20px;
+   }
+
+   .circle-v1 {
+     width: 2vw;
+     height: 2vw;
+     background: rgba(242, 120, 92, 0.5);
+     flex-grow: 0;
+     border-radius: 50%;
+   }
+
+   .circle-v2 {
+     width: 2vw;
+     height: 2vw;
+     background: #F2785C;
+     flex-grow: 0;
+     border-radius: 50%;
+   }
+
+   .img-button {
+     width: 3vw;
+     height: 3vw;
+     margin-right: 5px;
+   }
+
+   .button-destination {
+     width: 90px;
+     height: 30px;
+     font-size: 11px;
+     line-height: 15px;
+   }
+ }
+
+ /* -------------------THE START SECTION 4 -----------------------------*/
+ .travelStories-container {
+   display: flex;
+   width: 100%;
+ }
+
  .background2 {
    display: flex;
-   flex-direction: column;
-   width: 1442px;
-   height: 1331px;
-   margin-top: 250px;
    background: url(./assets/background2.jpg);
-   box-shadow: inset 0 1270px 0 0px rgba(255, 255, 255, 0.7);
+   background-size: cover;
+   flex-direction: column;
+   width: 100%;
+   align-items: center;
  }
 
  .travelStories-title {
    display: flex;
    white-space: nowrap;
-   width: 335px;
-   height: 53px;
-   margin-left: 552px;
-   margin-top: -93px;
+   justify-content: center;
+   width: 100%;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
-   font-size: 40px;
+   font-size: 3vw;
    line-height: 53px;
    color: #F2785C;
-   margin-bottom: 50px;
+   margin: 0 0 5%;
+ }
+
+ .containers-stories {
+   background: rgba(255, 255, 255, 0.7);
  }
 
  .container-stories {
    display: flex;
-   width: 1200px;
-   height: 250px;
-   margin-top: 30px;
+   width: 100%;
+   padding: 3.1% 8.3% 0 8.3%;
  }
+
 
  .img-stories {
    flex-direction: row;
-   width: 400px;
-   height: 250px;
+   width: 50%;
+   height: 50%;
    filter: drop-shadow(0px 4px 4px #0D606F);
    border-radius: 16px;
-   margin-left: 120px;
+   margin: 0 3.1% 0 0;
  }
 
  .title-stories {
    display: flex;
-   width: 760px;
-   height: 42px;
+   width: 100%;
    font-family: 'Aleo';
    font-style: normal;
    font-weight: 400;
-   font-size: 35px;
-   line-height: 42px;
+   font-size: 2.5vw;
+   line-height: 5vh;
    color: #0D606F;
-   margin-left: 40px;
-   margin-bottom: 24px;
-   margin-top: 0px;
+   margin: 0 0 3.6%;
  }
 
  .text-stories {
    display: flex;
    flex-direction: column;
-   width: 760px;
-   height: 184px;
+   width: 100%;
    font-family: 'Aleo';
    font-style: normal;
    font-weight: 400;
-   font-size: 20px;
-   line-height: 24px;
+   font-size: 1.4vw;
+   line-height: 2vw;
    color: #0D606F;
-   margin: 0px 0px 0px 40px;
+   margin: 0;
+ }
+
+ .button__container-stories {
+   display: flex;
+   justify-content: space-around;
+   width: 100%;
+   padding: 3% 0 3%;
+   background: rgba(255, 255, 255, 0.7);
  }
 
  .button-stories {
    display: flex;
-   flex-direction: row;
-   justify-content: space-around;
    align-items: center;
-   padding: 10px 40px 10px 32px;
-   gap: 10px;
-   position: relative;
-   width: 228px;
-   height: 59px;
-   left: 605px;
-   top: 40px;
+   flex-direction: row;
+   justify-content: center;
+   padding: 1% 3% 1% 3%;
+   width: 15vw;
+   height: 4vw;
    background: #0D606F;
    box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
    border-radius: 10px;
    border: none;
    margin-bottom: 5px;
-   margin-left: 3px;
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
-   font-size: 24px;
-   line-height: 32px;
+   font-size: 1.6vw;
+   line-height: 3vw;
    color: #FFFFFF;
    flex: none;
    order: 1;
@@ -669,17 +893,78 @@
    text-decoration: none;
  }
 
- /* THE END SECTION 4 */
+ /* -----------media Section 4-------------- */
 
- /* THE START FOOTER */
+ @media (max-width:390px) {
+   .travelStories-title {
+     margin: 0 0 11px;
+     font-size: 14px;
+     line-height: 19px;
+   }
+
+   .container-stories {
+     padding: 3% 4% 0;
+   }
+
+   .container-stories:first-child {
+     padding-top: 2.8%;
+   }
+
+   .container-stories:last-child {
+     margin-bottom: 8px;
+   }
+
+   .img-stories {
+     width: 43.2%;
+     height: 33.5vw;
+     margin-right: 3%;
+   }
+
+   .title-stories {
+     font-weight: 700;
+     font-size: 11px;
+     line-height: 11px;
+     margin: 5px 0 10px;
+   }
+
+   .text-stories {
+     font-size: 9px;
+     line-height: 11px;
+     overflow: hidden;
+     display: -webkit-box;
+     -webkit-line-clamp: 8;
+     -webkit-box-orient: vertical;
+   }
+
+   .button__container-stories {
+     display: flex;
+     justify-content: space-around;
+     width: 100%;
+     padding: 0;
+     background: rgba(255, 255, 255, 0.7);
+   }
+
+   .button-stories {
+     padding: 0;
+     width: 92px;
+     height: 30px;
+     background: #0D606F;
+     box-shadow: 0px 0px 3px rgba(13, 96, 111, 0.08), 0px 2px 3px rgba(13, 96, 111, 0.16);
+     margin-bottom: 13px;
+     font-size: 11px;
+     line-height: 15px;
+   }
+ }
+
+ /* -------------------THE START FOOTER----------------------------- */
  .main-footer {
    display: flex;
    justify-content: space-between;
-   width: 900px;
-   height: 33.65px;
-   margin-left: 590px;
-   margin-top: -47px;
+   width: 100%;
    align-items: center;
+   padding: 0.92% 0 0.92% 40%;
+   height: 65px;
+   min-width: 390px;
  }
 
  .text-footer {
@@ -687,30 +972,28 @@
    font-family: 'Red Hat Text';
    font-style: normal;
    font-weight: 500;
-   font-size: 16px;
-   line-height: 21px;
+   font-size: 1vw;
+   line-height: 1vw;
    color: #FFFFFF;
    white-space: nowrap;
+   margin: 0;
  }
 
  .footer-list {
    display: flex;
-   justify-content: flex-end;
-   width: 900px;
-   height: 33.65px;
-   text-decoration: none;
-   margin-right: 95px;
-   margin-left: 0px;
+   justify-content: space-around;
+   width: 62.5%;
    list-style: none;
    align-items: center;
+   margin: 0;
+   padding: 0;
  }
 
  .footer-link {
    display: flex;
-   width: 70px;
-   height: 150%;
+   width: 4vw;
    text-decoration: none;
-   margin-right: -15px;
+   margin: 0;
  }
 
  button:hover {
@@ -725,10 +1008,38 @@
    transition: transform .2s;
  }
 
- li:hover, .img-stories:hover, .badge-bycycle:hover, .badge-calendar:hover, .badge-plane:hover {
+ li:not(:last-child):hover,
+ .img-stories:hover,
+ .badge-bycycle:hover,
+ .badge-calendar:hover,
+ .badge-plane:hover {
    -webkit-transform: scale(1.2);
    -ms-transform: scale(1.2);
    transform: scale(1.2);
    z-index: 2;
+ }
+
+ /* -----------media FOOTER --------------- */
+ @media (max-width:390px) {
+   .main-footer {
+     padding: 0.8% 20% ;
+     min-width: 100%;
+
+   }
+
+   .text-footer {
+     display: none;
+   }
+
+   .footer-list {
+     width: 100%;
+  justify-content: flex-start;
+   }
+
+   .footer-link {
+     width: 8vw;
+     height: 8vw;
+     margin: 0 20px 0 0px;
+   }
  }
 
