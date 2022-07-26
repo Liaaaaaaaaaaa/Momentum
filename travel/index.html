@@ -13,22 +13,29 @@
 <!-- ----------Pup-up-------------- -->
 
 <body class="main-body">
-  <ul class="pup-up_container">
-    <li class="pup-up_title">Log in to your account</li>
-    <li class="pup-up_cell color1 text-color1"><img class="img-pupUp" src="./assets/path14.svg" alt="logo-facebook" /> <span> Sign
-        In with Facebook</span></li>
-    <li class="pup-up_cell color3 text-color2"><img class="img-pupUp" src="./assets/Google Logo.svg" alt="logo-google" /> <span>Sign
-        In with Google</span> </li>
 
+  <ul class="pup-up_container">
+    <div class="pup-up_list">
+    <span class="pup-up_title">Log in to your account</span>
+    <form >
+      <button formaction="#SignIn" class="pup-up_cell color1 text-color1" ><img class="img-pupUp" src="./assets/path14.svg" alt="logo-facebook" /><span> Sign In with Facebook</span></button>
+    </form>
+    <form >
+      <button formaction="#SignIn" class="pup-up_cell color3 text-color2" ><img class="img-pupUp" src="./assets/Google Logo.svg" alt="logo-google" /> <span>Sign In with Google</span></button>
+    </form>
       <div class="or-text_container"><span class="border"></span><span class="or-text"> or </span><span class="border"></span></div>
       <span class="text-color_between"> E-mail</span>
-      <input class="pup-up_cell color3" type="email">
+      <input id="Email" class="pup-up_cell color3" type="email">
     <span class="text-color_between"> Password</span>
-   <input class="pup-up_cell color3" type="password">
-    <li class="pup-up_cell color2 text-color1">Sign In</li>
+   <input id="Password" class="pup-up_cell color3" type="password">
+   <form >
+    <button formaction="#SignIn" class="pup-up_cell color2 text-color1">Sign In</button>
+  </form>
     <li class="pup-up_cell2"> Forgot Your Password?</li>
     <li class="pup-up_cell3">Don’t have an account? <b style="color: #0D606F; text-decoration-line: underline;">&nbsp; Register</b></li>
-  </ul>
+  </div>
+</ul>
+
   <!-- START HEADAR -->
   <header class="main-header" id="howItWork">
     <div class="header-container">
@@ -43,7 +50,7 @@
           <li><a href="#planYourTrip" class="nav-link" data-goto="">Plan Your Trip</a></li>
           <li><a href="#dectinations" class="nav-link">Destinations</a></li>
           <li><a href="#travelStories" class="nav-link">Travel Stories</a></li>
-          <li class="burger-navLi"><a href="#Account" class="nav-link">Account</a></li>
+          <li class="burger-navLi" id="Account"><a href="#Account" class="nav-link">Account</a></li>
           <li class="burger-navLi"><a href="#SocialMedia" class="nav-link">Social Media</a></li>
           <li></li>
         </ul>
