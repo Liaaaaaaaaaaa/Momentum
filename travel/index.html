@@ -10,25 +10,48 @@
   <title>Travel</title>
 </head>
 
+<!-- ----------Pup-up-------------- -->
 
 <body class="main-body">
 
+  <ul class="pup-up_container">
+    <div class="pup-up_list">
+    <span class="pup-up_title">Log in to your account</span>
+    <form >
+      <button formaction="#SignIn" class="pup-up_cell color1 text-color1" ><img class="img-pupUp" src="./assets/path14.svg" alt="logo-facebook" /><span> Sign In with Facebook</span></button>
+    </form>
+    <form >
+      <button formaction="#SignIn" class="pup-up_cell color3 text-color2" ><img class="img-pupUp" src="./assets/Google Logo.svg" alt="logo-google" /> <span>Sign In with Google</span></button>
+    </form>
+      <div class="or-text_container"><span class="border"></span><span class="or-text"> or </span><span class="border"></span></div>
+      <span class="text-color_between"> E-mail</span>
+      <input id="Email" class="pup-up_cell color3" type="email">
+    <span class="text-color_between"> Password</span>
+   <input id="Password" class="pup-up_cell color3" type="password">
+   <form >
+    <button formaction="#SignIn" class="pup-up_cell color2 text-color1">Sign In</button>
+  </form>
+    <li class="pup-up_cell2"> Forgot Your Password?</li>
+    <li class="pup-up_cell3">Don’t have an account? <b style="color: #0D606F; text-decoration-line: underline;">&nbsp; Register</b></li>
+  </div>
+</ul>
+
   <!-- START HEADAR -->
   <header class="main-header" id="howItWork">
-    <div class="header-container" >
+    <div class="header-container">
       <div class="logo-container">
         <img src="./assets/logo.svg" alt="Logo" class="logo-img">
         <span class="logo-text">Travel Portal</span>
       </div>
       <nav class="nav-container">
-        <img src="./assets/close-burger.svg" alt="close-burger" class="close-burger"/>
+        <img src="./assets/close-burger.svg" alt="close-burger" class="close-burger" />
         <ul class="nav-list">
           <li><a href="#howItWork" class="nav-link" data-goto="#howItWork">How It Works</a></li>
           <li><a href="#planYourTrip" class="nav-link" data-goto="">Plan Your Trip</a></li>
           <li><a href="#dectinations" class="nav-link">Destinations</a></li>
           <li><a href="#travelStories" class="nav-link">Travel Stories</a></li>
-          <li class="burger-navLi"><a href="#Account" class="nav-link">Account</a></li>
-          <li class="burger-navLi"><a href="#Social Media" class="nav-link">Social Media</a></li>
+          <li class="burger-navLi" id="Account"><a href="#Account" class="nav-link">Account</a></li>
+          <li class="burger-navLi"><a href="#SocialMedia" class="nav-link">Social Media</a></li>
           <li></li>
         </ul>
       </nav>
@@ -37,6 +60,7 @@
       </form>
       <img src="./assets/burger_menu.svg" alt="menu" class="burger-logo" />
     </div>
+
 
 
     <!-- START SECTION -->
@@ -80,11 +104,10 @@
       <div class="destinations-photo">
         <img src="./assets/Destination1.jpg" alt="Destination1" class="destination1" />
         <div class="mobile-container">
-           <img src="./assets/switch-photo2.svg" alt="switch-photo2" class="switch-photo2" />
-           <img src="./assets/Destination-mobile.jpg" alt="photo-Spain" class="destination-mobile" />
+          <img src="./assets/switch-photo2.svg" alt="switch-photo2" class="switch-photo2" />
+          <img src="./assets/Destination-mobile.jpg" alt="photo-Spain" class="destination-mobile" />
           <span class="text-destination">SPAIN</span>
           <img src="./assets/switch-photo1.svg" alt="switch-photo1" class="switch-photo1" />
-
         </div>
         <img src="./assets/Destination2.jpg" alt="Destination1" class="destination1" />
         <img src="./assets/Destination3.jpg" alt="Destination" class="destination1" />
@@ -96,16 +119,17 @@
         <span class="circle-v2"></span>
         <span class="circle-v1"></span>
       </div>
+
       <form>
         <button class="button-destination" formaction="#FindMore">
           <img src="./assets/pointer.svg" alt="pointer" class="img-button" />
           <span> Find More </span>
         </button>
-      </form >
-    </section >
+      </form>
+    </section>
 
     <section id="travelStories">
-      <h2 class="travelStories-title" >TRAVEL STORIES</h2>
+      <h2 class="travelStories-title">TRAVEL STORIES</h2>
       <div class="background2">
         <div class="containers-stories">
           <div class="container-stories">
@@ -118,7 +142,7 @@
                 velit
                 esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit...<br></p>
-                <span><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
+              <span><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
                     More</b></a></span>
             </div>
           </div>
@@ -132,7 +156,7 @@
                 velit
                 esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit...<br></p>
-                <span><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
+              <span><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
                     More</b></a></span>
             </div>
           </div>
@@ -146,7 +170,7 @@
                 velit
                 esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit...<br></p>
-                <span><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
+              <span><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
                     More</b></a></span>
             </div>
           </div>
@@ -161,7 +185,7 @@
                 velit
                 esse cillum dolore eu fugiat nulla pariatur. Lorem ipsum dolor sit amet, consectetur adipiscing
                 elit...<br></p>
-                <span><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
+              <span><a href="#10Photos" class="text-stories" style="margin-left:0px"><b>Read
                     More</b></a></span>
             </div>
           </div>
@@ -174,7 +198,7 @@
             </button>
           </form>
         </div>
-        <footer class="main-footer" id="Social Media">
+        <footer class="main-footer" id="SocialMedia">
           <p class="text-footer">All Rights Reserved © Travel Portal</p>
           <ul class="footer-list">
             <li><a href="https://github.com/Liaaaaaaaaaaa" class="footer-link"><img src="./assets/github.svg"
