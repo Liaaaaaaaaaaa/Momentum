@@ -1,10 +1,52 @@
 const burgerMenu = document.querySelector('.burger-logo');
 const burgerNav = document.querySelector('.nav-container');
 const burgerClose = document.querySelector('.close-burger');
-const pupUp = document.querySelector('.pup-up_container');
+const pupUp = document.querySelector('.pupIn');
+const pupUpUp = document.getElementById('PupUp');
 const Login = document.querySelector('.form-container');
 const SignIn = document.querySelector('button.color2');
 const Account = document.getElementById('Account');
+const Register = document.getElementById('buttonIn');
+
+if (Register) {
+  Register.addEventListener("click", function (e) {
+    // pupUp.classList.display = none;
+    pupUpUp.classList.toggle('pupUp')
+    pupUp.classList.toggle('_active');
+  });
+};
+
+function onRegisterLinkClick(e) {
+  if (pupUpUp.classList.contains('pupUp')) {
+    document.body.classList.remove('_lock');
+    pupUpUp.classList.remove('pupUp');
+  };
+};
+
+const LogIn = document.getElementById('buttonUp')
+
+if (LogIn) {
+  LogIn.addEventListener("click", function (e) {
+    // document.body.classList.toggle('_lock');
+    pupUp.classList.toggle('_active');
+    pupUpUp.classList.toggle('pupUp');
+  });
+};
+
+
+// const RegisterRoot = document.getElementById('PupUp');
+document.addEventListener('mousedown', (e) => {
+  if (!LoginRoot.contains(e.target) ) {
+    onRegisterLinkClick()
+  }
+});
+
+if (Login) {
+  Login.addEventListener("click", function (e) {
+    document.body.classList.toggle('_lock');
+    pupUp.classList.toggle('_active');
+  });
+};
 
 
 if (SignIn) {
@@ -14,13 +56,6 @@ if (SignIn) {
     let a = document.getElementById('Email').innerHTML = "E-mail: " + val;
     let b = document.getElementById('Password').innerHTML = "Password: " + vali;
     alert(a + " \n" + b);
-  });
-};
-
-if (Login) {
-  Login.addEventListener("click", function (e) {
-    document.body.classList.toggle('_lock');
-    pupUp.classList.toggle('_active');
   });
 };
 
@@ -35,14 +70,21 @@ function onLoginLinkClick(e) {
   if (pupUp.classList.contains('_active')) {
     document.body.classList.remove('_lock');
     pupUp.classList.remove('_active');
-  };
-};
-
+  pupUpUp.classList.remove('pupUp');
+  }
+//  else (pupUpUp.classList.contains('pupUp')) {
+  //   document.body.classList.remove('_lock');
+  //   pupUp.classList.remove('_active');
+  // pupUpUp.classList.remove('pupUp');;
+    // document.body.classList.remove('_lock');
+// };
+}
 
 const LoginRoot = document.querySelector('div.pup-up_list');
 document.addEventListener('mousedown', (e) => {
-  if (!LoginRoot.contains(e.target)) {
-    onLoginLinkClick()
+  if (!LoginRoot.contains(e.target) ) {
+    onLoginLinkClick();
+    // onRegisterLinkClick()&& !RegisterRoot.contains(e.target )
   }
 });
 
