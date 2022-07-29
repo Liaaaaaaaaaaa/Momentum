@@ -10,11 +10,11 @@
   <title>Travel</title>
 </head>
 
-<!-- ----------Pup-up-------------- -->
+<!-- ----------Pup-up Sign in-------------- -->
 
 <body class="main-body">
 
-  <ul class="pup-up_container">
+  <ul class="pup-up_container pupIn" ">
     <div class="pup-up_list">
       <span class="pup-up_title">Log in to your account</span>
       <form>
@@ -35,8 +35,30 @@
         <button formaction="#SignIn" class="pup-up_cell color2 text-color1">Sign In</button>
       </form>
       <li class="pup-up_cell2"> Forgot Your Password?</li>
-      <li class="pup-up_cell3">Don’t have an account? <b style="color: #0D606F; text-decoration-line: underline;">&nbsp;
-          Register</b></li>
+      <li class="pup-up_cell3">Don’t have an account?
+        <form>
+          <button class="button-register pup-up_cell3 "  id="buttonIn"><b> Register</b></button>
+        </form></li>
+    </div>
+  </ul>
+
+  <!-- ----------Pup-up Sign Up-------------- -->
+  <ul class="pup-up_container"  id="PupUp">
+    <!-- style="top: -18px; " -->
+    <div class="pup-up_list">
+      <span class="pup-up_title">Create account</span>
+      <span class="text-color_between"> E-mail</span>
+      <input id="Email" class="pup-up_cell color3" type="email">
+      <span class="text-color_between"> Password</span>
+      <input id="Password" class="pup-up_cell color3" type="password">
+      <form>
+        <button formaction="#SignIn" class="pup-up_cell color2 text-color1">Sign Up</button>
+      </form>
+      <!-- <li class="pup-up_cell2"> Forgot Your Password?</li> -->
+      <li class="pup-up_cell3">Already have an account?
+        <form>
+          <button class="button-register pup-up_cell3 " id="buttonUp"><b> Log in</b></button>
+        </form></li>
     </div>
   </ul>
 
