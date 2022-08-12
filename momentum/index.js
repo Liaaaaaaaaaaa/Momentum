@@ -1,4 +1,4 @@
-// Смена фонового изображения +20
+// ---------Смена фонового изображения +20---------------------------------
 const imagesMorning = [
     'https://raw.githubusercontent.com/Liaaaaaaaaaaa/stage1-tasks/assets/images/morning/01.jpg',
     'https://raw.githubusercontent.com/Liaaaaaaaaaaa/stage1-tasks/assets/images/morning/02.jpg',
@@ -95,13 +95,11 @@ function timeOfDay() {
     if (time >= 0 && time < 6) return imagesNight;
     if (time >= 6 && time < 12) return imagesMorning;
     if (time >= 12 && time < 18) return imagesAfternoon;
-    if (time >= 18 ) return imagesEvening
+    if (time >= 18) return imagesEvening
 };
 
 // console.log(time);
-
 // setInterval("viewImages()", 1000);
-
 // console.log(timeOfDay());
 
 function mixImage(arr) {
@@ -132,36 +130,79 @@ let imgNumberNow = imgNumber();
 // console.log (timeOfDayNow);
 // console.log(timeOfDayNow[imgNumberNow]);
 
-
 const slidePrev = document.querySelector('.slide-prev');
 const slideNext = document.querySelector('.slide-next');
 
-function SwitchPrev () {
-    if (imgNumberNow === 1 ) {
-        document.body.style.background = 'url("' + timeOfDayNow[19]+ '")';
+function SwitchPrev() {
+    if (imgNumberNow === 1) {
+        document.body.style.background = 'url("' + timeOfDayNow[19] + '")';
         imgNumberNow = 20;
     }
-     else { 
-        document.body.style.background = 'url("' + timeOfDayNow[imgNumberNow -2] + '")';
-        imgNumberNow = imgNumberNow-1
+    else {
+        document.body.style.background = 'url("' + timeOfDayNow[imgNumberNow - 2] + '")';
+        imgNumberNow = imgNumberNow - 1
     }
-} ;
+};
 
 
-     slidePrev.onclick = SwitchPrev;
+slidePrev.onclick = SwitchPrev;
 
- 
-function SwitchNext () {
-    if (imgNumberNow === 20 ) {
-        document.body.style.background = 'url("' + timeOfDayNow[0]+ '")';
+
+function SwitchNext() {
+    if (imgNumberNow === 20) {
+        document.body.style.background = 'url("' + timeOfDayNow[0] + '")';
         imgNumberNow = 1;
     }
-     else { 
-        document.body.style.background = 'url("' + timeOfDayNow[imgNumberNow ] + '")';
+    else {
+        document.body.style.background = 'url("' + timeOfDayNow[imgNumberNow] + '")';
         imgNumberNow++
     }
-} ;
+};
 
 
-     slideNext.onclick = SwitchNext;
+slideNext.onclick = SwitchNext;
+
+
+// -----------------Clock and Calendar -----------------------------
+
+const times = document.querySelector('.time');
+const dates = document.querySelector('.date');
+
+function zero_first_format(value) {
+    if (value < 10) {
+        value = '0' + value;
+    }
+    return value;
+}
+
+function timeNow() {
+    let current_datetime = new Date();
+    let hours = zero_first_format(current_datetime.getHours());
+    let minutes = zero_first_format(current_datetime.getMinutes());
+    let seconds = zero_first_format(current_datetime.getSeconds());
+
+    
+    return hours + ":" + minutes + ":" + seconds;
+}
+    
+    setInterval(function () {
+        times.innerText = timeNow();
+    }, 1000);
+
+    function dateNow() {
+        let current_datetime = new Date();
+        let day = current_datetime.getDay();
+        let dayM = zero_first_format(current_datetime.getDate());
+        let month = current_datetime.getMonth();
+        
+        const dayMassiv = ['Воскресенье', 'Понедельник', 'Вторник' , 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+        const monthMassiv = ['Январь', 'Февраль', 'Март' , 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+        return dayMassiv[day] + "," + dayM + " " + monthMassiv[month];
+        
+    }
+
+    dates.innerText = dateNow();
+
+      
+      
 
