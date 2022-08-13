@@ -233,4 +233,64 @@ inputNames.oninput = function(){
     localStorage.setItem('.name', value);
 }
 
+// ------------Quotes----------------------------------------------
+let quotes = [
+    {
+        "quote": "Грехи других судить Вы так усердно рветесь, начните со своих и до чужих не доберетесь",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Влюбиться можно в красоту, но полюбить – лишь только душу!",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Ничего само по себе не хорошо или плохо, это лишь то, как человек об этом думает",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Наши сомнения — это наши предатели. Они заставляют нас терять то, что мы возможно могли бы выиграть, если бы не боялись попробовать",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Во всяком деле, чтобы добиться успеха, нужна некоторая доля безумия",
+        "author": "Уильям Шекспир"
+    },
+];
+
+// console.log(quotes[1])
+
+// let quotes = JSON.parse (quotes);
+let quote = document.querySelector('.quote');
+let author = document.querySelector('.author');
+
+// console.log(quotes);
+
+  let random = Math.floor(Math.random() * quotes.length); 
+  console.log(random);
+function randomQuote() {
+  quote.innerText = quotes[random].quote;
+author.innerText = quotes[random].author;
+if (random === quotes.length -1) {
+    random = 0; 
+} else {
+    random++
+}
+  };
+	
+randomQuote();
+
+const changeQuote = document.querySelector('.change-quote');
+
+// changeQuote.addEventListener("click", randomQuote);
+
+if (changeQuote) {
+    changeQuote.addEventListener("click", randomQuote);
+  };
+
+  
+  // -----Weather ------------------------------------------------
+
+
+
+
 
