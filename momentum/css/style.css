@@ -261,11 +261,11 @@ body {
 }
 
 .quote {
-  min-height: 32px;
+  min-height: 36px;
 }
 
 .author {
-  min-height: 20px;
+  min-height: 30px;
 }
 
 @media (max-width: 768px) {

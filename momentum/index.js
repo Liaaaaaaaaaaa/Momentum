@@ -180,58 +180,64 @@ function timeNow() {
     let hours = zero_first_format(current_datetime.getHours());
     let minutes = zero_first_format(current_datetime.getMinutes());
     let seconds = zero_first_format(current_datetime.getSeconds());
-
-    
     return hours + ":" + minutes + ":" + seconds;
 }
-    
-    setInterval(function () {
-        times.innerText = timeNow();
-    }, 1000);
 
-    function dateNow() {
-        let current_datetime = new Date();
-        let day = current_datetime.getDay();
-        let dayM = zero_first_format(current_datetime.getDate());
-        let month = current_datetime.getMonth();
-        
-        const dayMassiv = ['Воскресенье', 'Понедельник', 'Вторник' , 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-        const monthMassiv = ['Января', 'Февраля', 'Марта' , 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
-        return dayMassiv[day] + "," + dayM + " " + monthMassiv[month];
-        
-    }
-
+setInterval(function () {
+    times.innerText = timeNow();
+    greeting.innerText = greetingTime();
     dates.innerText = dateNow();
+}, 1000);
+
+function dateNow() {
+    let current_datetime = new Date();
+    let day = current_datetime.getDay();
+    let dayM = zero_first_format(current_datetime.getDate());
+    let month = current_datetime.getMonth();
+
+    const dayMassiv = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    const monthMassiv = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+    return dayMassiv[day] + "," + dayM + " " + monthMassiv[month];
+
+}
+
+dates.innerText = dateNow();
 
 //----------Greetings-----------------------------------------------
+
 const greeting = document.querySelector('.greeting');
 
 function greetingTime() {
-    if (timeOfDayNow === imagesMorning ) {
+    if (timeOfDayNow === imagesMorning) {
         return 'Доброе утро';
     }
-    if (timeOfDayNow === imagesAfternoon ) {
+    if (timeOfDayNow === imagesAfternoon) {
         return 'Добрый день';
     }
-    if (timeOfDayNow === imagesEvening ) {
-       return 'Добрый вечер';
+    if (timeOfDayNow === imagesEvening) {
+        return 'Добрый вечер';
     }
-    if (timeOfDayNow === imagesNight ) {
+    if (timeOfDayNow === imagesNight) {
         return 'Доброй ночи';
     }
 };
+
 greeting.innerText = greetingTime();
 
 let inputNames = document.querySelector('.name');
 
+
 window.onload = () => {
     inputNames.value = localStorage.getItem('.name');
+    city.value = localStorage.getItem('.city');
 }
 
-inputNames.oninput = function(){
+inputNames.oninput = function () {
     let value = this.value;
     localStorage.setItem('.name', value);
 }
+
+
 
 // ------------Quotes----------------------------------------------
 let quotes = [
@@ -265,18 +271,18 @@ let author = document.querySelector('.author');
 
 // console.log(quotes);
 
-  let random = Math.floor(Math.random() * quotes.length); 
-  console.log(random);
+let random = Math.floor(Math.random() * quotes.length);
+console.log(random);
 function randomQuote() {
-  quote.innerText = quotes[random].quote;
-author.innerText = quotes[random].author;
-if (random === quotes.length -1) {
-    random = 0; 
-} else {
-    random++
-}
-  };
-	
+    quote.innerText = quotes[random].quote;
+    author.innerText = quotes[random].author;
+    if (random === quotes.length - 1) {
+        random = 0;
+    } else {
+        random++
+    }
+};
+
 randomQuote();
 
 const changeQuote = document.querySelector('.change-quote');
@@ -285,12 +291,36 @@ const changeQuote = document.querySelector('.change-quote');
 
 if (changeQuote) {
     changeQuote.addEventListener("click", randomQuote);
-  };
-
-  
-  // -----Weather ------------------------------------------------
+};
 
 
+// -----Weather ------------------------------------------------
 
+fetch('https://api.openweathermap.org/data/2.5/weather?id=625144&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
+    // console.log(data);
+    city.textContent = data.name;
+    // console.log(data.name)
+    document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
+    document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
+    document.querySelector('.weather-description').textContent = data.weather[0]['description'];
+    document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
+    document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
+})
+    // .catch(function () {
+        
+    // });
+    .catch(error => {
+        console.log(error)
+    });
+        
 
+let city = document.querySelector('.city');
 
+city.oninput = function () {
+    let value = this.value;
+    localStorage.setItem('.city', value);
+};
+
+// https://openweathermap.org/city/625144
+// 'https://api.openweathermap.org/data/2.5/weather?id=625144&appid=34924d29b902927c46d4b8ec90a661b7'
+// https://api.openweathermap.org/data/2.5/weather?lat=53.9&lon=27.5667&appid=34924d29b902927c46d4b8ec90a661b7
