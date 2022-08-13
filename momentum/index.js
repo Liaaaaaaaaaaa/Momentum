@@ -196,13 +196,41 @@ function timeNow() {
         let month = current_datetime.getMonth();
         
         const dayMassiv = ['Воскресенье', 'Понедельник', 'Вторник' , 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-        const monthMassiv = ['Январь', 'Февраль', 'Март' , 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'];
+        const monthMassiv = ['Января', 'Февраля', 'Марта' , 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
         return dayMassiv[day] + "," + dayM + " " + monthMassiv[month];
         
     }
 
     dates.innerText = dateNow();
 
-      
-      
+//----------Greetings-----------------------------------------------
+const greeting = document.querySelector('.greeting');
+
+function greetingTime() {
+    if (timeOfDayNow === imagesMorning ) {
+        return 'Доброе утро';
+    }
+    if (timeOfDayNow === imagesAfternoon ) {
+        return 'Добрый день';
+    }
+    if (timeOfDayNow === imagesEvening ) {
+       return 'Добрый вечер';
+    }
+    if (timeOfDayNow === imagesNight ) {
+        return 'Доброй ночи';
+    }
+};
+greeting.innerText = greetingTime();
+
+let inputNames = document.querySelector('.name');
+
+window.onload = () => {
+    inputNames.value = localStorage.getItem('.name');
+}
+
+inputNames.oninput = function(){
+    let value = this.value;
+    localStorage.setItem('.name', value);
+}
+
 
