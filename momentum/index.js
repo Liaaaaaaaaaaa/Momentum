@@ -230,6 +230,7 @@ let inputNames = document.querySelector('.name');
 window.onload = () => {
     inputNames.value = localStorage.getItem('.name');
     city.value = localStorage.getItem('.city');
+    treck = 0;
 }
 
 inputNames.oninput = function () {
@@ -296,31 +297,130 @@ if (changeQuote) {
 
 // -----Weather ------------------------------------------------
 
-fetch('https://api.openweathermap.org/data/2.5/weather?id=625144&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
-    // console.log(data);
-    city.textContent = data.name;
-    // console.log(data.name)
-    document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
-    document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
-    document.querySelector('.weather-description').textContent = data.weather[0]['description'];
-    document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
-    document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
-})
-    // .catch(function () {
-        
-    // });
-    .catch(error => {
-        console.log(error)
-    });
-        
-
-let city = document.querySelector('.city');
-
-city.oninput = function () {
-    let value = this.value;
-    localStorage.setItem('.city', value);
-};
-
 // https://openweathermap.org/city/625144
 // 'https://api.openweathermap.org/data/2.5/weather?id=625144&appid=34924d29b902927c46d4b8ec90a661b7'
 // https://api.openweathermap.org/data/2.5/weather?lat=53.9&lon=27.5667&appid=34924d29b902927c46d4b8ec90a661b7
+
+// https://openweathermap.org/find?q=Minsk
+// https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
+// id=625143
+// https://api.openweathermap.org/data/2.5/weather?q=Минск&appid=34924d29b902927c46d4b8ec90a661b7
+let city = document.querySelector('.city');
+city.value = 'Minsk';
+let link = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.value + '&appid=34924d29b902927c46d4b8ec90a661b7';
+
+
+function weather() {
+    fetch(link).then(function (resp) { return resp.json() }).then(function (data) {
+        console.log(data);
+        city.value.textContent = data.name;
+        // console.log(data.name)
+        document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
+        document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
+        document.querySelector('.weather-description').textContent = data.weather[0]['description'];
+        document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
+        document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
+    })
+    //    catch (error) {
+    //     console.log(error)} 
+    // } 
+};
+
+weather();
+
+
+console.log(city);
+
+
+city.oninput = function () {
+    value = this.value;
+    localStorage.setItem('.city', value);
+    weather();
+};
+
+if (localStorage.getItem('city')) {
+    city.value = localStorage.getItem('city');
+}
+
+console.log(link);
+
+// -------Audioplayer--------------------------------
+
+let audio = document.getElementById("audio");
+let btnPlay = document.querySelector(".play");
+let btnPrev = document.querySelector(".play-prev");
+let btnNext = document.querySelector(".play-next");
+
+document.querySelector('.song0').classList.toggle('activeSong');
+let activeSong = document.querySelector(".activeSong");
+
+let playlist = [
+    'Bob Dylan — Knockin On Heavens Door.mp3',
+    'Kansas — Carry On Wayward Son.mp3',
+    'The Cranberries — Zombie.mp3',
+];
+
+let treck;
+
+function switchTreck(numTreck) {
+    audio.src = './soungs/' + playlist[numTreck];
+    audio.currentTime = 0;
+    audio.play();
+};
+
+btnPlay.addEventListener("click", function () {
+    if (btnPlay.classList.contains('activePlay')) {
+        audio.play();
+        btnPlay.classList.toggle('activePlay')
+        btnPlay.classList.add('pause');
+    } else {
+        btnPlay.classList.remove('pause');
+        audio.pause();
+        btnPlay.classList.toggle('activePlay')
+    };
+
+    audioPlay = setInterval(function () {
+        let audioTime = Math.round(audio.currentTime);
+        let audioLength = Math.round(audio.duration);
+        if (audioTime === audioLength && treck < 2) {
+            document.querySelector('.song' + treck).classList.toggle('activeSong');
+            document.querySelector('.song' + (treck + 1)).classList.toggle('activeSong');
+            treck++;
+            switchTreck(treck);
+        } else if (audioTime === audioLength && treck >= 2) {
+            document.querySelector('.song2').classList.remove('activeSong');
+            document.querySelector('.song0').classList.add('activeSong');
+            treck = 0;
+            switchTreck(treck);
+        }
+    }, 10)
+})
+
+btnPrev.addEventListener("click", function () {
+    if (treck > 0) {
+        document.querySelector('.song' + treck).classList.toggle('activeSong');
+        document.querySelector('.song' + (treck - 1)).classList.toggle('activeSong');
+        treck--;
+        switchTreck(treck); 
+    } else { 
+        treck = 2; 
+        document.querySelector('.song0').classList.remove('activeSong');
+        document.querySelector('.song2').classList.add('activeSong');
+        switchTreck(treck); 
+    }
+});
+
+btnNext.addEventListener("click", function () {
+    if (treck < 2) {
+        document.querySelector('.song' + treck).classList.toggle('activeSong');
+        document.querySelector('.song' + (treck + 1)).classList.toggle('activeSong');
+        treck++; 
+        switchTreck(treck); 
+    } else { 
+        document.querySelector('.song2').classList.remove('activeSong');
+        document.querySelector('.song0').classList.add('activeSong');
+        treck = 0; 
+        switchTreck(treck);
+    }
+});
+

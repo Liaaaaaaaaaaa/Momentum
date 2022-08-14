@@ -10,16 +10,23 @@
 </head>
 <body>
   <header class="header">
+    <audio id="audio" src="./soungs/Bob Dylan — Knockin On Heavens Door.mp3" ></audio>
     <div class="player">
       <div class="player-controls">
         <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
+        <button class="play player-icon activePlay"></button>
         <button class="play-next player-icon"></button>
       </div>
-      <ul class="play-list"></ul>
+      <ul class="play-list"> 
+        <li class="song0"> Bob Dylan — Knockin On Heavens Door</li>
+        <li class="song1"> Kansas — Carry On Wayward Son</li>
+        <li class="song2"> The Cranberries — Zombie</li>
+        </ul>
     </div>
-    <div class="weather">
-      <input type="text" class="city" placeholder="Минск" />
+ 
+    <div class="weather"> 
+      <input type="text" class="city" placeholder= "Минск" />
+      <!-- value= "Минск"  -->
       <i class="weather-icon owf"></i>
       <div class="weather-error"></div>
       <div class="description-container">

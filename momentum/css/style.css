@@ -43,6 +43,11 @@ body {
 
 .play-list {
   text-align: left;
+  list-style: none;
+}
+
+.activeSong {
+  color: #0324a8;
 }
 
 .play-item {
