@@ -231,6 +231,7 @@ window.onload = () => {
     inputNames.value = localStorage.getItem('.name');
     city.value = localStorage.getItem('.city');
     treck = 0;
+    weather(city.value)
 }
 
 inputNames.oninput = function () {
@@ -274,7 +275,7 @@ let author = document.querySelector('.author');
 
 let random = Math.floor(Math.random() * quotes.length);
 console.log(random);
-function randomQuote() {
+async function randomQuote() {
     quote.innerText = quotes[random].quote;
     author.innerText = quotes[random].author;
     if (random === quotes.length - 1) {
@@ -305,28 +306,78 @@ if (changeQuote) {
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 // id=625143
 // https://api.openweathermap.org/data/2.5/weather?q=Минск&appid=34924d29b902927c46d4b8ec90a661b7
+function translit(word) {
+    let answer = '';
+    let converter = {
+        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+        'е': 'e', 'ё': 'e', 'ж': 'zh', 'з': 'z', 'и': 'i',
+        'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+        'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+        'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch',
+        'ш': 'sh', 'щ': 'sch', 'ь': '', 'ы': 'y', 'ъ': '',
+        'э': 'e', 'ю': 'yu', 'я': 'ya',
+
+        'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
+        'Е': 'E', 'Ё': 'E', 'Ж': 'Zh', 'З': 'Z', 'И': 'I',
+        'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N',
+        'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T',
+        'У': 'U', 'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'Ch',
+        'Ш': 'Sh', 'Щ': 'Sch', 'Ь': '', 'Ы': 'Y', 'Ъ': '',
+        'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya', '': ' '
+    };
+
+    for (let i = 0; i < word.length; ++i) {
+        if (converter[word[i]] == undefined) {
+            answer += word[i];
+        } else {
+            answer += converter[word[i]];
+        }
+    }
+
+    return answer.trim();
+}
+
+
+
 let city = document.querySelector('.city');
-city.value = 'Minsk';
-let link = 'https://api.openweathermap.org/data/2.5/weather?q=' + city.value + '&appid=34924d29b902927c46d4b8ec90a661b7';
+// let value = 'Mинск';
 
 
-function weather() {
-    fetch(link).then(function (resp) { return resp.json() }).then(function (data) {
-        console.log(data);
-        city.value.textContent = data.name;
-        // console.log(data.name)
-        document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
-        document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
-        document.querySelector('.weather-description').textContent = data.weather[0]['description'];
-        document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
-        document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
-    })
-    //    catch (error) {
-    //     console.log(error)} 
-    // } 
+
+async function weather(value) {
+    try {
+        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
+
+            console.log(data);
+            console.log(translit(value));
+
+            value.textContent = data.name;
+
+            document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
+            document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
+            document.querySelector('.weather-description').textContent = data.weather[0]['description'];
+            document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
+            document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
+        })
+
+    }
+
+
+    // if (console.log(error)) {
+    // return  document.querySelector('.weather-icon').innerHTML = 'Error! Город не найден!'
+    // }
+
+    catch (error) {
+        console.log(error);
+        document.querySelector('.weather-icon').innerHTML = 'Ошибка! Город не найден!'
+
+    }
 };
 
-weather();
+
+weather('Минск');
+
+
 
 
 console.log(city);
@@ -335,14 +386,17 @@ console.log(city);
 city.oninput = function () {
     value = this.value;
     localStorage.setItem('.city', value);
-    weather();
+    weather(value);
+
 };
+
 
 if (localStorage.getItem('city')) {
     city.value = localStorage.getItem('city');
+    weather(city.value);
 }
 
-console.log(link);
+// console.log(link);
 
 // -------Audioplayer--------------------------------
 
@@ -401,12 +455,12 @@ btnPrev.addEventListener("click", function () {
         document.querySelector('.song' + treck).classList.toggle('activeSong');
         document.querySelector('.song' + (treck - 1)).classList.toggle('activeSong');
         treck--;
-        switchTreck(treck); 
-    } else { 
-        treck = 2; 
+        switchTreck(treck);
+    } else {
+        treck = 2;
         document.querySelector('.song0').classList.remove('activeSong');
         document.querySelector('.song2').classList.add('activeSong');
-        switchTreck(treck); 
+        switchTreck(treck);
     }
 });
 
@@ -414,12 +468,12 @@ btnNext.addEventListener("click", function () {
     if (treck < 2) {
         document.querySelector('.song' + treck).classList.toggle('activeSong');
         document.querySelector('.song' + (treck + 1)).classList.toggle('activeSong');
-        treck++; 
-        switchTreck(treck); 
-    } else { 
+        treck++;
+        switchTreck(treck);
+    } else {
         document.querySelector('.song2').classList.remove('activeSong');
         document.querySelector('.song0').classList.add('activeSong');
-        treck = 0; 
+        treck = 0;
         switchTreck(treck);
     }
 });
