@@ -226,25 +226,38 @@ greeting.innerText = greetingTime();
 
 let inputNames = document.querySelector('.name');
 
-
-window.onload = () => {
-    inputNames.value = localStorage.getItem('.name');
-    city.value = localStorage.getItem('.city');
-    treck = 0;
-    weather(city.value)
-}
-
 inputNames.oninput = function () {
     let value = this.value;
     localStorage.setItem('.name', value);
 }
+
+// window.pageshow = () => {
+    
+//     weather();
+   
+    
+// }
+
+ 
+window.onload = () => {
+    //   weather('Минск');
+      // value.innerText = 'Минск';
+    inputNames.value = localStorage.getItem('.name');
+    //   weather(city.value);
+    value = localStorage.getItem('.city');
+     city.value = localStorage.getItem('.city');
+   weather(value); 
+    treck = 0;
+    
+}
+
 
 
 
 // ------------Quotes----------------------------------------------
 let quotes = [
     {
-        "quote": "Грехи других судить Вы так усердно рветесь, начните со своих и до чужих не доберетесь",
+        "quote": "Грехи других судить Вы так усердно рветесь, начните со своих и до чужих не доберетесь. Генрих VI",
         "author": "Уильям Шекспир"
     },
     {
@@ -256,11 +269,173 @@ let quotes = [
         "author": "Уильям Шекспир"
     },
     {
-        "quote": "Наши сомнения — это наши предатели. Они заставляют нас терять то, что мы возможно могли бы выиграть, если бы не боялись попробовать",
+        "quote": "Наши сомнения — это наши предатели. Они заставляют нас терять то, что мы возможно могли бы выиграть, если бы не боялись попробовать. Мера за меру",
         "author": "Уильям Шекспир"
     },
     {
         "quote": "Во всяком деле, чтобы добиться успеха, нужна некоторая доля безумия",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Что значит имя? Роза пахнет розой, хоть розой назови ее, хоть нет. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Лживое лицо скроет все, что задумало коварное сердце. Макбет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Тогда лишь двое тайну соблюдают, когда один из них её не знает. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Одним взглядом можно убить любовь, одним же взглядом можно воскресить ее. Венера и Адонис",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Совсем не знак бездушья — молчаливость. Гремит лишь то, что пусто изнутри. Король Лир",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Можно улыбаться, улыбаться и быть подлецом. (Можно жить с улыбкой и с улыбкой быть подлецом…). Гамлет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Я смею всё, что можно человеку, кто смеет больше, тот не человек! Макбет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Так сладок мёд, что, наконец, он горек. Избыток вкуса убивает вкус. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Имей больше, чем показываешь. Говори меньше, чем знаешь.Король Лир",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Во всяком деле, чтобы добиться успеха, нужна некоторая доля безумия",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Искать того напрасно, кто не желает, чтоб его нашли.(Зачем искать того, кто найден быть не хочет?) Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Вбирай все мненья, но храни своё. Гамлет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Тогда лишь двое тайну соблюдают, когда один из них её не знает.",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Все влюбленные клянутся исполнить больше, чем могут, и не исполняют даже возможного. Троил и Крессида",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Быть иль не быть — вот в чем вопрос. Гамлет",
+        "author": "Уильям Шекспир"
+    },
+
+    {
+        "quote": "Любовь бежит от тех, кто гонится за нею, а тем, кто прочь бежит, кидается на шею. Виндзорские насмешницы",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Как можешь ты судить о том, чего не знаешь?. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Когда пылает кровь, как щедр язык на клятвы! Гамлет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Только настоящий друг может терпеть слабости своего друга.Юлий Цезарь",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Любовь юнцов не в душах, а в глазах. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Чтобы поймать счастье, надо уметь бегать. Король Лир",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "... Быть может, твой единственный алмаз простым стеклом окажется на глаз. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "У бурных чувств неистовый конец, он совпадает с мнимой их победой, разрывом слиты порох и огонь. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Из женщины не трудно сделать дуру, когда она боится дать отпор! Укрощение строптивой",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "... Не будь ни расточителем, ни скрягой: лишь в чувстве меры истинное благо. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Живи пока ты жив, приятель...Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Весь мир — театр. В нем женщины, мужчины — все актеры. У них свои есть выходы, уходы, и каждый не одну играет роль. Как вам это понравится",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Подарок нам не мил, когда разлюбит тот, кто подарил. Гамлет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "А впрочем, что ж, на свете нет чудес: как волка ни корми, он смотрит в лес. Гамлет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Стремясь к лучшему, мы часто портим хорошее. Король Лир",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Как часто нас спасала слепота, где дальновидность только подводила. Гамлет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Любовь нежна? Она груба и зла. И колется, и жжётся, как терновник. Ромео и Джульетта",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Слова — всегда слова. Отелло",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Стал мир невыносим. с тех пор, как лесть учтивостью назвали. Двенадцатая ночь, или что угодно",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Быть честным — по нашим временам значит быть единственным из десяти тысяч. Гамлет",
+        "author": "Уильям Шекспир"
+    },
+
+    {
+        "quote": "Лучше опасаться без меры, чем без меры доверять. От бед спасает только осторожность. Король Лир",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "В уме нечутком не место шуткам. Гамлет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Есть многое на свете, друг Горацио, что и не снилось нашим мудрецам. Гамлет",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Напрасно думать, будто резкий тон есть признак прямодушия и силы. Король Генрих IV",
+        "author": "Уильям Шекспир"
+    },
+    {
+        "quote": "Слыхали так, услышали вы плохо! Зовусь я Катарина.... и всем известен злой ее язык",
         "author": "Уильям Шекспир"
     },
 ];
@@ -306,6 +481,7 @@ if (changeQuote) {
 // https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
 // id=625143
 // https://api.openweathermap.org/data/2.5/weather?q=Минск&appid=34924d29b902927c46d4b8ec90a661b7
+
 function translit(word) {
     let answer = '';
     let converter = {
@@ -340,42 +516,40 @@ function translit(word) {
 
 
 let city = document.querySelector('.city');
+
 // let value = 'Mинск';
 
 
-
 async function weather(value) {
-    try {
-        fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
 
-            console.log(data);
-            console.log(translit(value));
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
 
-            value.textContent = data.name;
+        console.log(data);
+        console.log(translit(value));
 
+        value.textContent = data.name;
+
+        try {
             document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
             document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
             document.querySelector('.weather-description').textContent = data.weather[0]['description'];
             document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
             document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
-        })
-
-    }
-
-
-    // if (console.log(error)) {
-    // return  document.querySelector('.weather-icon').innerHTML = 'Error! Город не найден!'
-    // }
-
-    catch (error) {
-        console.log(error);
-        document.querySelector('.weather-icon').innerHTML = 'Ошибка! Город не найден!'
-
-    }
+        }
+        catch (error) {
+            console.log(error);
+            document.querySelector('.weather-icon').innerHTML = 'Ошибка! Город не найден!';
+            document.querySelector('.temperature').innerHTML = '';
+            document.querySelector('.weather-description').textContent = '';
+            document.querySelector('.wind ').textContent = '';
+            document.querySelector('.humidity').textContent = '';
+        }
+    })
 };
 
 
-weather('Минск');
+
+weather('Mинск');
 
 
 
@@ -396,7 +570,6 @@ if (localStorage.getItem('city')) {
     weather(city.value);
 }
 
-// console.log(link);
 
 // -------Audioplayer--------------------------------
 
