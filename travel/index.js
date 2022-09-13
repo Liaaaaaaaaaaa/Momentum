@@ -138,10 +138,13 @@ document.querySelector('.destination3').addEventListener('click', function () {
     offset = -800;
     circle2.classList.toggle('_circle-activ');
     circle3.classList.remove('_circle-activ');
+
   }
   sliderLine.style.left = offset + 'px';
   circle2.classList.remove('_circle-activ');
-  circle3.classList.toggle('_circle-activ')
+  circle3.classList.toggle('_circle-activ');
+
+  // document.querySelector('.destination1').style.marginRight = '-1000px';
 });
 
 document.querySelector('.destination1').addEventListener('click', function () {
@@ -153,7 +156,8 @@ document.querySelector('.destination1').addEventListener('click', function () {
   }
   sliderLine.style.left = offset + 'px';
   circle2.classList.remove('_circle-activ');
-  circle1.classList.toggle('_circle-activ')
+  circle1.classList.toggle('_circle-activ');
+  // document.querySelector('.destination3').style.marginLeft = '-2600px';
 });
 
 document.querySelector('.destination2').addEventListener('click', function () {
@@ -162,6 +166,7 @@ document.querySelector('.destination2').addEventListener('click', function () {
   circle1.classList.remove('_circle-activ');
   circle3.classList.remove('_circle-activ');
     circle2.classList.add('_circle-activ');
+    document.querySelector('.destination3').style.marginLeft = '0px';
 });
 
 let offsetMob = -70;
