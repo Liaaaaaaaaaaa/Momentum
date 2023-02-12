@@ -109,7 +109,7 @@ function mixImage(arr) {
 
 let imgUrl = mixImage(timeOfDay());
 
-document.body.style.background = 'url("' + imgUrl[1] + '")';
+document.body.style.background = 'center/100% url("' + imgUrl[1] + '")';
 
 function imgNumber() {
     if (timeOfDay() === imagesAfternoon) {
