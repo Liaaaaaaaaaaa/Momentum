@@ -109,7 +109,7 @@ function mixImage(arr) {
 
 let imgUrl = mixImage(timeOfDay());
 
-document.body.style.background = 'url("' + imgUrl[1] + '")';
+document.body.style.background = 'center/100% url("' + imgUrl[1] + '")';
 
 function imgNumber() {
     if (timeOfDay() === imagesAfternoon) {
@@ -163,7 +163,7 @@ function SwitchNext() {
 slideNext.onclick = SwitchNext;
 
 
-// -----------------Clock and Calendar -----------------------------
+// -----------------Clock and Calendar ------------------
 
 const times = document.querySelector('.time');
 const dates = document.querySelector('.date');
@@ -410,7 +410,7 @@ let quotes = [
         "author": "Уильям Шекспир"
     },
     {
-        "quote": "Стал мир невыносим. с тех пор, как лесть учтивостью назвали. Двенадцатая ночь, или что угодно",
+        "quote": "Стал мир невыносим, c тех пор, как лесть учтивостью назвали. Двенадцатая ночь, или что угодно",
         "author": "Уильям Шекспир"
     },
     {
