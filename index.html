@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="assets/favicon.ico" rel="shortcut icon" />
+  <link rel="stylesheet" href="css/owfont-regular.css" />
+  <link rel="stylesheet" href="css/style.css" />
+  <title>momentum</title>
+</head>
+
+<body>
+  <header class="header">
+
+    <div class="player">
+      <audio id="audio" src="./soungs/Bob Dylan — Knockin On Heavens Door.mp3" type="audio/mp3"
+        preload="metadata"></audio>
+      <!-- controls  -->
+
+      <p class="nameTrack">Bob Dylan — Knockin On Heavens Door</p>
+
+      <!-- <progress class="audio__progress" min="0" max="100" value="0"></progress> -->
+      <div class="countainer___lenght">
+        <input type="range" name="audio-progress" class="audio__progress" min="0" max="100" value="0">
+        <span>
+          <span class="now__length">0:00</span>
+          <span class="all__length"> / 0:29</span>
+
+        </span>
+
+      </div>
+
+
+      <div class="player-controls">
+        <div class="player__butons">
+          <button class="play-prev player-icon"></button>
+          <button class="play player-icon activePlay"></button>
+          <button class="play-next player-icon"></button>
+        </div>
+        <div class="mutedSound">
+          <button class="img__sound"></button>
+          <input type="range" name="muted__progress" class="muted__progress" min="0" max="100" value="50">
+        </div>
+
+      </div>
+
+      <ul class="play-list">
+        <div class="container__soung">
+          <li class="song0">Bob Dylan — Knockin On Heavens Door</li>
+          <button class="play player-icon activePlay"></button>
+        </div>
+        <div class="container__soung">
+          <li class="song1">Kansas — Carry On Wayward Son</li>
+          <button class="play player-icon activePlay"></button>
+        </div>
+        <div class="container__soung">
+          <li class="song2">The Cranberries — Zombie</li>
+          <button class="play player-icon activePlay"></button>
+        </div>
+
+
+      </ul>
+
+    </div>
+
+    <div class="weather">
+      <input type="text" class="city" placeholder="Минск" value="Минск" onchange="return value" />
+
+      <i class="weather-icon owf"></i>
+      <div class="weather-error"></div>
+      <div class="description-container">
+        <span class="temperature"></span>
+        <span class="weather-description"></span>
+      </div>
+      <div class="wind"></div>
+      <div class="humidity"></div>
+    </div>
+  </header>
+  <main class="main">
+    <div class="slider-icons">
+      <button class="slide-prev slider-icon"></button>
+      <button class="slide-next slider-icon"></button>
+    </div>
+    <time class="time"></time>
+    <date class="date"></date>
+    <div class="greeting-container">
+      <span class="greeting"></span>
+      <input type="text" class="name" placeholder="[Введите Имя]" />
+    </div>
+  </main>
+
+  <footer class="footer">
+    <button class="change-quote"></button>
+    <div>
+      <div class="quote"></div>
+      <div class="author"></div>
+    </div>
+  </footer>
+  <script defer src="./index.js" type="text/javascript"></script>
+</body>
+
+</html>
