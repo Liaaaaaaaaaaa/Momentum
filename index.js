@@ -98,9 +98,6 @@ function timeOfDay() {
     if (time >= 18) return imagesEvening
 };
 
-// console.log(time);
-// setInterval("viewImages()", 1000);
-// console.log(timeOfDay());
 
 function mixImage(arr) {
     return arr.map(i => [Math.random(), i]).sort().map(i => i[1])
@@ -125,10 +122,6 @@ function imgNumber() {
 let timeOfDayNow = timeOfDay();
 
 let imgNumberNow = imgNumber();
-
-// console.log (imgNumberNow);
-// console.log (timeOfDayNow);
-// console.log(timeOfDayNow[imgNumberNow]);
 
 const slidePrev = document.querySelector('.slide-prev');
 const slideNext = document.querySelector('.slide-next');
@@ -163,7 +156,9 @@ function SwitchNext() {
 slideNext.onclick = SwitchNext;
 
 
-// -----------------Clock and Calendar -----------------------------
+
+// -----------------Clock and Calendar ------------------
+
 
 const times = document.querySelector('.time');
 const dates = document.querySelector('.date');
@@ -231,24 +226,16 @@ inputNames.oninput = function () {
     localStorage.setItem('.name', value);
 }
 
-// window.pageshow = () => {
-    
-//     weather();
-   
-    
-// }
 
- 
+
 window.onload = () => {
-    //   weather('Минск');
-      // value.innerText = 'Минск';
     inputNames.value = localStorage.getItem('.name');
-    //   weather(city.value);
-    value = localStorage.getItem('.city');
-     city.value = localStorage.getItem('.city');
-   weather(value); 
+    // value = localStorage.getItem('.city');
+    // city.value = localStorage.getItem('.city');
+    // weather(value);
     treck = 0;
-    
+
+
 }
 
 
@@ -382,7 +369,8 @@ let quotes = [
         "author": "Уильям Шекспир"
     },
     {
-        "quote": "Весь мир — театр. В нем женщины, мужчины — все актеры. У них свои есть выходы, уходы, и каждый не одну играет роль. Как вам это понравится",
+
+        "quote": "Весь мир — театр. В нем женщины, мужчины — все актеры. У них свои есть выходы, уходы, и каждый не одну играет роль.",
         "author": "Уильям Шекспир"
     },
     {
@@ -410,7 +398,8 @@ let quotes = [
         "author": "Уильям Шекспир"
     },
     {
-        "quote": "Стал мир невыносим. с тех пор, как лесть учтивостью назвали. Двенадцатая ночь, или что угодно",
+
+        "quote": "Стал мир невыносим, c тех пор, как лесть учтивостью назвали. Двенадцатая ночь, или что угодно",
         "author": "Уильям Шекспир"
     },
     {
@@ -435,21 +424,18 @@ let quotes = [
         "author": "Уильям Шекспир"
     },
     {
-        "quote": "Слыхали так, услышали вы плохо! Зовусь я Катарина.... и всем известен злой ее язык",
+
+        "quote": "Слыхали так, услышали вы плохо! Зовусь я Катарина.... И всем известен злой ее язык",
         "author": "Уильям Шекспир"
     },
 ];
 
-// console.log(quotes[1])
 
-// let quotes = JSON.parse (quotes);
 let quote = document.querySelector('.quote');
 let author = document.querySelector('.author');
-
-// console.log(quotes);
-
 let random = Math.floor(Math.random() * quotes.length);
-console.log(random);
+
+
 async function randomQuote() {
     quote.innerText = quotes[random].quote;
     author.innerText = quotes[random].author;
@@ -464,7 +450,7 @@ randomQuote();
 
 const changeQuote = document.querySelector('.change-quote');
 
-// changeQuote.addEventListener("click", randomQuote);
+
 
 if (changeQuote) {
     changeQuote.addEventListener("click", randomQuote);
@@ -473,14 +459,6 @@ if (changeQuote) {
 
 // -----Weather ------------------------------------------------
 
-// https://openweathermap.org/city/625144
-// 'https://api.openweathermap.org/data/2.5/weather?id=625144&appid=34924d29b902927c46d4b8ec90a661b7'
-// https://api.openweathermap.org/data/2.5/weather?lat=53.9&lon=27.5667&appid=34924d29b902927c46d4b8ec90a661b7
-
-// https://openweathermap.org/find?q=Minsk
-// https://api.openweathermap.org/data/2.5/weather?q={city name}&appid={API key}
-// id=625143
-// https://api.openweathermap.org/data/2.5/weather?q=Минск&appid=34924d29b902927c46d4b8ec90a661b7
 
 function translit(word) {
     let answer = '';
@@ -502,8 +480,12 @@ function translit(word) {
         'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya', '': ' '
     };
 
+
+
+
     for (let i = 0; i < word.length; ++i) {
-        if (converter[word[i]] == undefined) {
+        if (converter[word[i]] == undefined  ) {
+
             answer += word[i];
         } else {
             answer += converter[word[i]];
@@ -517,15 +499,12 @@ function translit(word) {
 
 let city = document.querySelector('.city');
 
-// let value = 'Mинск';
-
 
 async function weather(value) {
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
+    console.log(translit(value));
 
-        console.log(data);
-        console.log(translit(value));
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
 
         value.textContent = data.name;
 
@@ -535,6 +514,10 @@ async function weather(value) {
             document.querySelector('.weather-description').textContent = data.weather[0]['description'];
             document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
             document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
+
+
+
+
         }
         catch (error) {
             console.log(error);
@@ -544,23 +527,22 @@ async function weather(value) {
             document.querySelector('.wind ').textContent = '';
             document.querySelector('.humidity').textContent = '';
         }
+
     })
 };
 
 
 
-weather('Mинск');
+weather('Минск');
 
 
-
-
-console.log(city);
 
 
 city.oninput = function () {
     value = this.value;
-    localStorage.setItem('.city', value);
-    weather(value);
+
+    // localStorage.setItem('.city', value);
+     weather(value);
 
 };
 
@@ -574,11 +556,16 @@ if (localStorage.getItem('city')) {
 // -------Audioplayer--------------------------------
 
 let audio = document.getElementById("audio");
-let btnPlay = document.querySelector(".play");
+
+let btnPlay = document.querySelectorAll(".play");
 let btnPrev = document.querySelector(".play-prev");
 let btnNext = document.querySelector(".play-next");
+let nameTrack = document.querySelector('.nameTrack');
+let activePlay = document.querySelectorAll('.activePlay');
 
 document.querySelector('.song0').classList.toggle('activeSong');
+
+
 let activeSong = document.querySelector(".activeSong");
 
 let playlist = [
@@ -591,42 +578,108 @@ let treck;
 
 function switchTreck(numTreck) {
     audio.src = './soungs/' + playlist[numTreck];
+
+    nameTrack.textContent = playlist[numTreck].slice(0, playlist[numTreck].length - 4);
+
     audio.currentTime = 0;
     audio.play();
 };
 
-btnPlay.addEventListener("click", function () {
-    if (btnPlay.classList.contains('activePlay')) {
-        audio.play();
-        btnPlay.classList.toggle('activePlay')
-        btnPlay.classList.add('pause');
-    } else {
-        btnPlay.classList.remove('pause');
-        audio.pause();
-        btnPlay.classList.toggle('activePlay')
-    };
 
-    audioPlay = setInterval(function () {
-        let audioTime = Math.round(audio.currentTime);
-        let audioLength = Math.round(audio.duration);
-        if (audioTime === audioLength && treck < 2) {
-            document.querySelector('.song' + treck).classList.toggle('activeSong');
-            document.querySelector('.song' + (treck + 1)).classList.toggle('activeSong');
-            treck++;
-            switchTreck(treck);
-        } else if (audioTime === audioLength && treck >= 2) {
-            document.querySelector('.song2').classList.remove('activeSong');
-            document.querySelector('.song0').classList.add('activeSong');
-            treck = 0;
-            switchTreck(treck);
+
+// console.log(btnPlay);
+
+btnPlay.forEach(button => {
+    button.addEventListener("click", function (e) {
+        // console.log(playlist);
+        // console.log(treck);
+
+        let numberTreckButton = playlist.findIndex(elem => elem === (e.target.previousElementSibling.textContent + '.mp3'));
+        let nameTreckButton = e.target.previousElementSibling.textContent;
+
+        if (numberTreckButton !== treck && nameTreckButton.length > 0 && button.classList.contains('activePlay')) {
+            switchTreck(numberTreckButton);
+            treck = numberTreckButton;
         }
-    }, 10)
-})
+
+        // console.log(btnPlay);
+        // console.log(Array.from(btnPlay).filter(elem => elem === (e.target.previousElementSibling.textContent + '.mp3')));
+        if (button.classList.contains('activePlay')
+            // && numberTreckButton >= 0
+        ) {
+
+            btnPlay.forEach(e => e.classList.add('activePlay'));
+            btnPlay.forEach(e => e.classList.remove('pause'));
+
+            btnPlay[treck + 1].classList.remove('activePlay');
+            btnPlay[0].classList.remove('activePlay');
+
+            btnPlay[0].classList.add('pause');
+            btnPlay[treck + 1].classList.add('pause');
+
+            console.log(treck);
+            document.querySelector('.activeSong').classList.remove('activeSong');
+
+            document.querySelector('.song' + treck).classList.add('activeSong');
+            audioProgressBar();
+            audio.volume = 0.5;
+            audio.play();
+            //    Array.from(btnPlay).filter(e => e.classList.contains('activePlay')).forEach(e => e.classList.toggle('activePlay'));
+        } else {
+            // btnPlay.forEach(e => e.classList.remove('activePlay'));
+            // btnPlay.forEach(e => e.classList.add('pause'));
+            btnPlay[treck + 1].classList.add('activePlay');
+            btnPlay[0].classList.add('activePlay');
+
+            btnPlay[0].classList.remove('pause');
+            btnPlay[treck + 1].classList.remove('pause');
+            audio.pause();
+            console.log(activePlay);
+
+        };
+
+    })
+});
+
+
+//--------------------------
+audioPlay = setInterval(function () {
+    let audioTime = Math.round(audio.currentTime);
+    let audioLength = Math.round(audio.duration);
+    if (audioTime === audioLength && treck < 2) {
+        document.querySelector('.song' + treck).classList.toggle('activeSong');
+        document.querySelector('.song' + (treck + 1)).classList.toggle('activeSong');
+        treck++;
+        switchTreck(treck);
+
+    } else if (audioTime === audioLength && treck >= 2) {
+        document.querySelector('.song2').classList.remove('activeSong');
+        document.querySelector('.song0').classList.add('activeSong');
+        treck = 0;
+        switchTreck(treck);
+
+    }
+    if (audioTime === audioLength) {
+        btnPlay.forEach(e => e.classList.add('activePlay'));
+        btnPlay.forEach(e => e.classList.remove('pause'));
+
+        btnPlay[0].classList.add('pause');
+        btnPlay[treck + 1].classList.add('pause');
+
+        btnPlay[0].classList.remove('activePlay');
+        btnPlay[treck + 1].classList.remove('activePlay');
+    }
+
+
+}, 10);
+
 
 btnPrev.addEventListener("click", function () {
+    console.log(treck);
     if (treck > 0) {
-        document.querySelector('.song' + treck).classList.toggle('activeSong');
-        document.querySelector('.song' + (treck - 1)).classList.toggle('activeSong');
+        document.querySelector('.song' + treck).classList.remove('activeSong');
+        document.querySelector('.song' + (treck - 1)).classList.add('activeSong');
+
         treck--;
         switchTreck(treck);
     } else {
@@ -634,20 +687,106 @@ btnPrev.addEventListener("click", function () {
         document.querySelector('.song0').classList.remove('activeSong');
         document.querySelector('.song2').classList.add('activeSong');
         switchTreck(treck);
+
+
     }
+    btnPlay.forEach(e => e.classList.add('activePlay'));
+    btnPlay.forEach(e => e.classList.remove('pause'));
+
+    btnPlay[0].classList.add('pause');
+    btnPlay[treck + 1].classList.add('pause');
+
+    btnPlay[0].classList.remove('activePlay');
+    btnPlay[treck + 1].classList.remove('activePlay');
+
+    audioProgressBar();
+    audio.play();
 });
 
 btnNext.addEventListener("click", function () {
     if (treck < 2) {
-        document.querySelector('.song' + treck).classList.toggle('activeSong');
-        document.querySelector('.song' + (treck + 1)).classList.toggle('activeSong');
+
+        document.querySelector('.song' + treck).classList.remove('activeSong');
+        document.querySelector('.song' + (treck + 1)).classList.add('activeSong');
         treck++;
         switchTreck(treck);
+
+
     } else {
         document.querySelector('.song2').classList.remove('activeSong');
         document.querySelector('.song0').classList.add('activeSong');
         treck = 0;
         switchTreck(treck);
     }
+
+
+    
+
+    btnPlay.forEach(e => e.classList.add('activePlay'));
+    btnPlay.forEach(e => e.classList.remove('pause'));
+
+    btnPlay[0].classList.add('pause');
+    btnPlay[treck + 1].classList.add('pause');
+
+    btnPlay[0].classList.remove('activePlay');
+    btnPlay[treck + 1].classList.remove('activePlay');
+
+    audioProgressBar();
+    audio.play();
+
+
+
 });
+
+
+//--------AUDIO --- Progress----------------
+let audioProgress = document.querySelector('.audio__progress');
+let allLength = document.querySelector('.all__length');
+let nowLength = document.querySelector('.now__length');
+let imgSound = document.querySelector('.img__sound');
+
+function audioProgressBar() {
+    let IntervalAudio = setInterval(function () {
+        let audioLength = audio.duration;
+        let audioTime = audio.currentTime;
+        let timeMusic = 100 / audioLength * audioTime;
+
+        if (timeMusic > 100) {
+            clearInterval(audioProgressBar);
+        } else {
+            nowLength.textContent = '0:' + ((Math.round(audioTime) * 0.01).toFixed(2)).slice(2, 4);
+            audioProgress.value = timeMusic;
+            allLength.textContent = ' / 0:' + Math.floor(audio.duration);
+        }
+
+    }, 30)
+};
+
+audioProgress.oninput = function () {
+    console.log(audio.currentTime);
+    console.log(this.value);
+    console.log(audio.duration);
+    audio.currentTime = audio.duration / 100 * this.value;
+}
+
+imgSound.addEventListener('click', function () {
+
+    if (audio.muted === true) {
+        imgSound.style.backgroundImage = " url('../assets/svg/png-transparent-media-player-button-sound-speaker-volume-media-player-icon.svg')";
+        audio.muted = false;
+    } else {
+        imgSound.style.backgroundImage = " url('../assets/svg/nosound-player.svg')";
+        audio.muted = true;
+    }
+});
+
+let mutedProgress = document.querySelector(".muted__progress");
+
+mutedProgress.oninput = function () {
+    audio.volume = this.value / 100;
+}
+
+
+
+
 
