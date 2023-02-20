@@ -447,87 +447,87 @@ if (changeQuote) {
 
 // -----Weather ------------------------------------------------
 
-// function translit(word) {
-//     let answer = '';
-//     let converter = {
-//         'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
-//         'е': 'e', 'ё': 'e', 'ж': 'zh', 'з': 'z', 'и': 'i',
-//         'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
-//         'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
-//         'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch',
-//         'ш': 'sh', 'щ': 'sch', 'ь': '', 'ы': 'y', 'ъ': '',
-//         'э': 'e', 'ю': 'yu', 'я': 'ya',
+function translit(word) {
+    let answer = '';
+    let converter = {
+        'а': 'a', 'б': 'b', 'в': 'v', 'г': 'g', 'д': 'd',
+        'е': 'e', 'ё': 'e', 'ж': 'zh', 'з': 'z', 'и': 'i',
+        'й': 'y', 'к': 'k', 'л': 'l', 'м': 'm', 'н': 'n',
+        'о': 'o', 'п': 'p', 'р': 'r', 'с': 's', 'т': 't',
+        'у': 'u', 'ф': 'f', 'х': 'h', 'ц': 'c', 'ч': 'ch',
+        'ш': 'sh', 'щ': 'sch', 'ь': '', 'ы': 'y', 'ъ': '',
+        'э': 'e', 'ю': 'yu', 'я': 'ya',
 
-//         'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
-//         'Е': 'E', 'Ё': 'E', 'Ж': 'Zh', 'З': 'Z', 'И': 'I',
-//         'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N',
-//         'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T',
-//         'У': 'U', 'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'Ch',
-//         'Ш': 'Sh', 'Щ': 'Sch', 'Ь': '', 'Ы': 'Y', 'Ъ': '',
-//         'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya', '': ' '
-//     };
-
-
-
-//     for (let i = 0; i < word.length; ++i) {
-//         if (converter[word[i]] == undefined  ) {
-//             answer += word[i];
-//         } else {
-//             answer += converter[word[i]];
-//         }
-//     }
-
-//     return answer.trim();
-// }
-
-
-// let city = document.querySelector('.city');
-
-
-// async function weather(value) {
-
-//     console.log(translit(value));
-
-//     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
-//         value.textContent = data.name;
-
-//         try {
-//             document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
-//             document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
-//             document.querySelector('.weather-description').textContent = data.weather[0]['description'];
-//             document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
-//             document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
-
-
-//         }
-//         catch (error) {
-//             console.log(error);
-//             document.querySelector('.weather-icon').innerHTML = 'Ошибка! Город не найден!';
-//             document.querySelector('.temperature').innerHTML = '';
-//             document.querySelector('.weather-description').textContent = '';
-//             document.querySelector('.wind ').textContent = '';
-//             document.querySelector('.humidity').textContent = '';
-//         }
-
-//     })
-// };
-
-
-// weather('Минск');
+        'А': 'A', 'Б': 'B', 'В': 'V', 'Г': 'G', 'Д': 'D',
+        'Е': 'E', 'Ё': 'E', 'Ж': 'Zh', 'З': 'Z', 'И': 'I',
+        'Й': 'Y', 'К': 'K', 'Л': 'L', 'М': 'M', 'Н': 'N',
+        'О': 'O', 'П': 'P', 'Р': 'R', 'С': 'S', 'Т': 'T',
+        'У': 'U', 'Ф': 'F', 'Х': 'H', 'Ц': 'C', 'Ч': 'Ch',
+        'Ш': 'Sh', 'Щ': 'Sch', 'Ь': '', 'Ы': 'Y', 'Ъ': '',
+        'Э': 'E', 'Ю': 'Yu', 'Я': 'Ya', '': ' '
+    };
 
 
 
-// city.oninput = function () {
-//     value = this.value;
-//     // localStorage.setItem('.city', value);
-//      weather(value);
-// };
+    for (let i = 0; i < word.length; ++i) {
+        if (converter[word[i]] == undefined  ) {
+            answer += word[i];
+        } else {
+            answer += converter[word[i]];
+        }
+    }
+
+    return answer.trim();
+}
 
 
-// if (localStorage.getItem('city')) {
-//     city.value = localStorage.getItem('city');
-//     weather(city.value);
-// }
+let city = document.querySelector('.city');
+
+
+async function weather(value) {
+
+    console.log(translit(value));
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
+        value.textContent = data.name;
+
+        try {
+            document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
+            document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
+            document.querySelector('.weather-description').textContent = data.weather[0]['description'];
+            document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
+            document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
+
+
+        }
+        catch (error) {
+            console.log(error);
+            document.querySelector('.weather-icon').innerHTML = 'Ошибка! Город не найден!';
+            document.querySelector('.temperature').innerHTML = '';
+            document.querySelector('.weather-description').textContent = '';
+            document.querySelector('.wind ').textContent = '';
+            document.querySelector('.humidity').textContent = '';
+        }
+
+    })
+};
+
+
+weather('Минск');
+
+
+
+city.oninput = function () {
+    value = this.value;
+    // localStorage.setItem('.city', value);
+     weather(value);
+};
+
+
+if (localStorage.getItem('city')) {
+    city.value = localStorage.getItem('city');
+    weather(city.value);
+}
 
 
 // -------Audioplayer--------------------------------
