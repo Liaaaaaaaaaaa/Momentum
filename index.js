@@ -245,6 +245,7 @@ function imgNumber() {
 }
 
 let timeOfDayNow = timeOfDay();
+
 let imgNumberNow = imgNumber();
 
 const slidePrev = document.querySelector('.slide-prev');
@@ -280,7 +281,9 @@ function SwitchNext() {
 slideNext.onclick = SwitchNext;
 
 
+
 // -----------------Clock and Calendar ------------------
+
 
 const times = document.querySelector('.time');
 const dates = document.querySelector('.date');
@@ -410,6 +413,7 @@ inputNames.oninput = function () {
     let value = this.value;
     localStorage.setItem('.name', value);
 }
+
 
 
 window.onload = () => {
@@ -626,6 +630,8 @@ let quotes = {
     // },
 // };
 
+
+
 let quote = document.querySelector('.quote');
 let author = document.querySelector('.author');
 let random = Math.floor(Math.random() * Object. keys(quotes).length);
@@ -636,6 +642,7 @@ async function quoteLang() {
     quote.innerText = quotes[quoteNumber][languageList.value];
     author.innerText = authorLang[languageList.value];
 }
+
 
 async function randomQuote() {
      if (random === Object. keys(quotes).length -1) {
@@ -651,6 +658,8 @@ randomQuote();
 
 const changeQuote = document.querySelector('.change-quote');
 
+
+
 if (changeQuote) {
 console.log(random);
 console.log(Object. keys(quotes).length);
@@ -660,6 +669,7 @@ console.log(Object. keys(quotes).length);
 
 
 // -----Weather ------------------------------------------------
+
 
 function translit(word) {
     let answer = '';
@@ -683,8 +693,10 @@ function translit(word) {
 
 
 
+
     for (let i = 0; i < word.length; ++i) {
         if (converter[word[i]] == undefined  ) {
+
             answer += word[i];
         } else {
             answer += converter[word[i]];
@@ -693,6 +705,7 @@ function translit(word) {
 
     return answer.trim();
 }
+
 
 
 let city = document.querySelector('.city');
@@ -743,6 +756,8 @@ async function weather(value) {
             document.querySelector('.wind ').textContent = speedWindy + Math.round(data.wind['speed']) + ' м/с';   
             document.querySelector('.humidity').textContent = himadity + data.main['humidity'] + ' %';
 
+
+
         }
         catch (error) {
             city.value = value;
@@ -757,11 +772,12 @@ async function weather(value) {
 };
 
 
-weather('Минск');
 
+weather('Минск');
 
 city.oninput = function () {
     value = this.value;
+
     // localStorage.setItem('.city', value);
      weather(value);
 };
@@ -776,6 +792,7 @@ if (localStorage.getItem('city')) {
 // -------Audioplayer--------------------------------
 
 let audio = document.getElementById("audio");
+
 let btnPlay = document.querySelectorAll(".play");
 let btnPrev = document.querySelector(".play-prev");
 let btnNext = document.querySelector(".play-next");
@@ -783,6 +800,7 @@ let nameTrack = document.querySelector('.nameTrack');
 let activePlay = document.querySelectorAll('.activePlay');
 
 document.querySelector('.song0').classList.toggle('activeSong');
+
 
 let activeSong = document.querySelector(".activeSong");
 
@@ -796,10 +814,13 @@ let treck;
 
 function switchTreck(numTreck) {
     audio.src = './soungs/' + playlist[numTreck];
+
     nameTrack.textContent = playlist[numTreck].slice(0, playlist[numTreck].length - 4);
+
     audio.currentTime = 0;
     audio.play();
 };
+
 
 
 // console.log(btnPlay);
@@ -886,6 +907,7 @@ btnPrev.addEventListener("click", function () {
     if (treck > 0) {
         document.querySelector('.song' + treck).classList.remove('activeSong');
         document.querySelector('.song' + (treck - 1)).classList.add('activeSong');
+
         treck--;
         switchTreck(treck);
     } else {
@@ -893,6 +915,7 @@ btnPrev.addEventListener("click", function () {
         document.querySelector('.song0').classList.remove('activeSong');
         document.querySelector('.song2').classList.add('activeSong');
         switchTreck(treck);
+
 
     }
     btnPlay.forEach(e => e.classList.add('activePlay'));
@@ -906,15 +929,16 @@ btnPrev.addEventListener("click", function () {
 
     audioProgressBar();
     audio.play();
-
 });
 
 btnNext.addEventListener("click", function () {
     if (treck < 2) {
+
         document.querySelector('.song' + treck).classList.remove('activeSong');
         document.querySelector('.song' + (treck + 1)).classList.add('activeSong');
         treck++;
         switchTreck(treck);
+
 
     } else {
         document.querySelector('.song2').classList.remove('activeSong');
@@ -922,7 +946,6 @@ btnNext.addEventListener("click", function () {
         treck = 0;
         switchTreck(treck);
     }
-
 
 
     btnPlay.forEach(e => e.classList.add('activePlay'));
@@ -985,6 +1008,7 @@ let mutedProgress = document.querySelector(".muted__progress");
 mutedProgress.oninput = function () {
     audio.volume = this.value / 100;
 }
+
 
 
 
