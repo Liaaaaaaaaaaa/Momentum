@@ -1,3 +1,127 @@
+//------Настройки приложения +20--------------------------------------------
+
+const imageSetting = document.querySelector('.image_setting');
+const settingContainer = document.querySelector('.setting__container');
+const options = document.querySelectorAll('option');
+
+imageSetting.addEventListener('click', openSetting);
+function openSetting() {
+    settingContainer.classList.toggle('none');
+}
+ function settingLang () {
+    if (languageList.value === 'EN') {
+        document.querySelector('.setting__language div').textContent = 'Choose language: ';
+        document.querySelector('.setting__backgroundImage div').textContent = 'Background image:';
+        document.querySelector('.tegs__API div').textContent = 'Tegs API';
+        document.querySelector('.setting__hideBlock div').textContent = 'Hide block';
+        document.querySelector('.setting__showBlock div').textContent = 'Show block';
+        Array.from(options).filter(e => e.value === 'time').map(e => e.textContent = 'time');
+        Array.from(options).filter(e => e.value === 'date').map(e => e.textContent = 'date');
+        Array.from(options).filter(e => e.value === 'greeting-container').map(e => e.textContent = 'greeting');
+        Array.from(options).filter(e => e.value === 'quote__container').map(e => e.textContent = 'quote');
+        Array.from(options).filter(e => e.value === 'weather').map(e => e.textContent = 'weather');
+        Array.from(options).filter(e => e.value === 'player').map(e => e.textContent = 'audioplayer');
+    }
+    if (languageList.value === 'RU') {
+        document.querySelector('.setting__language div').textContent = 'Выберите язык: ';
+        document.querySelector('.setting__backgroundImage div').textContent = 'Фоновое изображение:';
+        document.querySelector('.tegs__API div').textContent = 'Теги API';
+        document.querySelector('.setting__hideBlock div').textContent = 'Скрыть блок';
+        document.querySelector('.setting__showBlock div').textContent = 'Показать блок';
+        Array.from(options).filter(e => e.value === 'time').map(e => e.textContent = 'время');
+        Array.from(options).filter(e => e.value === 'date').map(e => e.textContent = 'дата');
+        Array.from(options).filter(e => e.value === 'greeting-container').map(e => e.textContent = 'приветствие');
+        Array.from(options).filter(e => e.value === 'quote__container').map(e => e.textContent = 'цитата');
+        Array.from(options).filter(e => e.value === 'weather').map(e => e.textContent = 'погода');
+        Array.from(options).filter(e => e.value === 'player').map(e => e.textContent = 'аудиоплеер');
+    }
+    if (languageList.value === 'BE') {
+        document.querySelector('.setting__language div').textContent = 'Абярыце мову: ';
+        document.querySelector('.setting__backgroundImage div').textContent = 'Фонавы малюнак: ';
+        document.querySelector('.tegs__API div').textContent = 'Тэгі API';
+        document.querySelector('.setting__hideBlock div').textContent = 'Схаваць блок';
+        document.querySelector('.setting__showBlock div').textContent = 'Паказаць блок';
+        Array.from(options).filter(e => e.value === 'time').map(e => e.textContent = 'час');
+        Array.from(options).filter(e => e.value === 'date').map(e => e.textContent = 'дата');
+        Array.from(options).filter(e => e.value === 'greeting-container').map(e => e.textContent = 'прывітанне');
+        Array.from(options).filter(e => e.value === 'quote__container').map(e => e.textContent = 'цытата');
+        Array.from(options).filter(e => e.value === 'weather').map(e => e.textContent = "надвор'е");
+        Array.from(options).filter(e => e.value === 'player').map(e => e.textContent = 'айдыяплэер');
+    }
+ }
+
+const languageList = document.getElementsByName('language-list')[0];
+languageList.value = localStorage.getItem('changeLanguage');
+languageList.addEventListener('change', changeLanguage);
+function changeLanguage() {
+    localStorage.setItem('changeLanguage', languageList.value);
+    console.log('Изменился язык!');
+    weather(city.value);
+    quoteLang();
+    settingLang ();
+}
+ settingLang();
+const backgroundList = document.getElementsByName('background-list')[0];
+backgroundList.value = localStorage.getItem('changeBackground');
+backgroundList.addEventListener('change', changeBackground);
+function changeBackground() {
+    localStorage.setItem('changeBackground', backgroundList.value)
+}
+
+const tegApi = document.getElementsByName('teg-Api')[0];
+tegApi.value = localStorage.getItem('changeTegApi');
+tegApi.addEventListener('change', changeTegApi);
+function changeTegApi() {
+    localStorage.setItem('changeTegApi', tegApi.value)
+}
+
+const selectHideBlock = document.getElementsByName('hide-block')[0];
+selectHideBlock.value = localStorage.getItem('hideBlock');
+selectHideBlock.addEventListener('change', hideBlock);
+function hideBlock(e) {
+    let classHide = '';
+    if (e === undefined) {
+        classHide = "." + localStorage.getItem('hideBlock');
+    } else {
+        classHide = "." + e.target.value;
+    }
+
+    if (classHide !== '.none') {
+        document.querySelector(`${classHide}`).classList.add('none');
+    }
+    localStorage.setItem('hideBlock', selectHideBlock.value);
+}
+
+const selectDisplayBlock = document.getElementsByName('display-block')[0];
+selectDisplayBlock.value = localStorage.getItem('displayBlock');
+selectDisplayBlock.addEventListener('change', displayBlock);
+
+function displayBlock(e) {
+    let classDisplay = '';
+    if (e === undefined) {
+        classDisplay = "." + localStorage.getItem('displayBlock');
+    } else {
+        classDisplay = "." + e.target.value;
+    }
+    if (classDisplay !== '.none') {
+        document.querySelector(`${classDisplay}`).classList.remove('none');
+    }
+    localStorage.setItem('displayBlock', selectDisplayBlock.value);
+}
+
+window.addEventListener('load', function () {
+    // console.log(selectHideBlock.value);
+    if (selectHideBlock.value !== '') {
+        hideBlock();
+    }
+
+    // console.log(selectDisplayBlock.value);
+    if (selectDisplayBlock.value !== '') {
+        displayBlock();
+    }
+});
+
+
 // ---------Смена фонового изображения +20---------------------------------
 const imagesMorning = [
     'https://raw.githubusercontent.com/Liaaaaaaaaaaa/stage1-tasks/assets/images/morning/01.jpg',
@@ -108,6 +232,7 @@ let imgUrl = mixImage(timeOfDay());
 
 document.body.style.background = 'center/100% url("' + imgUrl[1] + '")';
 
+
 function imgNumber() {
     if (timeOfDay() === imagesAfternoon) {
         return imgUrl[1].slice(85, 87)
@@ -184,16 +309,32 @@ setInterval(function () {
     dates.innerText = dateNow();
 }, 1000);
 
+
+
 function dateNow() {
-    let current_datetime = new Date();
-    let day = current_datetime.getDay();
-    let dayM = zero_first_format(current_datetime.getDate());
-    let month = current_datetime.getMonth();
 
-    const dayMassiv = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
-    const monthMassiv = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
-    return dayMassiv[day] + "," + dayM + " " + monthMassiv[month];
+let current_datetime = new Date();
+let day = current_datetime.getDay();
+let dayM = zero_first_format(current_datetime.getDate());
+let month = current_datetime.getMonth();
+// console.log(languageList.value);
+let dayMassiv = '';
+let monthMassiv = '';
 
+if (languageList.value === 'EN') {
+  dayMassiv = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+  monthMassiv = ['January', 'February',' March', 'April', 'May', 'June', 'July', 'August', 'September', 'October',' November', 'December'];
+}
+if (languageList.value === 'RU') {
+    dayMassiv = ['Воскресенье', 'Понедельник', 'Вторник', 'Среда', 'Четверг', 'Пятница', 'Суббота'];
+    monthMassiv = ['Января', 'Февраля', 'Марта', 'Апреля', 'Мая', 'Июня', 'Июля', 'Августа', 'Сентября', 'Октября', 'Ноября', 'Декабря'];
+}
+if (languageList.value === 'BE'){
+    dayMassiv = ['Нядзеля', 'Панядзелак', 'Аўторак', 'Серада', 'Чацвер', 'Пятніца','Субота'];
+    monthMassiv = ['Студзеня', 'Лютага', 'Сакавіка', 'Красавіка', 'Мая', 'Чэрвеня', 'Ліпеня', 'Жніуня', 'Верасня', 'Кастрычніка', ' Лістапада', 'Нежаня'];
+}
+
+    return dayMassiv[day] + ", " + dayM + " " + monthMassiv[month];
 }
 
 dates.innerText = dateNow();
@@ -201,25 +342,72 @@ dates.innerText = dateNow();
 //----------Greetings-----------------------------------------------
 
 const greeting = document.querySelector('.greeting');
+let inputNames = document.querySelector('.name');
 
 function greetingTime() {
+
     if (timeOfDayNow === imagesMorning) {
+        if (languageList.value === 'RU') {
+            inputNames.placeholder = '[Введите Имя]';
         return 'Доброе утро';
+        }
+        if (languageList.value === 'EN') {
+            inputNames.placeholder = '[Enter your Name]';
+            return 'Good morning';
+        }
+        if (languageList.value === 'BE') {
+                inputNames.placeholder = '[ Увядзіце Імя]';
+            return 'Добрай раницы';
+        }
+
     }
     if (timeOfDayNow === imagesAfternoon) {
-        return 'Добрый день';
+        if (languageList.value === 'RU') {
+            inputNames.placeholder = '[Введите Имя]';
+            return 'Добрый день';
+            }
+            if (languageList.value === 'EN') {
+                inputNames.placeholder = '[Enter your Name]';
+                return 'Good afternoon';
+            }
+            if (languageList.value === 'BE') {
+                inputNames.placeholder = '[ Увядзіце Імя]';
+                return 'Добры дзень';
+            }
     }
     if (timeOfDayNow === imagesEvening) {
-        return 'Добрый вечер';
+        if (languageList.value === 'RU') {
+            inputNames.placeholder = '[Введите Имя]';
+            return 'Добрый вечер';
+            }
+            if (languageList.value === 'EN') {
+                inputNames.placeholder = '[Enter your Name]';
+                return 'Good evening';
+            }
+            if (languageList.value === 'BE') {
+                inputNames.placeholder = '[ Увядзіце Імя]';
+                return 'Добры вечар';
+            }
+
     }
     if (timeOfDayNow === imagesNight) {
-        return 'Доброй ночи';
+        if (languageList.value === 'RU') {
+            inputNames.placeholder = '[Введите Имя]';
+            return 'Доброй ночи';
+            }
+            if (languageList.value === 'EN') {
+                inputNames.placeholder = '[Enter your Name]';
+                return 'Good night';
+            }
+            if (languageList.value === 'BE') {
+                inputNames.placeholder = '[ Увядзіце Імя]';
+                return 'Добранач';
+            }
+        
     }
 };
 
 greeting.innerText = greetingTime();
-
-let inputNames = document.querySelector('.name');
 
 inputNames.oninput = function () {
     let value = this.value;
@@ -230,220 +418,240 @@ inputNames.oninput = function () {
 
 window.onload = () => {
     inputNames.value = localStorage.getItem('.name');
-    // value = localStorage.getItem('.city');
-    // city.value = localStorage.getItem('.city');
-    // weather(value);
     treck = 0;
-
-
 }
 
 
 
 
 // ------------Quotes----------------------------------------------
-let quotes = [
-    {
-        "quote": "Грехи других судить Вы так усердно рветесь, начните со своих и до чужих не доберетесь. Генрих VI",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Влюбиться можно в красоту, но полюбить – лишь только душу!",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Ничего само по себе не хорошо или плохо, это лишь то, как человек об этом думает",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Наши сомнения — это наши предатели. Они заставляют нас терять то, что мы возможно могли бы выиграть, если бы не боялись попробовать. Мера за меру",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Во всяком деле, чтобы добиться успеха, нужна некоторая доля безумия",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Что значит имя? Роза пахнет розой, хоть розой назови ее, хоть нет. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Лживое лицо скроет все, что задумало коварное сердце. Макбет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Тогда лишь двое тайну соблюдают, когда один из них её не знает. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Одним взглядом можно убить любовь, одним же взглядом можно воскресить ее. Венера и Адонис",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Совсем не знак бездушья — молчаливость. Гремит лишь то, что пусто изнутри. Король Лир",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Можно улыбаться, улыбаться и быть подлецом. (Можно жить с улыбкой и с улыбкой быть подлецом…). Гамлет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Я смею всё, что можно человеку, кто смеет больше, тот не человек! Макбет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Так сладок мёд, что, наконец, он горек. Избыток вкуса убивает вкус. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Имей больше, чем показываешь. Говори меньше, чем знаешь.Король Лир",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Во всяком деле, чтобы добиться успеха, нужна некоторая доля безумия",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Искать того напрасно, кто не желает, чтоб его нашли.(Зачем искать того, кто найден быть не хочет?) Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Вбирай все мненья, но храни своё. Гамлет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Тогда лишь двое тайну соблюдают, когда один из них её не знает.",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Все влюбленные клянутся исполнить больше, чем могут, и не исполняют даже возможного. Троил и Крессида",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Быть иль не быть — вот в чем вопрос. Гамлет",
-        "author": "Уильям Шекспир"
-    },
 
-    {
-        "quote": "Любовь бежит от тех, кто гонится за нею, а тем, кто прочь бежит, кидается на шею. Виндзорские насмешницы",
-        "author": "Уильям Шекспир"
+let authorLang =  {
+    'RU': "Уильям Шекспир",
+    'EN': 'William Shakespeare',
+    'BE': 'Уільям шэкспір',
+  }
+let quotes = {
+    "quote0": {
+    'RU': "Грехи других судить Вы так усердно рветесь, начните со своих и до чужих не доберетесь. Генрих VI",
+    'EN': 'Forbear to judge, for we are sinners all. Henry VI',
+    'BE': 'Грахі іншых судзіць вы так старанна дзярэцеся, пачніце са сваіх і да чужых не даберацеся',
     },
-    {
-        "quote": "Как можешь ты судить о том, чего не знаешь?. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
+    "quote1": {
+        'RU':  "Что значит имя? Роза пахнет розой, хоть розой назови ее, хоть нет. Ромео и Джульетта",
+        'EN': 'That which we call a rose by any other name would smell as sweet.Romeo and Juliet',
+        'BE': 'Што значыць імя? Ружа пахне ружай, хоць ружай назаві яе, хоць не. Рамэо і Джульета',
     },
-    {
-        "quote": "Когда пылает кровь, как щедр язык на клятвы! Гамлет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Только настоящий друг может терпеть слабости своего друга.Юлий Цезарь",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Любовь юнцов не в душах, а в глазах. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Чтобы поймать счастье, надо уметь бегать. Король Лир",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "... Быть может, твой единственный алмаз простым стеклом окажется на глаз. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "У бурных чувств неистовый конец, он совпадает с мнимой их победой, разрывом слиты порох и огонь. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Из женщины не трудно сделать дуру, когда она боится дать отпор! Укрощение строптивой",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "... Не будь ни расточителем, ни скрягой: лишь в чувстве меры истинное благо. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Живи пока ты жив, приятель...Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
+    "quote2": {
+        'RU': "Совсем не знак бездушья — молчаливость. Гремит лишь то, что пусто изнутри. Король Лир",
+        'EN': 'Nor are those empty-hearted whose low sound reverbs no hollowness. King Lear',
+        'BE': 'Зусім не знак бяздушнасці - маўклівасць. Грыміць толькі тое, што пуста знутры. Кароль Лір',
+        },
+    "quote3": {
+        'RU': "Ничего само по себе не хорошо или плохо, это лишь то, как человек об этом думает",
+        'EN': 'There is nothing either good or bad, but thinking makes it so.',
+        'BE': 'Нічога само па сабе не добра ці дрэнна, гэта толькі тое, як чалавек пра гэта думае',
+        }, 
+    "quote4": {
+        'RU': "Трусливые люди умирают много раз перед своей смертью. Макбет",
+        'EN': ' Coward people die many times before their deaths. Macbeth',
+        'BE': 'Баязлівыя людзі паміраюць шмат разоў перад сваёй смерцю. Макбет',
+            }, 
+        }; 
+         // {
+    //     "quote": "Лживое лицо скроет все, что задумало коварное сердце. Макбет",
+    //     "author": "Уильям Шекспир"
+    // },
+    
+    // {
+    //     "quote": "Влюбиться можно в красоту, но полюбить – лишь только душу!",
+    //     "author": "Уильям Шекспир"
+    // },
+    
+    // {
+    //     "quote": "Наши сомнения — это наши предатели. Они заставляют нас терять то, что мы возможно могли бы выиграть, если бы не боялись попробовать. Мера за меру",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Во всяком деле, чтобы добиться успеха, нужна некоторая доля безумия",
+    //     "author": "Уильям Шекспир"
+    // },
+   
+    // {
+    //     "quote": "Тогда лишь двое тайну соблюдают, когда один из них её не знает. Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Одним взглядом можно убить любовь, одним же взглядом можно воскресить ее. Венера и Адонис",
+    //     "author": "Уильям Шекспир"
+    // },
+    
+    // {
+    //     "quote": "Можно улыбаться, улыбаться и быть подлецом. (Можно жить с улыбкой и с улыбкой быть подлецом…). Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Я смею всё, что можно человеку, кто смеет больше, тот не человек! Макбет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Так сладок мёд, что, наконец, он горек. Избыток вкуса убивает вкус. Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Имей больше, чем показываешь. Говори меньше, чем знаешь.Король Лир",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Во всяком деле, чтобы добиться успеха, нужна некоторая доля безумия",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Искать того напрасно, кто не желает, чтоб его нашли.(Зачем искать того, кто найден быть не хочет?) Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Вбирай все мненья, но храни своё. Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Тогда лишь двое тайну соблюдают, когда один из них её не знает.",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Все влюбленные клянутся исполнить больше, чем могут, и не исполняют даже возможного. Троил и Крессида",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Быть иль не быть — вот в чем вопрос. Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
 
-        "quote": "Весь мир — театр. В нем женщины, мужчины — все актеры. У них свои есть выходы, уходы, и каждый не одну играет роль.",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Подарок нам не мил, когда разлюбит тот, кто подарил. Гамлет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "А впрочем, что ж, на свете нет чудес: как волка ни корми, он смотрит в лес. Гамлет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Стремясь к лучшему, мы часто портим хорошее. Король Лир",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Как часто нас спасала слепота, где дальновидность только подводила. Гамлет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Любовь нежна? Она груба и зла. И колется, и жжётся, как терновник. Ромео и Джульетта",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Слова — всегда слова. Отелло",
-        "author": "Уильям Шекспир"
-    },
-    {
+    // {
+    //     "quote": "Любовь бежит от тех, кто гонится за нею, а тем, кто прочь бежит, кидается на шею. Виндзорские насмешницы",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Как можешь ты судить о том, чего не знаешь?. Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Когда пылает кровь, как щедр язык на клятвы! Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Только настоящий друг может терпеть слабости своего друга.Юлий Цезарь",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Любовь юнцов не в душах, а в глазах. Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Чтобы поймать счастье, надо уметь бегать. Король Лир",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "... Быть может, твой единственный алмаз простым стеклом окажется на глаз. Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "У бурных чувств неистовый конец, он совпадает с мнимой их победой, разрывом слиты порох и огонь. Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Из женщины не трудно сделать дуру, когда она боится дать отпор! Укрощение строптивой",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "... Не будь ни расточителем, ни скрягой: лишь в чувстве меры истинное благо. Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Живи пока ты жив, приятель...Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Весь мир — театр. В нем женщины, мужчины — все актеры. У них свои есть выходы, уходы, и каждый не одну играет роль.",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Подарок нам не мил, когда разлюбит тот, кто подарил. Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "А впрочем, что ж, на свете нет чудес: как волка ни корми, он смотрит в лес. Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Стремясь к лучшему, мы часто портим хорошее. Король Лир",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Как часто нас спасала слепота, где дальновидность только подводила. Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Любовь нежна? Она груба и зла. И колется, и жжётся, как терновник. Ромео и Джульетта",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Слова — всегда слова. Отелло",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Стал мир невыносим, c тех пор, как лесть учтивостью назвали. Двенадцатая ночь, или что угодно",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Быть честным — по нашим временам значит быть единственным из десяти тысяч. Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
 
-        "quote": "Стал мир невыносим, c тех пор, как лесть учтивостью назвали. Двенадцатая ночь, или что угодно",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Быть честным — по нашим временам значит быть единственным из десяти тысяч. Гамлет",
-        "author": "Уильям Шекспир"
-    },
+    // {
+    //     "quote": "Лучше опасаться без меры, чем без меры доверять. От бед спасает только осторожность. Король Лир",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "В уме нечутком не место шуткам. Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Есть многое на свете, друг Горацио, что и не снилось нашим мудрецам. Гамлет",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Напрасно думать, будто резкий тон есть признак прямодушия и силы. Король Генрих IV",
+    //     "author": "Уильям Шекспир"
+    // },
+    // {
+    //     "quote": "Слыхали так, услышали вы плохо! Зовусь я Катарина.... И всем известен злой ее язык",
+    //     "author": "Уильям Шекспир"
+    // },
+// };
 
-    {
-        "quote": "Лучше опасаться без меры, чем без меры доверять. От бед спасает только осторожность. Король Лир",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "В уме нечутком не место шуткам. Гамлет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Есть многое на свете, друг Горацио, что и не снилось нашим мудрецам. Гамлет",
-        "author": "Уильям Шекспир"
-    },
-    {
-        "quote": "Напрасно думать, будто резкий тон есть признак прямодушия и силы. Король Генрих IV",
-        "author": "Уильям Шекспир"
-    },
-    {
-
-        "quote": "Слыхали так, услышали вы плохо! Зовусь я Катарина.... И всем известен злой ее язык",
-        "author": "Уильям Шекспир"
-    },
-];
 
 
 let quote = document.querySelector('.quote');
 let author = document.querySelector('.author');
-let random = Math.floor(Math.random() * quotes.length);
+let random = Math.floor(Math.random() * Object. keys(quotes).length);
+
+
+async function quoteLang() {
+    let quoteNumber = 'quote' + random;
+    quote.innerText = quotes[quoteNumber][languageList.value];
+    author.innerText = authorLang[languageList.value];
+}
 
 
 async function randomQuote() {
-    quote.innerText = quotes[random].quote;
-    author.innerText = quotes[random].author;
-    if (random === quotes.length - 1) {
-        random = 0;
+     if (random === Object. keys(quotes).length -1) {
+        random = 0;  
     } else {
         random++
     }
+    quote.innerText = quotes[('quote' + random)][languageList.value];
+    author.innerText = authorLang[languageList.value];
 };
 
 randomQuote();
@@ -453,6 +661,9 @@ const changeQuote = document.querySelector('.change-quote');
 
 
 if (changeQuote) {
+console.log(random);
+console.log(Object. keys(quotes).length);
+
     changeQuote.addEventListener("click", randomQuote);
 };
 
@@ -498,30 +709,59 @@ function translit(word) {
 
 
 let city = document.querySelector('.city');
+let lang = '';
+let placeholderLang = '';
+let errorText = '';
 
 
 async function weather(value) {
-
-    console.log(translit(value));
-
-    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7').then(function (resp) { return resp.json() }).then(function (data) {
-
-        value.textContent = data.name;
-
-        try {
+    if (languageList.value === 'RU') {
+        lang = 'ru';
+        placeholderLang = 'Введите город';
+        errorText = 'Ошибка! Город не найден!';
+    }
+    if (languageList.value === 'EN') {
+        lang = 'en';
+        placeholderLang = 'Enter the city';
+        errorText = 'Error! City not found!';
+    }
+    if (languageList.value === 'BE') {
+        lang = 'be';
+        placeholderLang = 'Увядзіце горад';
+        errorText = 'Памылка! Горад не знойдзены!'
+    }
+    // console.log(translit(value));
+    console.log(lang);
+    fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7&lang=' + lang + '').then(function (resp) { return resp.json() }).then(function (data) {
+        city.value = data.name;
+        city.placeholder = placeholderLang;
+        // console.log(data.name);
+        // console.log(value);
+         try {
             document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
             document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
             document.querySelector('.weather-description').textContent = data.weather[0]['description'];
-            document.querySelector('.wind ').textContent = 'Скорость ветра: ' + Math.round(data.wind['speed']) + ' м/с';
-            document.querySelector('.humidity').textContent = 'Влажность: ' + data.main['humidity'] + ' %';
-
+            // console.log(data);
+            let speedWindy = 'Скорость ветра:';
+            let himadity = 'Влажность: ';
+            // console.log(data.weather[0]['description']);
+            if (languageList.value === 'EN') {  
+                speedWindy = 'wind speed: ';
+                himadity = 'Himadity: '; 
+            }
+            if (languageList.value === 'BE') {
+                speedWindy = 'Хуткасць ветру: ';
+                himadity = 'Вільготнасць: ';
+            }
+            document.querySelector('.wind ').textContent = speedWindy + Math.round(data.wind['speed']) + ' м/с';   
+            document.querySelector('.humidity').textContent = himadity + data.main['humidity'] + ' %';
 
 
 
         }
         catch (error) {
-            console.log(error);
-            document.querySelector('.weather-icon').innerHTML = 'Ошибка! Город не найден!';
+            city.value = value;
+            document.querySelector('.weather-icon').innerHTML = errorText;
             document.querySelector('.temperature').innerHTML = '';
             document.querySelector('.weather-description').textContent = '';
             document.querySelector('.wind ').textContent = '';
@@ -535,15 +775,11 @@ async function weather(value) {
 
 weather('Минск');
 
-
-
-
 city.oninput = function () {
     value = this.value;
 
     // localStorage.setItem('.city', value);
      weather(value);
-
 };
 
 
@@ -591,9 +827,6 @@ function switchTreck(numTreck) {
 
 btnPlay.forEach(button => {
     button.addEventListener("click", function (e) {
-        // console.log(playlist);
-        // console.log(treck);
-
         let numberTreckButton = playlist.findIndex(elem => elem === (e.target.previousElementSibling.textContent + '.mp3'));
         let nameTreckButton = e.target.previousElementSibling.textContent;
 
@@ -602,8 +835,7 @@ btnPlay.forEach(button => {
             treck = numberTreckButton;
         }
 
-        // console.log(btnPlay);
-        // console.log(Array.from(btnPlay).filter(elem => elem === (e.target.previousElementSibling.textContent + '.mp3')));
+        
         if (button.classList.contains('activePlay')
             // && numberTreckButton >= 0
         ) {
@@ -617,24 +849,20 @@ btnPlay.forEach(button => {
             btnPlay[0].classList.add('pause');
             btnPlay[treck + 1].classList.add('pause');
 
-            console.log(treck);
+            // console.log(treck);
             document.querySelector('.activeSong').classList.remove('activeSong');
 
             document.querySelector('.song' + treck).classList.add('activeSong');
             audioProgressBar();
             audio.volume = 0.5;
             audio.play();
-            //    Array.from(btnPlay).filter(e => e.classList.contains('activePlay')).forEach(e => e.classList.toggle('activePlay'));
         } else {
-            // btnPlay.forEach(e => e.classList.remove('activePlay'));
-            // btnPlay.forEach(e => e.classList.add('pause'));
             btnPlay[treck + 1].classList.add('activePlay');
             btnPlay[0].classList.add('activePlay');
-
             btnPlay[0].classList.remove('pause');
             btnPlay[treck + 1].classList.remove('pause');
             audio.pause();
-            console.log(activePlay);
+            // console.log(activePlay);
 
         };
 
@@ -675,7 +903,7 @@ audioPlay = setInterval(function () {
 
 
 btnPrev.addEventListener("click", function () {
-    console.log(treck);
+    // console.log(treck);
     if (treck > 0) {
         document.querySelector('.song' + treck).classList.remove('activeSong');
         document.querySelector('.song' + (treck - 1)).classList.add('activeSong');
@@ -720,8 +948,6 @@ btnNext.addEventListener("click", function () {
     }
 
 
-    
-
     btnPlay.forEach(e => e.classList.add('activePlay'));
     btnPlay.forEach(e => e.classList.remove('pause'));
 
@@ -763,9 +989,6 @@ function audioProgressBar() {
 };
 
 audioProgress.oninput = function () {
-    console.log(audio.currentTime);
-    console.log(this.value);
-    console.log(audio.duration);
     audio.currentTime = audio.duration / 100 * this.value;
 }
 

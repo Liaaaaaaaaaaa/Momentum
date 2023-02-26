@@ -15,21 +15,14 @@
     <div class="player">
       <audio id="audio" src="./soungs/Bob Dylan — Knockin On Heavens Door.mp3" type="audio/mp3"
         preload="metadata"></audio>
-      <!-- controls  -->
-
       <p class="nameTrack">Bob Dylan — Knockin On Heavens Door</p>
-
-      <!-- <progress class="audio__progress" min="0" max="100" value="0"></progress> -->
       <div class="countainer___lenght">
         <input type="range" name="audio-progress" class="audio__progress" min="0" max="100" value="0">
         <span>
           <span class="now__length">0:00</span>
           <span class="all__length"> / 0:29</span>
-
         </span>
-
       </div>
-
 
       <div class="player-controls">
         <div class="player__butons">
@@ -41,7 +34,6 @@
           <button class="img__sound"></button>
           <input type="range" name="muted__progress" class="muted__progress" min="0" max="100" value="50">
         </div>
-
       </div>
 
       <ul class="play-list">
@@ -57,14 +49,11 @@
           <li class="song2">The Cranberries — Zombie</li>
           <button class="play player-icon activePlay"></button>
         </div>
-
-
       </ul>
-
     </div>
-
+    <div></div>
     <div class="weather">
-      <input type="text" class="city" placeholder="Минск" value="Минск" onchange="return value" />
+      <input type="text" class="city" placeholder="VVV" value="Минск" onchange="return value" />
 
       <i class="weather-icon owf"></i>
 
@@ -77,25 +66,86 @@
       <div class="humidity"></div>
     </div>
   </header>
+
   <main class="main">
     <div class="slider-icons">
       <button class="slide-prev slider-icon"></button>
       <button class="slide-next slider-icon"></button>
     </div>
     <time class="time"></time>
-    <date class="date"></date>
+    <date class="date "></date>
     <div class="greeting-container">
       <span class="greeting"></span>
-      <input type="text" class="name" placeholder="[Введите Имя]" />
+      <input type="text" class="name" placeholder="" />
     </div>
   </main>
 
   <footer class="footer">
-    <button class="change-quote"></button>
-    <div>
-      <div class="quote"></div>
-      <div class="author"></div>
+    <img class="image_setting" src="./assets/svg/Setting.svg" alt="image-setting">
+    <div class="setting__container none">
+      <div class="setting__item  setting__language">
+        <div class="language__text">Выберите язык</div>
+        <select name="language-list" id="language">
+          <option value="RU" selected>RU</option>
+          <option value="EN">EN</option>
+          <option value="BE">BE</option>
+        </select>
+      </div>
+      <div class="setting__item setting__backgroundImage">
+        <div>Фоновое изображение:</div>
+        <select name="background-list" id="background">
+          <option>GitHub </option>
+          <option>Unsplash API</option>
+          <option>Flickr API</option>
+        </select>
+      </div>
+      <div class="setting__item tegs__API">
+        <div>Теги Api:</div>
+        <select name="teg-Api">
+          <option>nature </option>
+          <option>city</option>
+          <option>color</option>
+        </select>
+      </div>
+      <div class="setting__item setting__hideBlock">
+        <div>Скрыть блок</div>
+        <select name="hide-block">
+          <option value="none"></option>
+          <option value="time">время</option>
+          <option value="date">дата</option>
+          <option value="greeting-container">приветствие</option>
+          <option value="quote__container">цитата дня</option>
+          <option value="weather">прогноз погоды</option>
+          <option value="player">аудиоплеер</option>
+          <!-- <option>список дел</option>
+          <option>список ссылок</option>
+          <option>допфункционал</option> -->
+        </select>
+      </div>
+
+      <div class="setting__item setting__showBlock">
+        <div>Отобразить блок</div>
+        <select name="display-block">
+          <option value="none"></option>
+          <option value="time">время</option>
+          <option value="date">дата</option>
+          <option value="greeting-container">приветствие</option>
+          <option value="quote__container">цитата дня</option>
+          <option value="weather">прогноз погоды</option>
+          <option value="player">аудиоплеер</option>
+        </select>
+      </div>
     </div>
+    </div>
+
+    <div class="quote__container">
+      <button class="change-quote"></button>
+      <div>
+        <div class="quote"></div>
+        <div class="author"></div>
+      </div>
+    </div>
+
   </footer>
   <script defer src="./index.js" type="text/javascript"></script>
 </body>
