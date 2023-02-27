@@ -747,13 +747,12 @@ async function weather(value) {
         placeholderLang = 'Увядзіце горад';
         errorText = 'Памылка! Горад не знойдзены!'
     }
-    // console.log(translit(value));
     console.log(lang);
     fetch('https://api.openweathermap.org/data/2.5/weather?q=' + translit(value) + '&appid=34924d29b902927c46d4b8ec90a661b7&lang=' + lang + '').then(function (resp) { return resp.json() }).then(function (data) {
-        city.value = data.name;
+        // city.value = data.name;
         city.placeholder = placeholderLang;
-        // console.log(data.name);
-        // console.log(value);
+        console.log(data.name + 'D');
+        console.log(value + 'V');
          try {
             document.querySelector('.weather-icon').innerHTML = `<img src="https://openweathermap.org/img/wn/${data.weather[0]['icon']}@2x.png" >`;
             document.querySelector('.temperature').innerHTML = Math.round(data.main.temp - 273) + ' &deg' + 'C';
@@ -772,9 +771,6 @@ async function weather(value) {
             }
             document.querySelector('.wind ').textContent = speedWindy + Math.round(data.wind['speed']) + ' м/с';   
             document.querySelector('.humidity').textContent = himadity + data.main['humidity'] + ' %';
-
-
-
         }
         catch (error) {
             city.value = value;
@@ -792,7 +788,11 @@ async function weather(value) {
 
 weather('Минск');
 
-
+if (localStorage.getItem('city')) {
+    city.value = localStorage.getItem('city');
+    console.log(city.value + 'H');
+    weather(city.value);
+}
 
 city.oninput = function () {
     value = this.value;
@@ -800,11 +800,6 @@ city.oninput = function () {
      weather(value);
 };
 
-if (localStorage.getItem('city')) {
-    city.value = localStorage.getItem('city');
-    console.log(city.value);
-    weather(city.value);
-}
 
 
 
