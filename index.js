@@ -285,7 +285,9 @@ function SwitchNext() {
     }
     else {
         document.body.style.background = 'url("' + timeOfDayNow[imgNumberNow] + '")';
-        imgNumberNow++
+          console.log(timeOfDayNow[imgNumberNow]);
+          imgNumberNow++
+      
     }
 };
 
@@ -790,18 +792,20 @@ async function weather(value) {
 
 weather('Минск');
 
+
+
 city.oninput = function () {
     value = this.value;
-
-    // localStorage.setItem('.city', value);
+    localStorage.setItem('city', value);
      weather(value);
 };
 
-
 if (localStorage.getItem('city')) {
     city.value = localStorage.getItem('city');
+    console.log(city.value);
     weather(city.value);
 }
+
 
 
 // -------Audioplayer--------------------------------
