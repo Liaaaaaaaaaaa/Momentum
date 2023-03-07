@@ -67,7 +67,7 @@
     </div>
   </header>
 
-  <main class="main">
+  <main class="main hidden">
     <div class="slider-icons">
       <button class="slide-prev slider-icon"></button>
       <button class="slide-next slider-icon"></button>
@@ -86,7 +86,7 @@
       <div class="setting__item  setting__language">
         <div class="language__text">Выберите язык</div>
         <select name="language-list" id="language">
-          <option value="RU" selected >RU</option>
+          <option value="RU" selected>RU</option>
           <option value="EN">EN</option>
           <option value="BE">BE</option>
         </select>
@@ -94,9 +94,10 @@
       <div class="setting__item setting__backgroundImage">
         <div>Фоновое изображение:</div>
         <select name="background-list" id="background">
-          <option>GitHub </option>
-          <option>Unsplash API</option>
+          <option selected>GitHub</option>
           <option>Flickr API</option>
+          <option>Unsplash API</option>
+
         </select>
       </div>
       <div class="setting__item tegs__API">
@@ -142,6 +143,35 @@
         <div class="author"></div>
       </div>
     </div>
+
+
+
+    <div class="todo noneTodo">
+
+      <div class="todo__container">
+        <div class="addFormTodo">
+          <input class="addTextTackTodo" type="text" placeholder="Что вы хотите запланировать?">
+          <button class="buttonAddTackTodo">Добавить задачу</button>
+        </div>
+
+        <p class="subtitle__todo">Задачи</p>
+        <div class="toDoTackContainer">
+           <!-- <div class="tackTodo">
+          <input type="text" class="textTack" value="Работа" readonly="readonly">
+          <div class="buttonsTack">
+            <button class="edit">Редактировать</button>
+            <button class="delete">Удалить</button>
+          </div>
+        </div> -->
+        </div>
+       
+
+      </div>
+    </div>
+
+    <button class="buttonTodoList">
+      <p>ToDo</p>
+    </button>
 
   </footer>
   <script defer src="./index.js" type="text/javascript"></script>
