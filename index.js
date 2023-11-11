@@ -307,7 +307,7 @@ function changeApi() {
 // console.log(backgroundList.value);
 
 changeApi();
-document.body.style.background = 'center/100% url("' + imgUrl[1] + '")';
+document.body.style.background = 'center/cover no-repeat url("' + imgUrl[1] + '")';
 
 let flickJson = '';
 
